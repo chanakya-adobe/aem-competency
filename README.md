@@ -1,9 +1,12 @@
-# Your Project's Title...
-Your project's description...
+# ACS Creative B Info Portal
+Portal to publish information about ACS Creative B group.
 
 ## Environments
 - Preview: https://main--{repo}--{owner}.hlx.page/
+Example Main Branch https://main--creativeb--acs-creative-b.hlx.page/
+
 - Live: https://main--{repo}--{owner}.hlx.live/
+Example Main branch - https://main--creativeb--acs-creative-b.hlx.live/
 
 ## Installation
 
