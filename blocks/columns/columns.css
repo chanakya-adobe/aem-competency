@@ -1,33 +1,445 @@
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
+  padding-top: 128px;
 }
 
 .columns > div > div {
   order: 1;
 }
 
+.columns.counter > div{
+  padding-top: 48px;
+}
+
+.columns > div:first-child {
+  padding-top: 64px;
+}
+
+.columns img {
+  width: 100%;
+}
+
 .columns > div > .columns-img-col {
   order: 0;
+}
+
+.column-with-bg img{
+  height: 400px;
+  width: 500px;
+  float: right;
+}
+
+.columns-wrapper .column-polygon img {
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(49% 0%, 8% 23%, 8% 73%, 49% 96%, 90% 73%, 90% 23%);
+  position: absolute;
+  top: 20px;
+  margin-left: 15px;
 }
 
 .columns > div > .columns-img-col img {
   display: block;
 }
 
-@media (width >= 900px) {
+@media (min-width: 900px) {
   .columns > div {
-    align-items: center;
     flex-direction: unset;
     gap: 32px;
+    align-items: flex-start;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+.columns-wrapper div p {
+  font-weight: 200;
+  font-size: var(--body-font-size-m);
+}
+
+.first-yellow-title div h4 + p {
+  margin-top: 0;
+}
+
+.image-gallery-container > div > div p{
+  font-weight: 700;
+}
+
+.columns-wrapper div p:nth-child(1) {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 8px;
+  
+  @media (min-width: 1440px) {
+    font-size: var(--sub-title-font-size);
+  }
+
+  @media (min-width: 768px) {
+    font-size: var(--sub-title-one);
+  }
+
+  @media (min-width: 390px) {
+    font-size: var(--sub-title-one);
+  }
+}
+
+.first-yellow-title div p:nth-child(1) {
+  color: var(--primary); 
+  margin-top: 0;
+}
+
+.text-only div p:nth-child(1) {
+  font-size: var(--heading-font-size-xxxl);
+  line-height: var(--heading-font-size-xxxl);
+  margin-bottom: 0;
+  margin-top: 0;
+
+  @media (max-width: 768px) {
+    font-size: var(--heading-font-size-xl);
+    line-height: var(--heading-font-size-xl);
+  }
+
+  @media (max-width: 390px) {
+    font-size: var(--heading-font-size-m);
+    line-height: var(--heading-font-size-m);
+  }
+}
+
+.text-only div p:nth-child(2) {
+  font-size: var(--sub-title-font-size);
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: var(--body-font-size-m);
+    line-height: var(--body-font-size-m);
+  }
+
+  @media (max-width: 390px) {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+.columns-wrapper .column-img-top > div > div p{
+  font-weight: 700;
+}
+
+.columns-wrapper .column-with-list > div > div p,
+.columns-wrapper .column-polygon > div > div p,
+.columns-wrapper .column-img-top > div > div p  {
+  font-size: var(--sub-title-one);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.columns-wrapper div h3 {
+  font-weight: bold;
+  margin-top: 0;
+  color: var(--grey-text);
+  margin-bottom: 24px;
+
+  @media (min-width: 1440px) {
+    font-size: var(--heading-font-size-xxl);
+    line-height: var(--heading-font-size-xxl);
+  }
+
+  @media (min-width: 768px) {
+    font-size: var(--heading-font-size-m);
+    line-height: var(--heading-font-size-m);
+  }
+
+  @media (min-width: 390px) {
+    font-size: var(--heading-font-size-m);
+    line-height: var(--heading-font-size-m);
+  }
+}
+
+.first-yellow-title div h4 {
+  color: var(--secondary);
+  margin-bottom: 0;
+  font-weight: 200;
+  font-size: var(--body-font-size-m);
+}
+
+/* column with yellow caption */
+.columns-wrapper .column-polygon{
+  margin-top: 78px;
+}
+
+.columns-wrapper .column-polygon > div {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.columns-wrapper .column-with-list > div {
+  gap: 40px;
+  padding: 32px 0;
+}
+
+.column-polygon.column-with-quote > div{
+  flex-direction: row;
+}
+
+.columns-wrapper .column-polygon > div > div {
+  position: relative;
+}
+
+.columns-wrapper .column-polygon div picture::after {
+  display: block;
+  width: 280px;
+  height: 280px;
+  content: ' ';
+  background-image: url('/icons/polygon-border.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 15px;
+}
+
+.columns-wrapper .column-polygon h3 {
+  margin-top: 32px;
+}
+
+.columns-wrapper .column-yellow-caption p:last-child {
+  color: var( --primary);
+  margin-top: 24px;
+}
+
+.columns.text-only > div > div {
+  @media(min-width: 391px) {
+    padding: 5px;
+    width: 33%;
+  }
+}
+
+.columns-wrapper .column-polygon.column-with-quote img {
+  width: 250px;
+  height: 250px;
+  clip-path: polygon(49% 0%, 8% 23%, 8% 73%, 49% 96%, 90% 73%, 90% 23%);
+}
+
+.columns-wrapper .column-with-list > div > .columns-img-col {
+  flex: 0 0 35%;
+}
+
+.columns-wrapper .column-with-list > div > .columns-img-col img {
+  height: 326px;
+  object-fit: cover;
+}
+
+.columns-wrapper .column-with-list > div:nth-child(even) {
+  background-color: var(--dark-grey-background);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.columns-wrapper .column-with-list > div > div p:nth-child(3) {
+  color: var(--bee-yellow);
+  padding-top: 32px;
+}
+
+.column-with-bg {
+  background-color: var(--red-background);
+  padding-left: 20px;
+}
+
+.columns-wrapper .column-with-bg h3 {
+  font-size: var(--heading-font-size-l);
+  color: var(--text-color);
+}
+
+.column-polygon.column-with-quote {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.column-polygon.column-with-quote > div h5{
+  position: absolute;
+  background: var(--dark-grey-background);
+  margin: 0;
+  padding: 10px 15px;
+  color: var(--primary);
+  top: 234px;
+  z-index: -1;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.columns-wrapper .column-polygon.column-with-quote > div > div p:not(:first-child) {
+  position: relative;
+  top: 44px;
+  background-color: var(--dark-grey-background);
+  padding: 70px 20px 0;
+  min-height: 520px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.columns-wrapper .column-polygon.column-with-quote > div > div p:first-child {
+  position: relative;
+}
+
+.columns-wrapper .column-polygon.column-with-quote div picture::after {
+  background-image: url('/icons/polygon-border-yellow.svg');
+}
+
+.columns-wrapper .column-polygon.column-with-quote  > div > div p:nth-child(3)::before,
+.columns-wrapper .column-polygon.column-with-quote  > div > div p:nth-child(3)::after {
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: 22px;
+  height: 50px;
+  width: 50px;
+  content: ' ';
+  background-image: url('/icons/text-quote.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.columns-wrapper .column-polygon.column-with-quote  > div > div p:nth-child(3)::after {
+  transform: rotate(180deg);
+  top: auto;
+  left: 80%;
+}
+
+.columns-wrapper .column-polygon.column-with-quote  > div > div p:nth-child(4) {
+  min-height: 100px;
+  background-color: var(--dark-grey-background);
+  padding: 20px;
+  margin-top: 0;
+}
+
+.columns-wrapper .column-polygon.column-with-quote > div {
+  margin-bottom: 70px;
+  margin-right: 20px;
+}
+
+.columns-wrapper .column-polygon.column-with-quote > div picture::before {
+  display: block;
+  position: absolute;
+  left: 238px;
+  bottom: 50px;
+  height: 50px;
+  width: 50px;
+  content: ' ';
+  background-image: url('/icons/bee-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+@media(max-width: 390px) {
+  .columns.text-only > div {
+      display: inline-flex;;
+      flex-direction: column;
+      padding-right: 5%;
+      padding-left:  5%;
+  }
+}
+
+@media(min-width: 391px) {
+  .columns.text-only > div {
+      flex-direction: unset;
+      padding-right: 0;
+  }
+}
+
+.columns.text-only {
+  margin-bottom: 5em;
+}
+
+@media (min-width: 768px) {
+  .columns-wrapper .column-polygon,
+  .columns-wrapper .column-img-top  {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .columns-wrapper .column-with-list > div {
+    padding: 32px 20px;
+  }
+
+  .columns-wrapper .column-polygon > div {
+    flex-direction: unset;
+    align-items: flex-start;
+  }
+
+  .columns-wrapper .column-polygon.column-with-quote > div > div {
+    width: 500px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .column-with-bg img{
+    height: 500px;
+  }
+
+  .columns-wrapper .column-with-list > div {
+    padding: 64px 30px;
+    gap: 80px;
+  }
+
+  .columns-wrapper .column-polygon img {
+    width: 314px;
+    height: 314px;
+    top: 24px;
+  }
+
+  .columns-wrapper .column-polygon.column-with-quote img {
+    width: 290px;
+    height: 284px;
+    top: 4px;
+    left: -19px;
+  }
+
+  .columns-wrapper .column-with-list > div > .columns-img-col img {
+    height: 500px;
+  }
+
+  .column-with-bg{
+    padding-left: 60px;
+  }
+
+  .columns-wrapper .column-polygon,
+  .columns-wrapper .column-img-top {
+    max-width: 1128px;
+    margin: 0 auto;
+    margin-top: 78px;
+  }
+
+  .columns-wrapper .column-polygon:not(.column-with-quote) div picture::after {
+    height: 350px;
+    width: 350px;
+  }
+
+  .columns-wrapper .column-polygon.column-with-quote h5 {
+    position: absolute;
+    top: 46px;
+    left: 280px;
+    background: none;
+  }
+
+  .columns-wrapper .column-polygon.column-with-quote  > div > div p:nth-child(3) {
+    min-height: 500px;
+    padding: 120px 20px 0;
+    position: relative;
+    margin-top: -17%;
+    z-index: -1;
+  }
+
+  .column-polygon.column-with-quote {
+    display: block;
+    overflow: hidden;
+    max-width: initial;
+    padding: 0 40px;
+  }
+
+  .columns-wrapper .column-polygon.column-with-quote  > div > div p:nth-child(3)::before{
+    top: 72px;
   }
 }

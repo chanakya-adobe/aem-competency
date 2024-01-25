@@ -1,0 +1,56 @@
+main .video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: calc(100vw * 16 / 9);
+  padding: 0;
+}
+
+main .video-container .video {
+  opacity: 0;
+}
+
+main .video-container .video.video-is-loaded {
+  opacity: 1;
+}
+
+main .video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main .video-container video[poster] {
+  height: calc(100vw * 15 / 9);
+}
+
+@media (min-width: 768px) {
+  main .video-container, main .video-container video[poster] {
+    height: calc(100vw * 9 / 16);
+    object-fit: contain;
+  }
+}
+
+.play-pause,
+.mute-unmute {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.mute-unmute {
+  left: 96px;
+}
+
+.play-pause:focus,
+.mute-unmute:focus {
+  background: var(--secondary);
+}
+
+.banner-video .play-pause img,
+.banner-video .mute-unmute img {
+  width: 40px;
+  height: 40px;
+}

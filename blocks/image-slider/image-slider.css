@@ -1,0 +1,30 @@
+.block.image-slider>div {
+    overflow: hidden;
+}
+
+.block.image-slider>div>div {
+    display: flex;
+    gap: 1rem;
+    animation: scroll 40s linear infinite;
+}
+
+.block.image-slider.reverse>div>div {
+    animation: scroll 40s linear infinite reverse;
+}
+
+.block.image-slider img {
+    width: 13.125rem;
+    height: 8.75rem;
+    flex-shrink: 0;
+    max-width: 13.125rem;
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+   }
+
+	100% {
+		transform: translateX(calc(-250px * 7));
+   }
+}
