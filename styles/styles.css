@@ -97,7 +97,7 @@
 
   /* nav height */
   --nav-mob-height: 56px;
-  --nav-desk-height: 100px;
+  --nav-desk-height: 150px;
   --nav-height: 150px;
 
   /* media breakpoints */
@@ -145,7 +145,7 @@ body {
 } */
 
 header {
-  height: var(--nav-mob-height);
+  height: var(--nav-height);
 }
 
 h1,
@@ -393,10 +393,10 @@ main img {
   width: 100%;
 }
 
-main {
+/* main {
   position: relative;
   top: calc(var(--nav-desk-height) * -1);
-}
+} */
 
 main .section {
   padding: 0 16px 128px;
