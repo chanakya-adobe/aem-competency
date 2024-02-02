@@ -97,8 +97,8 @@
 
   /* nav height */
   --nav-mob-height: 56px;
-  --nav-desk-height: 150px;
-  --nav-height: 150px;
+  --nav-desk-height: 100px;
+  --nav-height: 100px;
 
   /* media breakpoints */
   --tablet: 768px;
