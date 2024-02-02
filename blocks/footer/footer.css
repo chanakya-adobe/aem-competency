@@ -1,5 +1,5 @@
 footer {
-  background-color: var(--secondary-color, #21A5A2);
+  background-color: var(--secondary);
   padding: 1rem;
 }
 
@@ -17,7 +17,6 @@ footer>.footer.block>div {
 footer .section:first-child>.default-content-wrapper>ul {
   display: flex;
   flex-direction: column;
-  justify-content: ;
   height: 100%;
   padding: 0;
   margin: 1rem 0;
@@ -25,7 +24,7 @@ footer .section:first-child>.default-content-wrapper>ul {
 
 footer .section:first-child>.default-content-wrapper li {
   padding: 0 0 24px;
-  font-size: var(--sub-title-two);
+  font-size: var(--body-font-size-s);
   line-height: 30px;
   list-style: none;
 }
@@ -48,13 +47,19 @@ footer .section:nth-child(2)>.default-content-wrapper  picture {
 footer .section li a{
   color: var(--text-color);
 }
+@media (min-width: 900px) {
+  footer > .footer.block > div {
+    flex-direction: row;
+  }
+
+}
 
 @media (min-width: 600px) {
+
   footer .section:first-child>.default-content-wrapper>ul {
     flex-direction: row;
     justify-content: center;
     gap: 48px;
-    padding-top: 16px;
   }
 
   footer .section:nth-child(2)>.default-content-wrapper p {

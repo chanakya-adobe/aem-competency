@@ -48,10 +48,10 @@
 
 :root {
   /* colors */
-  --primary: #ffce2e;
-  --secondary: #21a5a2;
-  --background-color: #222;
-  --text-color: #fff;
+  --primary: #cc0000;
+  --secondary: #FAFAFA;
+  --background-color: #fff;
+  --text-color: #000;
   --grey-text: #a5a5a5;
   --link-color: #035fe6;
   --link-hover-color: var(--primary);
@@ -97,7 +97,8 @@
 
   /* nav height */
   --nav-mob-height: 56px;
-  --nav-desk-height: 100px;
+  --nav-desk-height: 150px;
+  --nav-height: 150px;
 
   /* media breakpoints */
   --tablet: 768px;
@@ -134,17 +135,17 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
-  display: none;
+  display: block;
   font-weight: 700;
   font-style: normal;
 }
 
-body.appear {
+/* body.appear {
   display: block;
-}
+} */
 
 header {
-  height: var(--nav-mob-height);
+  height: var(--nav-height);
 }
 
 h1,
@@ -169,12 +170,12 @@ h6,
 
 h1,
 .h1 {
-  font-size: var(--heading-font-size-xxl);
+  font-size: var(--heading-font-size-m);
 }
 
 h2,
 .h2 {
-  font-size: var(--heading-font-size-xl);
+  font-size: var(--heading-font-size-m);
 }
 
 h3,
@@ -392,10 +393,10 @@ main img {
   width: 100%;
 }
 
-main {
+/* main {
   position: relative;
   top: calc(var(--nav-desk-height) * -1);
-}
+} */
 
 main .section {
   padding: 0 16px 128px;
@@ -479,20 +480,20 @@ main .section.full-width.no-padding {
 }
 
 .section.paralex-top {
-  background: url("../../resources/images/whoweare_bg.png");
+  /* background: url("../../resources/images/whoweare_bg.png");
   background-repeat: no-repeat;
-  background-size: 100%;  
+  background-size: 100%;   */
   padding-top: 0;
   position: relative;
   overflow: hidden;
   margin-right: 0;
 }
 
-.section.paralex-top.blue-background {
+/* .section.paralex-top.blue-background {
   background: url("../../resources/images/whoweare_bg.png"), url("../../resources/images/why-us-back.png");
   background-size: 100%;  
   background-repeat: no-repeat;
-}
+} */
 
 .section.paralex-top.carousel-popups-container {
   padding-top: 64px;
@@ -506,8 +507,8 @@ main .section.full-width.no-padding {
 
 .section.blue-hexagon-bg-right .columns>div:nth-child(2)::after {
   content: '';
-  background: url("../../resources/images/blue-hexagone-bg-right.png") no-repeat;
-  background-size: 40%;
+  /* background: url("../../resources/images/blue-hexagone-bg-right.png") no-repeat;
+  background-size: 40%; */
   top: 50%;
   position: absolute;
   right: 20px;
@@ -524,8 +525,8 @@ main .section.full-width.no-padding {
 
 .section.section.blue-hexagon-bg-left.carousel-popups-container::after {
   content: '';
-  background: url("../../resources/images/blue-hexagone-bg-left.png") no-repeat;
-  background-size: 100%;
+  /* background: url("../../resources/images/blue-hexagone-bg-left.png") no-repeat;
+  background-size: 100%; */
   top: -12%;
   position: absolute;
   left: -10%;
@@ -578,15 +579,15 @@ main .section.full-width.no-padding {
 }
 
 main > .section:not(:first-child) {
-  opacity: 0;
-  transform: translateY(20px); 
-  transition: opacity 1s ease-in, transform 1s ease-in; 
+  opacity: 1;
+  /* transform: translateY(20px); 
+  transition: opacity 1s ease-in, transform 1s ease-in;  */
 }
 
-main > .section:not(:first-child).appear {
+/* main > .section:not(:first-child).appear {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 @media (min-width: 1440px) {
   .text-container .lottie {
