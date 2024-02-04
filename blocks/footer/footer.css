@@ -27,6 +27,15 @@ footer .section:first-child>.default-content-wrapper li {
   font-size: var(--body-font-size-s);
   line-height: 30px;
   list-style: none;
+  font-weight: 500;
+
+}
+
+footer .section:first-child>.default-content-wrapper a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: var(--body-font-size-s);
+
 }
 
 footer .section:nth-child(2)>.default-content-wrapper  p {
@@ -34,8 +43,9 @@ footer .section:nth-child(2)>.default-content-wrapper  p {
   flex-direction: column;
   gap: 0.5rem;
   color: #000;
-  font-size: var(--body-font-size-m);
-  font-weight: 400;
+  text-transform: uppercase;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
 }
 
 footer .section:nth-child(2)>.default-content-wrapper  picture {
