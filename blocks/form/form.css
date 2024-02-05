@@ -148,7 +148,7 @@ main .form {
 
  .error{
   display: none;
-  color: var(--bee-yellow);
+  color: var(--comp-red);
   font-size: var(--body-font-size-xs);
   font-weight: 500;
   font-style: normal;

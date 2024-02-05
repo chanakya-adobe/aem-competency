@@ -626,5 +626,5 @@ main .hero-banner.three-line-header.hero-carousel h3 {
 }
 
 .section.quarter-width.hero-banner-container .hero-banner-carousel-data div p:nth-child(3) {
-  color: var(--bee-yellow);
+  color: var(--comp-red);
 }
