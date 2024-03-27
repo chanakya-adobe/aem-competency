@@ -1,12 +1,11 @@
-# ACS Creative B Info Portal
-Portal to publish information about ACS Creative B group.
+# ACS Compentency  Info Portal
+Portal to publish information about ACS Compentency.
 
 ## Environments
 - Preview: https://main--{repo}--{owner}.hlx.page/
-Example Main Branch https://main--creativeb--acs-creative-b.hlx.page/
-
+Example Main Branch https://main--aem-competency--aem-comp.hlx.page/
 - Live: https://main--{repo}--{owner}.hlx.live/
-Example Main branch - https://main--creativeb--acs-creative-b.hlx.live/
+Example Main branch - https://main--aem-competency--aem-comp.hlx.live/
 
 ## Installation
 
