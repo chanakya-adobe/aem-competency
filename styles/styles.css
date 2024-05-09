@@ -9,8 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
-@font-face {
+ @font-face {
   font-family: "Adobe Clean";
   src: url("../resources/fonts/AdobeClean-Black.woff2") format("woff2"),
     url("../resources/fonts/AdobeClean-Black.woff") format("woff");
@@ -48,84 +47,51 @@
 
 :root {
   /* colors */
-  --primary: #cc0000;
-  --secondary: #FAFAFA;
-  --background-color: #fff;
-  --text-color: #000;
-  --grey-text: #a5a5a5;
   --link-color: #035fe6;
-  --link-hover-color: var(--primary);
-  --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
-  --input-background-color: #313131;
-  --color-red: #ef4338;
-  --color-dark-grey: #333335;
-  --dark-grey-background: #383838;
-  --red-background: #ea0f00;
-  --comp-red: #ea0f00;
-  --color-sea-green: #8fD9d8;
-  --color-macaroni: #f9b679;
-  --color-dark-macaroni: #e9740a;
-  --color-dark-yellow: #E49500;
-  --color-bloghheading: #22A6A3;
-  --color-black: #000;
-  --color-grey-border-50: #b3b7bb80;
+  --link-hover-color: #136ff6;
+  --background-color: white;
+  --light-color: #eee;
+  --dark-color: #ccc;
+  --text-color: black;
 
   /* fonts */
-  --body-font-family: "Adobe Clean", sans-serif;
+  --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: "Adobe Clean", sans-serif;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
-  --body-font-size-m: 16px;
-  --body-font-size-s: 14px;
-  --body-font-size-xs: 12px;
-  --sub-title-font-size: 32px;
+  --body-font-size-m: 22px;
+  --body-font-size-s: 18px;
+  --body-font-size-xs: 16px;
 
   /* heading sizes */
-  --heading-font-size-xxxl: 110px;
-  --heading-font-size-xxl: 72px;
-  --heading-font-size-xl: 56px;
-  --heading-font-size-l: 48px;
-  --heading-font-size-m: 40px;
-  --heading-font-size-s: 32px;
-  --heading-font-size-xs: 28px;
-
-  /* sub title */
-  --sub-title-one: 24px;
-  --sub-title-two: 20px;
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 32px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-mob-height: 56px;
-  --nav-desk-height: 100px;
-  --nav-height: 100px;
-
-  /* media breakpoints */
-  --tablet: 768px;
-  --desktop: 1440px;
-  --max-with: 1920px;
-
-  /* spacing */
-  --spacing-xxxs: 0.25rem;
+  --nav-height: 64px;
 }
 
-@media (min-width: 900px) {
+@font-face {
+  font-family: roboto-fallback;
+  size-adjust: 100.06%;
+  ascent-override: 95%;
+  src: local('Arial');
+}
+
+@media (width >= 900px) {
   :root {
-    --heading-font-size-xxl: 148px;
-    --heading-font-size-xl: 110px;
-    --heading-font-size-l: 96px;
-    --heading-font-size-m: 64px;
-    --heading-font-size-s: 40px;
-    --heading-font-size-xs: 48px;
-    --sub-title-one: 32px;
-    --sub-title-two: 24px;
+    --heading-font-size-xxl: 60px;
+    --heading-font-size-xl: 48px;
+    --heading-font-size-l: 36px;
+    --heading-font-size-m: 30px;
+    --heading-font-size-s: 24px;
+    --heading-font-size-xs: 22px;
   }
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -135,96 +101,46 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
-  display: block;
-  font-weight: 700;
-  font-style: normal;
+  display: none;
 }
 
-/* body.appear {
+body.appear {
   display: block;
-} */
+}
 
 header {
   height: var(--nav-height);
 }
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
+h1, h2, h3,
+h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: bold;
-  line-height: 100%;
+  font-weight: 600;
+  line-height: 1.25;
   margin-top: 1em;
-  margin-bottom: 0.5em;
-  scroll-margin: calc(var(--nav-mob-height) + 1em);
+  margin-bottom: .5em;
+  scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1,
-.h1 {
-  font-size: var(--heading-font-size-m);
-}
+h1 { font-size: var(--heading-font-size-xxl) }
+h2 { font-size: var(--heading-font-size-xl) }
+h3 { font-size: var(--heading-font-size-l) }
+h4 { font-size: var(--heading-font-size-m) }
+h5 { font-size: var(--heading-font-size-s) }
+h6 { font-size: var(--heading-font-size-xs) }
 
-h2,
-.h2 {
-  font-size: var(--heading-font-size-s);
-}
-
-h3,
-.h3 {
-  font-size: var(--heading-font-size-l);
-}
-
-h4,
-.h4 {
-  font-size: var(--heading-font-size-m);
-}
-
-h5,
-.h5 {
-  font-size: var(--heading-font-size-s);
-}
-
-h6,
-.h6 {
-  font-size: var(--heading-font-size-xs);
-}
-
-p,
-dl,
-ol,
-ul,
-pre,
-blockquote {
+p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-hr {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  border: 0;
-  border-bottom: 1px solid var(--overlay-background-color);
-}
-
-code,
-pre,
-samp {
+code, pre {
   font-family: var(--fixed-font-family);
   font-size: var(--body-font-size-s);
 }
 
-code,
-samp {
-  padding: 0.125em;
+code {
+  padding: .125em;
 }
 
 pre {
@@ -232,13 +148,14 @@ pre {
 }
 
 main pre {
-  background-color: var(--overlay-background-color);
+  background-color: var(--light-color);
   padding: 1em;
-  border-radius: 0.25em;
+  border-radius: .25em;
   overflow-x: auto;
   white-space: pre;
 }
 
+/* links */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -246,134 +163,44 @@ a:any-link {
 
 a:hover {
   text-decoration: underline;
-  color: var(--primary);
+  color: var(--link-hover-color);
 }
 
-.form-container .default-content-wrapper p {
-  color: var(--grey-text, #A5A5A5);
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 40px;
-  max-width: 50rem;
-}
-
-a.button:any-link,
-button,
-header .nav-sections .menu>div div:nth-child(2) p:nth-child(3) {
-  font-size: 18px;
+/* buttons */
+a.button:any-link, button {
+  font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid var(--primary);
-  padding: 16px 64px 16px 32px;
+  border: 2px solid transparent;
+  padding: 5px 30px;
   text-align: center;
   font-style: normal;
+  font-weight: 600;
   cursor: pointer;
   color: var(--background-color);
-  background-color: var(--primary);
-  margin-top: 32px;
+  background-color: var(--link-color);
+  margin: 16px 0;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 0;
-  position: relative;
-  line-height: 16px;
-  text-transform: uppercase;
+  border-radius: 30px;
 }
 
-main blockquote p::before {
-  content: "“";
-  line-height: 0;
-}
-
-main blockquote p::after {
-  content: "”";
-  line-height: 0;
-}
-
-.button::after,
-header .nav-sections .menu>div div:nth-child(2) p:nth-child(3)::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -30px;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 2px;
-  background-color: var(--text-color);
-}
-
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus,
-header .nav-sections .menu>div div:nth-child(2) p:nth-child(3):hover,
-header .nav-sections .menu>div div:nth-child(2) p:nth-child(3):focus {
-  background-color: var(--text-color);
-  color: var(--background-color);
+a.button:hover, a.button:focus, button:hover, button:focus  {
+  background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
-.button:hover::after,
-header .nav-sections .menu>div div:nth-child(2) p:nth-child(3):hover::after {
-  background-color: var(--primary);
-}
-
-button:disabled,
-button:disabled:hover {
-  background-color: var(--overlay-background-color);
+button:disabled, button:disabled:hover {
+  background-color: var(--light-color);
   cursor: unset;
 }
 
-a.button.secondary,
-button.secondary {
+a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
-  color: var(--text-color);
-}
-
-a.button.secondary:hover,
-button.secondary:hover {
-  background-color: var(--primary);
-  color: var(--background-color);
-}
-
-a.button.secondary::after,
-button.secondary::after {
-  background-color: var(--primary);
-}
-
-a.button.secondary:hover::after,
-button.secondary:hover::after {
-  background-color: var(--text-color);
-}
-
-main input {
-  font-size: 1.25rem;
-  width: 100%;
-  max-width: 50rem;
-  display: block;
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;
-  border-radius: 0.25rem;
-  box-sizing: border-box;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  background-color: var(--input-background-color);
-}
-
-main input:hover {
-  border: 1px solid var(--text-color);
-}
-
-main textarea {
-  background-color: var(--input-background-color);
-}
-
-main blockquote {
-  font-style: italic;
-  margin: 3rem;
-  text-indent: -1rem;
-  hanging-punctuation: first;
+  color: var(--text-color)
 }
 
 main img {
@@ -393,12 +220,26 @@ main img {
   width: 100%;
 }
 
-/* main {
-  position: relative;
-  top: calc(var(--nav-desk-height) * -1);
-} */
-
+/* sections */
 main .section {
-  padding: 0 16px 128px;
+  padding: 64px 16px;
 }
 
+@media (width >= 600px) {
+  main .section {
+    padding: 64px 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .section > div {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+/* section metadata */
+main .section.light,
+main .section.highlight {
+  background-color: var(--light-color);
+}
