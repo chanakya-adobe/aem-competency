@@ -9,44 +9,9 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
- @font-face {
-  font-family: "Adobe Clean";
-  src: url("../resources/fonts/AdobeClean-Black.woff2") format("woff2"),
-    url("../resources/fonts/AdobeClean-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Adobe Clean";
-  src: url("../resources/fonts/AdobeClean-Bold.woff2") format("woff2"),
-    url("../resources/fonts/AdobeClean-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Adobe Clean";
-  src: url("../resources/fonts/AdobeClean-Regular.woff2") format("woff2"),
-    url("../resources/fonts/AdobeClean-Regular.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Adobe Clean";
-  src: url("../resources/fonts/AdobeClean-Light.woff2") format("woff2"),
-    url("../resources/fonts/AdobeClean-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   /* colors */
+  --primary-color: #066CE7;
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: white;
@@ -55,9 +20,9 @@
   --text-color: black;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: "Adobe Clean", sans-serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --fixed-font-family: var(--body-font-family);
 
   /* body sizes */
   --body-font-size-m: 22px;
