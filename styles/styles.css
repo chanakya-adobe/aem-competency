@@ -14,10 +14,12 @@
   --primary-color: #066CE7;
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
-  --background-color: white;
+  --background-color: #002651;
+  --background-color-gradient: #000810;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --body-text-color: #fff;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -38,17 +40,17 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 80px;
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
-}
+/** Breakpoints
+Mobile - 360 to 767
+Tablet - 768 to 1279
+Desktop – 1280 to 1920
+Beyond 1920 the page will be centre aligned
+*/
 
-@media (width >= 900px) {
+@media (width >= 1279px) {
   :root {
     --heading-font-size-xxl: 60px;
     --heading-font-size-xl: 48px;
@@ -64,8 +66,9 @@ body {
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--body-text-color);
   background-color: var(--background-color);
+  background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-gradient)); 
   display: none;
 }
 
@@ -190,15 +193,15 @@ main .section {
   padding: 64px 16px;
 }
 
-@media (width >= 600px) {
+@media (width >= 768px) {
   main .section {
     padding: 64px 32px;
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 1280px) {
   .section > div {
-    max-width: 1200px;
+    max-width: 1920px;
     margin: auto;
   }
 }
