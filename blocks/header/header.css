@@ -138,18 +138,36 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
+/* brand / Logo */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  flex-basis: 150px;
+  font-size: var(--heading-font-size-xxs);
   line-height: 1;
+  text-align: center;
+}
+
+header nav .nav-brand p + p {
+  display: none;
+}
+
+@media (width >= 1280px) {
+  header nav .nav-brand p + p {
+    float: left;
+    display: block;
+    text-align: left;
+    padding: 3px 0 0 8px;
+    line-height: 1.3;
+  }
+
+  header .nav-brand div.default-content-wrapper {
+    display: flex;
+  }
 }
 
 header nav .nav-brand img {
-  width: 128px;
-  height: auto;
+  width: 41px;
+  height: 39px;
 }
 
 /* sections */
