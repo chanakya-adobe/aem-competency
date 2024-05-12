@@ -1,11 +1,4 @@
 /* header and nav layout */
-header .nav-wrapper {
-  background-color: var(--background-color);
-  width: 100%;
-  z-index: 2;
-  position: fixed;
-}
-
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -15,10 +8,14 @@ header nav {
   align-items: center;
   gap: 0 2em;
   margin: auto;
-  max-width: 1920px;
+  max-width: var(--desktop-max-width);
   height: var(--nav-height);
-  padding: 0 1rem;
+  padding: 0 var(--gutter-space-mobile);
   font-family: var(--body-font-family);
+}
+
+header .section > div {
+  padding: 0;
 }
 
 header nav[aria-expanded="true"] {
@@ -30,16 +27,11 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
-@media (width >= 768px) {
-  header nav {
-    padding: 0 2rem;
-  }
-}
-
 @media (width >= 1280px) {
   header nav {
     display: flex;
     justify-content: space-between;
+    padding: 0 var(--gutter-space-desktop);
   }
 
   header nav[aria-expanded="true"] {

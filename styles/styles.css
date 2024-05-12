@@ -40,8 +40,13 @@
   --heading-font-size-xs: 18px;
   --heading-font-size-xxs: 14px;
 
-  /* nav height */
-  --nav-height: 80px;
+  /* key units */
+  --desktop-max-width: 120rem; /* 1920px */
+  --nav-height: 5rem; /* 80px */
+  --gutter-space-desktop: 2.5rem; /* 40px */
+  --gutter-space-mobile: 1rem;    /* 16px */
+  --gutter-space-section-desktop: 3.313rem; /* 53px */
+  --gutter-space-section-mobile: 2.5rem; /* 40px */
 }
 
 /** Breakpoints
@@ -63,7 +68,7 @@ Beyond 1920 the page will be centre aligned
 }
 
 body {
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-xs);
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
@@ -191,19 +196,27 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: var(--gutter-space-section-mobile) 0;
+}
+
+main .section > div {
+  padding: 0 var(--gutter-space-mobile);
 }
 
 @media (width >= 768px) {
   main .section {
-    padding: 64px 32px;
+    max-width: var(--desktop-max-width);
+    margin: auto;
   }
 }
 
 @media (width >= 1280px) {
-  .section > div {
-    max-width: 1920px;
-    margin: auto;
+  main .section {
+    padding: var(--gutter-space-section-desktop) 0;
+  }
+
+  main .section > div {
+    padding: 0 var(--gutter-space-desktop);
   }
 }
 

@@ -1,12 +1,20 @@
-footer {
-  padding: 2rem;
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-s);
+footer .footer {
+  padding: 0 var(--gutter-space-mobile);
+  max-width: var(--desktop-max-width);
+  margin: auto;
+  display: flex;
 }
 
-footer .footer {
-  max-width: 1920px;
-  margin: auto;
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@media (width >= 1280px) {
+  footer .footer {
+    padding: 0 var(--gutter-space-desktop);
+  }
 }
 
 footer .footer p {
