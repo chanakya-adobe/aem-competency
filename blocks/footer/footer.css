@@ -1,3 +1,7 @@
+footer {
+  background-color: var(--background-color-footer);
+}
+
 footer .footer {
   padding: 0 var(--gutter-space-mobile);
   max-width: var(--desktop-max-width);
