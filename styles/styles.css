@@ -10,14 +10,17 @@
  * governing permissions and limitations under the License.
  */
 :root {
-  /* colors */ 
+  /* colors */
   --primary-color: #066CE7;
   --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: white;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --body-text-color: #fff;
+  --link-hover-color: #136ff6;
+  --background-color: #002651;
+  --background-color-gradient: #000810;
+  --background-color-footer: var(--text-color);
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -36,19 +39,27 @@
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
+  --heading-font-size-xxs: 14px;
 
-  /* nav height */
-  --nav-height: 64px;
+  /* key units */
+  --desktop-max-width: 120rem; /* 1920px */
+  --nav-height: 5rem; /* 80px */
+  --gutter-space-desktop: 2.5rem; /* 40px */
+  --gutter-space-mobile: 1rem;    /* 16px */
+  --gutter-space-section-desktop: 3.313rem; /* 53px */
+  --gutter-space-section-mobile: 2.5rem; /* 40px */
+  --gutter-space-triangle-desktop: 11rem; 
+  --gutter-space-triangle-mobile: 9.5rem; 
 }
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
-}
+/** Breakpoints
+Mobile - 360 to 767
+Tablet - 768 to 1279
+Desktop – 1280 to 1920
+Beyond 1920 the page will be centre aligned
+*/
 
-@media (width >= 900px) {
+@media (width >= 1279px) {
   :root {
     --heading-font-size-xxl: 60px;
     --heading-font-size-xl: 48px;
@@ -60,12 +71,13 @@
 }
 
 body {
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-xs);
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--body-text-color);
   background-color: var(--background-color);
+  background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-gradient)); 
   display: none;
 }
 
@@ -75,6 +87,8 @@ body.appear {
 
 header {
   height: var(--nav-height);
+  position: relative;
+  z-index: 10;
 }
 
 h1, h2, h3,
@@ -187,19 +201,60 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: var(--gutter-space-section-mobile) 0;
 }
 
-@media (width >= 600px) {
+main .section > div {
+  padding: 0 var(--gutter-space-mobile);
+}
+
+.section.full-width-banner {
+  position: relative;
+}
+
+.section.full-width-banner .default-content-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+main .section.full-width-banner img.banner-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+main .section.full-width-banner.bottom-edge {
+  padding-bottom:  var(--gutter-space-triangle-mobile);
+  padding-top: 0;
+}
+
+@media (width >= 768px) {
   main .section {
-    padding: 64px 32px;
+    max-width: var(--desktop-max-width);
+    margin: auto;
+  }
+
+  main .section.full-width-banner img.banner-img {
+    min-height: 600px;
+  }
+
+  main .section.full-width-banner.bottom-edge {
+    padding-bottom: var(--gutter-space-triangle-mobile);
   }
 }
 
-@media (width >= 900px) {
-  .section > div {
-    max-width: 1200px;
-    margin: auto;
+@media (width >= 1280px) {
+  main .section {
+    padding: var(--gutter-space-section-desktop) 0;
+  }
+
+  main .section > div {
+    padding: 0 var(--gutter-space-desktop);
+  }
+
+  main .section.full-width-banner img.banner-img {
+    min-height: 1250px;
   }
 }
 

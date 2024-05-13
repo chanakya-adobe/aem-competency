@@ -1,8 +1,9 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { decorateLinkedPictures } from '../../scripts/utils.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1280px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -101,6 +102,8 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+
+  decorateLinkedPictures(nav);
 
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {

@@ -1,6 +1,5 @@
 import {
   sampleRUM,
-  buildBlock,
   loadHeader,
   loadFooter,
   decorateButtons,
@@ -15,18 +14,64 @@ import {
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
+const SECTION_BG_MOBILE = 'bg-mobile';
+const SECTION_BG_DESKTOP = 'bg-desktop';
+
+export function createPicture(props) {
+  const desktopImgUrl = props[SECTION_BG_DESKTOP];
+  const mobileImgUrl = props[SECTION_BG_MOBILE];
+  const picture = document.createElement('picture');
+  if (desktopImgUrl) {
+    const sourceDesktop = document.createElement('source');
+    const { pathname } = new URL(desktopImgUrl, window.location.href);
+    sourceDesktop.type = 'image/webp';
+    sourceDesktop.srcset = `${pathname}?width=1920&format=webply&optimize=medium`;
+    sourceDesktop.media = '(min-width: 1280px)';
+    picture.appendChild(sourceDesktop);
+  }
+
+  if (mobileImgUrl) {
+    const sourceMobile = document.createElement('source');
+    const { pathname } = new URL(mobileImgUrl, window.location.href);
+    sourceMobile.type = 'image/webp';
+    sourceMobile.srcset = `${pathname}?width=600&format=webply&optimize=medium`;
+    picture.appendChild(sourceMobile);
+  }
+
+  const img = document.createElement('img');
+  const { pathname } = new URL(mobileImgUrl, window.location.href);
+  img.src = `${pathname}?width=600&format=webply&optimize=medium`;
+  img.alt = props.alt || '';
+  img.className = 'banner-img';
+  img.loading = props.loading || 'lazy';
+  // img.width = isMobile ? '360' : '600';
+  // img.height = isMobile ? '298' : '620';
+
+  if (mobileImgUrl && desktopImgUrl) {
+    picture.appendChild(img);
+  } else {
+    return img;
+  }
+  return picture;
+}
+
 /**
- * Builds hero block and prepends to main in a new section.
+ * Builds Full width Banner in a container element.
  * @param {Element} main The container element
  */
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
+function buildSectionBanners(main) {
+  const elements = main.querySelectorAll('.full-width-banner');
+  if (elements && elements?.length) {
+    elements.forEach((elem, index) => {
+      const pictureProps = {
+        alt: '',
+        loading: (index === 0) ? 'eager' : 'lazy',
+        'bg-mobile': elem.dataset.mobileImage,
+        'bg-desktop': elem.dataset.desktopImage,
+      };
+      const picture = createPicture(pictureProps);
+      elem.append(picture);
+    });
   }
 }
 
@@ -45,15 +90,16 @@ async function loadFonts() {
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
- */
+
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
+    // buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
+ */
 
 /**
  * Decorates the main element.
@@ -64,9 +110,11 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
-  buildAutoBlocks(main);
+  // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+
+  buildSectionBanners(main);
 }
 
 /**
