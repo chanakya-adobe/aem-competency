@@ -115,6 +115,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   width: 24px;
   height: 2px;
   border-radius: 2px;
+  z-index:100;
 }
 
 header nav[aria-expanded="true"] .nav-hamburger-icon::after {
@@ -176,6 +177,30 @@ header nav[aria-expanded="true"] .nav-sections {
   visibility: visible;
   align-self: start;
 }
+/*Added for Mobile starts*/
+@media (width < 1279px) {
+    header nav[aria-expanded="true"] .nav-sections {
+      background-color: black;
+      position: absolute;
+      left:0;
+      width:70%;
+    }
+    header nav .nav-sections ul  {
+      padding:40px 0 0 10px;
+    }
+    header nav .nav-sections ul > li {
+      padding-top:0;
+    }
+
+    header nav .nav-sections ul > li > ul {
+      padding-top:0;
+    }
+
+    header nav .nav-sections ul > li > ul > li {
+      padding-top:0;
+    }
+}
+/*Added for Mobile ends*/
 
 header nav .nav-sections ul  {
   list-style: none;

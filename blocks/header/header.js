@@ -131,6 +131,7 @@ export default async function decorate(block) {
       });
     });
   }
+  //Create function to mouse out
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
