@@ -1,11 +1,4 @@
 /* header and nav layout */
-header .nav-wrapper {
-  background-color: var(--background-color);
-  width: 100%;
-  z-index: 2;
-  position: fixed;
-}
-
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -15,10 +8,14 @@ header nav {
   align-items: center;
   gap: 0 2em;
   margin: auto;
-  max-width: 1264px;
+  max-width: var(--desktop-max-width);
   height: var(--nav-height);
-  padding: 0 1rem;
+  padding: 0 var(--gutter-space-mobile);
   font-family: var(--body-font-family);
+}
+
+header .section > div {
+  padding: 0;
 }
 
 header nav[aria-expanded="true"] {
@@ -30,16 +27,11 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
-@media (width >= 600px) {
-  header nav {
-    padding: 0 2rem;
-  }
-}
-
-@media (width >= 900px) {
+@media (width >= 1280px) {
   header nav {
     display: flex;
     justify-content: space-between;
+    padding: 0 var(--gutter-space-desktop);
   }
 
   header nav[aria-expanded="true"] {
@@ -131,25 +123,43 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
+@media (width >= 1280px) {
   header nav .nav-hamburger {
     display: none;
     visibility: hidden;
   }
 }
 
-/* brand */
+/* brand / Logo */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  flex-basis: 150px;
+  font-size: var(--heading-font-size-xxs);
   line-height: 1;
+  text-align: center;
+}
+
+header nav .nav-brand p + p {
+  display: none;
+}
+
+@media (width >= 1280px) {
+  header nav .nav-brand p + p {
+    float: left;
+    display: block;
+    text-align: left;
+    padding: 3px 0 0 8px;
+    line-height: 1.3;
+  }
+
+  header .nav-brand div.default-content-wrapper {
+    display: flex;
+  }
 }
 
 header nav .nav-brand img {
-  width: 128px;
-  height: auto;
+  width: 41px;
+  height: 39px;
 }
 
 /* sections */
@@ -186,7 +196,7 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-@media (width >= 900px) {
+@media (width >= 1280px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
