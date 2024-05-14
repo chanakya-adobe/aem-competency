@@ -18,6 +18,8 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --text-color-light: #ffffff;
+  --footer-background-color: #000A14;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -25,9 +27,10 @@
   --fixed-font-family: var(--body-font-family);
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  --body-font-size-l: 24px;
+  --body-font-size-m: 20px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
 
   /* heading sizes */
   --heading-font-size-xxl: 48px;
