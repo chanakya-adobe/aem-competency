@@ -48,6 +48,7 @@ function toggleAllNavSections(sections, expanded = false) {
   });
 }
 
+
 /**
  * Toggles the entire nav
  * @param {Element} nav The container element
@@ -122,16 +123,30 @@ export default async function decorate(block) {
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
+      navSection.addEventListener('mouseover', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+           /*toggleAllNavSections(navSections);*/
+           navSection.setAttribute('aria-expanded', 'true');
+         /*navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');*/
         }
       });
+
     });
   }
   //Create function to mouse out
+
+if (navSections) {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      navSection.addEventListener('mouseout', () => {
+        if (isDesktop.matches) {
+           navSection.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+    });
+  }
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

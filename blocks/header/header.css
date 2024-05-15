@@ -281,7 +281,7 @@ header nav .nav-sections ul > li > ul > li {
     position: absolute;
     left: -1em;
     width: 200px;
-    margin-top: 2px;
+    margin-top: 0px;
     padding: 1em;
     background-color: var(--body-text-color);
     color:var(--text-color);
