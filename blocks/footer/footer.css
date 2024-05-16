@@ -28,11 +28,12 @@ footer .footer .footer-nav .nav-lists > li {
   font-weight: bold;
 }
 
-footer .footer .footer-nav .nav-lists > li:first-child {
+footer .footer .footer-nav .nav-lists.nav-lists-with-child > li:first-child {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 footer .footer .footer-nav .nav-lists > li a {
+  text-decoration: none;
   color: var(--body-text-color);
 }
 
@@ -45,6 +46,7 @@ footer .footer .footer-nav .nav-lists > li .arrow {
   position: absolute;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+  transition: 0.4s all ease-in-out;
 }
 
 footer .footer .footer-nav .nav-lists > li ul {
@@ -53,8 +55,10 @@ footer .footer .footer-nav .nav-lists > li ul {
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul {
-  height: 0;
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+  transition-property: max-height;
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
@@ -68,17 +72,13 @@ footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li a{
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li.show-dropdown ul {
-  height: auto;
-  display: block;
+  /* set a value on max-height to something bigger than your box will ever get. */
+  max-height: 1000px;
+  transition: 0.3s ease-in-out;
+  transition-property: max-height;
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li.show-dropdown .arrow {
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 4px;
-  right: 10px;
-  position: absolute;
   transform: rotate(225deg);
   -webkit-transform: rotate(225deg);
 }
@@ -95,6 +95,7 @@ footer .footer .footer-legal .default-content-wrapper ul li{
   padding-bottom: 1.188rem;
 }
 footer .footer .footer-legal .default-content-wrapper ul li a{
+  text-decoration: none;
   color: var(--body-text-color);
 }
 
@@ -108,9 +109,10 @@ footer .footer .footer-legal .default-content-wrapper p{
     padding: 0 var(--gutter-space-desktop);
   }
 
-  footer .footer .default-content-wrapper {
+  footer .footer .footer-nav .default-content-wrapper {
     display: flex;
     flex-direction: row;
+    padding: 2.5rem 0 2.668rem 0;
   }
 
   footer .footer .footer-nav .nav-lists {
@@ -118,12 +120,13 @@ footer .footer .footer-legal .default-content-wrapper p{
     flex: 1;
   }
 
-  footer .footer .footer-nav .nav-lists > li:first-child {
+  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li:first-child {
     border: none;
   }
 
   footer .footer .footer-nav .nav-lists li {
     border: none;
+    padding: 0; 
   }
 
   footer .footer .footer-nav .nav-lists li .arrow {
@@ -131,8 +134,25 @@ footer .footer .footer-legal .default-content-wrapper p{
   }
 
   footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul {
-    display: block;
-    height: auto;
+    max-height: max-content;
+  }
+
+  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
+    padding: 1rem 0 0 0;
+    line-height: 1.2;
+  }
+
+  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul a{
+    font-size: var(--body-font-size-xs);
+  }
+ 
+  footer .footer .footer-nav ul.nav-lists.nav-lists-without-child {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer .footer .footer-nav ul.nav-lists.nav-lists-without-child > li ul li {
+    padding: 0;
   }
 
   footer .footer .footer-legal {
@@ -149,7 +169,7 @@ footer .footer .footer-legal .default-content-wrapper p{
   }
 
   footer .footer .footer-legal .default-content-wrapper ul li{
-    padding-right: 2.375rem;
+    padding-left: 2.375rem;
   }
 
   footer .footer .footer-legal .default-content-wrapper p{
