@@ -1,0 +1,62 @@
+.tabs .tabs-list {
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-direction: row-reverse
+}
+
+.tabs .tabs-list button {
+  flex: 0 0 max-content;
+  margin: 0;
+  background-color: var(--background-color);
+  border-radius: 0;
+  padding: 0px 16px;
+  font-size: unset;
+  line-height: unset;
+  text-align: initial;
+  text-overflow: unset;
+  overflow: unset;
+  white-space: unset;
+  transition: color 0.2s;
+  color: var(--button-color-tab-default-dark);
+  border: unset;
+}
+.section.theme-secondary .tabs .tabs-list button {
+  background-color: white;
+  color: black;
+  
+}
+
+.tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 2px solid var(--body-text-color);
+  cursor: initial;
+  color: var(--color-text-main);
+}
+
+.section.theme-secondary .tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 2px solid blue;
+  cursor: initial;
+  color: blue;
+}
+
+/*.tabs .tabs-list button[aria-selected="false"]:hover,
+.tabs .tabs-list button[aria-selected="false"]:focus {
+  
+}*/
+
+.tabs .tabs-panel {
+  margin-top: -1px;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+.tabs .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs-wrapper {
+  z-index: 9;
+  position: relative;
+  margin-top: -60px;
+}

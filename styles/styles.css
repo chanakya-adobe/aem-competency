@@ -46,6 +46,7 @@
   --button-secondary-border-hover-color: var(--button-secondary-bg-hover-color); 
   --button-themes-secondary-color: var(--primary-color); 
   --button-themes-secondary-hover-color: var(--primary-dark-color); 
+  --button-color-tab-default-dark: #b0b0b0;
 
   /* body sizes */
   --body-font-size-m: 22px;
