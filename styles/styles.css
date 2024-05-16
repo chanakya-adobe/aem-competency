@@ -33,7 +33,7 @@
   --link-hover-color: #fff;
   --link-secondary-color: var(--primary-color);
   --link-secondary-hover-color: #136ff6;
-  --button-redius: .75rem;
+  --button-redius: 1rem;
   --button-padding: .5rem 1rem;
   --button-bg-color: var(--primary-color); /* Pending: confirm color */
   --button-text-color: #fff;
