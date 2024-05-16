@@ -87,19 +87,32 @@ async function loadFonts() {
   }
 }
 
+function buildHeadings(main) {
+  [...main.querySelectorAll('p + h2')]
+    .forEach((element) => {
+      const container = element.parentElement;
+
+      const headingContainer = document.createElement('div');
+      headingContainer.className = 'heading';
+      headingContainer.append(element.previousElementSibling);
+      headingContainer.append(element);
+
+      container.prepend(headingContainer);
+    });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
-
-function buildAutoBlocks(main) {
+ function buildAutoBlocks(main) {
   try {
-    // buildHeroBlock(main);
+    // TBD
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
- */
+*/
 
 /**
  * Decorates the main element.
@@ -115,6 +128,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
 
   buildSectionBanners(main);
+  buildHeadings(main);
 }
 
 /**
