@@ -9,8 +9,8 @@ import { loadFragment } from '../fragment/fragment.js';
 function addShowHideEvent(footer) {
   footer.addEventListener('click', (e) => {
     let target = e.target;
-      target = target.parentNode.classList.contains('has-dropdown') ? target.parentNode : target
-    if (target.classList.contains('has-dropdown')) {
+    target = target.parentNode.parentNode.classList.contains('nav-lists-with-child') ? target.parentNode : target
+    if (target.parentNode.classList.contains('nav-lists-with-child')) {
         target.classList.toggle('show-dropdown');
     }
   });
@@ -37,23 +37,26 @@ export default async function decorate(block) {
     footer.append(fragment.firstElementChild);
   }
 
-  const footerNav = footer.children[0];
-  const navLists = footerNav.children[0].children[0];
-  navLists.classList.add('nav-lists');
+  const navListsClasses = ['nav-lists-with-child', 'nav-lists-without-child'];
+  navListsClasses.forEach((item, index) => {
+    const footerNav = footer.children[0];
+    const navLists = footerNav.children[0].children[index];
+    navLists.classList.add(item);
+    navLists.classList.add("nav-lists");
+  });
 
   //add dropdown menu and icon element
-  [...navLists.children].forEach(child => {
-    [...child.children].filter(grandChild => grandChild.tagName === 'UL')
-      .forEach(grandChild => grandChild.parentNode.classList.add('has-dropdown'));
-    if (child.classList.contains('has-dropdown')) {
-      const accordionArrow = document.createElement('i');
-      accordionArrow.className = 'arrow';
-      child.insertBefore(accordionArrow, child.firstChild);
-    }
-  })
-  
-  //add show hide event for mobile
-  addShowHideEvent(footer);
+  const navListWithChildren = footer.querySelector('.nav-lists-with-child');
+  [...navListWithChildren.children].forEach(child => {
+    const accordionArrow = document.createElement('i');
+    accordionArrow.className = 'arrow';
+    child.insertBefore(accordionArrow, child.firstChild);  
+  });
+
+  //add show hide event for mobile and tablet
+  if(window.innerWidth < 1280){
+    addShowHideEvent(footer);
+  }
 
   block.append(footer);
 }
