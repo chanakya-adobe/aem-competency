@@ -184,6 +184,7 @@ header nav[aria-expanded="true"] .nav-sections {
       position: absolute;
       left:0;
       width:70%;
+      height:100em;
     }
     header nav .nav-sections ul  {
       padding:40px 0 0 10px;
