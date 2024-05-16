@@ -12,20 +12,40 @@
 :root {
   /* colors */
   --primary-color: #066CE7;
-  --link-color: #035fe6;
+  --primary-dark-color: #0658BC;
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
   --body-text-color: #fff;
-  --link-hover-color: #136ff6;
   --background-color: #002651;
   --background-color-gradient: #000810;
   --background-color-footer: var(--text-color);
+  --heading-primary: #B0B0B0;
+  --heading-secondary: #EB1100;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: var(--body-font-family);
+
+  /* Links & buttons */
+  --link-color: #D0D0D0;
+  --link-hover-color: #fff;
+  --link-secondary-color: var(--primary-color);
+  --link-secondary-hover-color: #136ff6;
+  --button-redius: 1rem;
+  --button-padding: .5rem 1rem;
+  --button-bg-color: var(--primary-color); /* Pending: confirm color */
+  --button-text-color: #fff;
+  --button-bg-hover-color: var(--primary-dark-color); /* Pending: confirm color */
+  --button-secondary-bg-color: unset; 
+  --button-secondary-bg-hover-color: #A2A2A2;
+  --button-secondary-text-color: #B0B0B0;
+  --button-secondary-text-hover-color: #fff;
+  --button-secondary-border-color: var(--button-secondary-text-color); 
+  --button-secondary-border-hover-color: var(--button-secondary-bg-hover-color); 
+  --button-themes-secondary-color: var(--primary-color); 
+  --button-themes-secondary-hover-color: var(--primary-dark-color); 
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -33,8 +53,8 @@
   --body-font-size-xs: 16px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
+  --heading-font-size-xxl: 2rem;
+  --heading-font-size-xl: 1.5rem;
   --heading-font-size-l: 32px;
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
@@ -61,8 +81,8 @@ Beyond 1920 the page will be centre aligned
 
 @media (width >= 1279px) {
   :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
+    --heading-font-size-xxl: 4rem;
+    --heading-font-size-xl: 2.5rem;
     --heading-font-size-l: 36px;
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
@@ -91,13 +111,19 @@ header {
   z-index: 11;
 }
 
+p, dl, ol, ul, pre, blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Headings */
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 1em;
-  margin-bottom: .5em;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
@@ -108,9 +134,21 @@ h4 { font-size: var(--heading-font-size-m) }
 h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
 
-p, dl, ol, ul, pre, blockquote {
-  margin-top: 1em;
-  margin-bottom: 1em;
+.heading {
+  margin: 1rem 0 .5rem;
+}
+
+.heading p {
+  margin: 0;
+  color: var(--heading-primary);
+}
+
+.theme-secondary .heading p {
+  color: var(--heading-secondary);
+}
+
+.heading h2 {
+  margin: 0;
 }
 
 code, pre {
@@ -145,29 +183,37 @@ a:hover {
   color: var(--link-hover-color);
 }
 
+.theme-secondary a:any-link {
+  color: var(--link-secondary-color);
+}
+
+.theme-secondary a:hover {
+  color: var(--link-secondary-hover-color);
+}
+
 /* buttons */
 a.button:any-link, button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
+  border: 1px solid transparent;
+  padding: var(--button-padding);
   text-align: center;
   font-style: normal;
   font-weight: 600;
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
+  color: var(--button-text-color);
+  background-color: var(--button-bg-color);
+  margin: .5rem 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: var(--button-redius);
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
+  background-color: var(--button-bg-hover-color);
   cursor: pointer;
 }
 
@@ -177,9 +223,30 @@ button:disabled, button:disabled:hover {
 }
 
 a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color)
+  background-color: var(--button-secondary-bg-color);
+  border: 1px solid var(--button-secondary-border-color);
+  color: var(--button-secondary-text-color);
+}
+
+a.button.secondary:hover, a.button.secondary:focus, button.secondary:hover, button.secondary:focus  {
+  background-color: var(--button-secondary-bg-hover-color);
+  color: var(--button-secondary-text-hover-color);
+  border-color: var(--button-secondary-border-hover-color);
+}
+
+.section.theme-secondary a.button.secondary, 
+.section.theme-secondary button.secondary {
+  border-color: var(--button-themes-secondary-color);
+  color: var(--button-themes-secondary-color);
+}
+
+.section.theme-secondary a.button.secondary:hover, 
+.section.theme-secondary a.button.secondary:focus, 
+.section.theme-secondary button.secondary:hover, 
+.section.theme-secondary button.secondary:focus  {
+  background-color: var(--button-themes-secondary-hover-color);
+  border-color: var(--button-themes-secondary-hover-color);
+  color: var(--button-secondary-text-hover-color);
 }
 
 main img {
@@ -208,8 +275,17 @@ main .section > div {
   padding: 0 var(--gutter-space-mobile);
 }
 
+.section.theme-secondary {
+  color: var(--text-color);
+}
+
 .section.full-width-banner {
   position: relative;
+  overflow: hidden;
+}
+
+.section.full-width-banner.hero-banner {
+  overflow: visible;
 }
 
 .section.full-width-banner .default-content-wrapper {
@@ -222,21 +298,22 @@ main .section.full-width-banner img.banner-img {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+.section.full-width-banner.hero-banner img.banner-img {
+  height: auto;
 }
 
 main .section.full-width-banner.bottom-edge {
   padding-bottom:  var(--gutter-space-triangle-mobile);
-  padding-top: 0;
 }
 
 @media (width >= 768px) {
   main .section {
     max-width: var(--desktop-max-width);
     margin: auto;
-  }
-
-  main .section.full-width-banner img.banner-img {
-    min-height: 600px;
   }
 
   main .section.full-width-banner.bottom-edge {
@@ -253,8 +330,8 @@ main .section.full-width-banner.bottom-edge {
     padding: 0 var(--gutter-space-desktop);
   }
 
-  main .section.full-width-banner img.banner-img {
-    min-height: 1250px;
+  main .section.full-width-banner.hero-banner img.banner-img {
+    min-height: 62rem;
   }
 }
 
