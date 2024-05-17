@@ -62,3 +62,11 @@ export function decorateLinkedPictures(container) {
       a.setAttribute('title', txt);
     });
 }
+
+/**
+ * Checks whether device is desktop or not.
+ * 
+ */
+export function isDesktop() {
+  return window.innerWidth < 1280;
+}

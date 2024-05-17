@@ -1,22 +1,20 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-
-
+import { isDesktop } from '../../scripts/utils.js';
 /**
  * add dropdown show hide event listener
- * @param {Element} footer 
- */
+ * @param {Element} footer
+ **/
+
 function addShowHideEvent(footer) {
   footer.addEventListener('click', (e) => {
-    let target = e.target;
-    target = target.parentNode.parentNode.classList.contains('nav-lists-with-child') ? target.parentNode : target
+    let {target} = e;
+    target = target.parentNode.parentNode.classList.contains('nav-lists-with-child') ? target.parentNode : target;
     if (target.parentNode.classList.contains('nav-lists-with-child')) {
-        target.classList.toggle('show-dropdown');
+      target.classList.toggle('show-dropdown');
     }
   });
 }
-
-
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
@@ -42,19 +40,19 @@ export default async function decorate(block) {
     const footerNav = footer.children[0];
     const navLists = footerNav.children[0].children[index];
     navLists.classList.add(item);
-    navLists.classList.add("nav-lists");
+    navLists.classList.add('nav-lists');
   });
 
-  //add dropdown menu and icon element
+  // add dropdown menu and icon element.
   const navListWithChildren = footer.querySelector('.nav-lists-with-child');
-  [...navListWithChildren.children].forEach(child => {
+  [...navListWithChildren.children].forEach((child) => {
     const accordionArrow = document.createElement('i');
     accordionArrow.className = 'arrow';
-    child.insertBefore(accordionArrow, child.firstChild);  
+    child.insertBefore(accordionArrow, child.firstChild);
   });
 
-  //add show hide event for mobile and tablet
-  if(window.innerWidth < 1280){
+  // add show hide event for mobile and tablet
+  if (isDesktop()) {
     addShowHideEvent(footer);
   }
 

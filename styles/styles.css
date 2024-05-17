@@ -19,7 +19,7 @@
   --body-text-color: #fff;
   --background-color: #002651;
   --background-color-gradient: #000810;
-  --background-color-footer: #000A14;
+  --background-color-footer: var(--text-color);
   --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
