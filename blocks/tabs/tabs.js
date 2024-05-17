@@ -30,18 +30,6 @@ export default async function decorate(block) {
       tabpanel.lastElementChild.innerHTML = `<p>${tabpanel.lastElementChild.innerHTML}</p>`;
     }
 
-    // if (isFragment) {
-    //   tabpanel.classList.add('fragment');
-
-    //   // load tabpanel content
-    //     const path = tabpanel.querySelectorAll('a')[0].href;
-    //     const fragment = await loadFragment(path);
-
-    //     // decorate footer DOM
-    //     const footer = document.createElement('div');
-    //     while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
-    // }
-
     // build tab button
     const button = document.createElement('button');
     button.className = 'tabs-tab';
