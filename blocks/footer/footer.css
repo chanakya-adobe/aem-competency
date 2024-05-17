@@ -68,7 +68,7 @@ footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li a{
-  color: var(--link-color-secondary);
+  color: var(--link-color);
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li.show-dropdown ul {
