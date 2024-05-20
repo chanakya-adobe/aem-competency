@@ -103,6 +103,11 @@ footer .footer .footer-legal .default-content-wrapper p{
 
 @media (width >= 1280px) {
   footer .footer {
+    padding: 0;
+    margin: auto;
+  }
+
+  footer .footer .footer-container {
     padding: 0 var(--gutter-space-desktop);
   }
 

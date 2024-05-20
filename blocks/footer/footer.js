@@ -4,11 +4,11 @@ import { isDesktop } from '../../scripts/utils.js';
 /**
  * add dropdown show hide event listener
  * @param {Element} footer
- **/
+ * */
 
 function addShowHideEvent(footer) {
   footer.addEventListener('click', (e) => {
-    let {target} = e;
+    let { target } = e;
     target = target.parentNode.parentNode.classList.contains('nav-lists-with-child') ? target.parentNode : target;
     if (target.parentNode.classList.contains('nav-lists-with-child')) {
       target.classList.toggle('show-dropdown');
