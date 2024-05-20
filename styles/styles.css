@@ -9,7 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-:root {
+ :root {
   /* colors */
   --primary-color: #066CE7;
   --primary-dark-color: #0658BC;
@@ -20,6 +20,7 @@
   --background-color: #002651;
   --background-color-gradient: #000810;
   --background-color-footer: var(--text-color);
+  --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
 
@@ -51,6 +52,7 @@
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
+  --body-font-size-xxs: 14px;
 
   /* heading sizes */
   --heading-font-size-xxl: 2rem;
