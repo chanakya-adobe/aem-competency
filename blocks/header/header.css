@@ -320,6 +320,10 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
+   header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
+    text-decoration: none;
+  }
+
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
     display: block;
     position: absolute;
