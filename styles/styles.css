@@ -340,6 +340,14 @@ main .section.full-width-banner.top-edge {
   main .section.full-width-banner.hero-banner img.banner-img {
     min-height: 62rem;
   }
+
+  main .section.full-width-banner.bottom-edge {
+    padding-bottom: var(--gutter-space-triangle-desktop);
+  }
+  
+  main .section.full-width-banner.top-edge {
+    padding-top: var(--gutter-space-triangle-desktop);
+  }
 }
 
 /* section metadata */
