@@ -193,7 +193,7 @@ export default async function decorate(block) {
     child.insertBefore(accordionArrow, child.firstChild);
   });
 
-  if (window.innerWidth < 1280) {
+  if (!isDesktop.matches) {
     addShowHideEvent(navSections);
   }
 

@@ -63,8 +63,8 @@ header nav .nav-hamburger button {
   margin: 0;
   border: 0;
   border-radius: 0;
+  background-color: transparent;
   padding: 0;
-  background-color: var(--background-color);
   color: inherit;
   overflow: initial;
   text-overflow: initial;
@@ -180,9 +180,9 @@ header nav[aria-expanded="true"] .nav-sections {
 }
 
 /* Added for Mobile starts */
-@media (width < 1279px) {
+@media (width <= 1279px) {
     header nav[aria-expanded="true"] .nav-sections {
-      background-color: black;
+      background-color: var(--text-color);
       position: absolute;
       left:0;
       width:70%;
