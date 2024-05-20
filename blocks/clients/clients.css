@@ -1,0 +1,50 @@
+.clients {
+  padding: 4rem 0;
+}
+
+.clients ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  display: flex;
+  gap: 32px;
+  
+}
+
+.clients ul li {
+  flex: 31%;
+  min-width: 242px;
+}
+
+.clients .teaser p {
+  margin: .5rem 0;
+  max-height: 65px;
+  overflow: hidden;
+}
+
+.clients .teaser .teaser-img {
+  height: 59px;
+  overflow: hidden;
+}
+
+.clients .teaser .teaser-img img {
+  height: 100%;
+  width: auto;
+}
+
+.clients .teaser h4 {
+  font: normal normal bold 20px/36px var(--body-font-family);
+  margin: 0;
+}
+
+.clients .view-all {
+  text-align: center;
+  margin: 2.5rem 0 0;
+}
+
+@media (width >= 1279px) {
+  .clients ul {
+    flex-wrap: wrap;
+  }
+}
