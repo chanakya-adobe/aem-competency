@@ -48,7 +48,6 @@ function toggleAllNavSections(sections, expanded = false) {
   });
 }
 
-
 /**
  * Toggles the entire nav
  * @param {Element} nav The container element
@@ -89,6 +88,27 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * add dropdown show hide event listener
+ * @param {Element} footer
+ */
+function addShowHideEvent(navSections) {
+  navSections.addEventListener('click', (e) => {
+    let { target } = e;
+    target = target.classList.contains('arrow') ? target.parentNode : target;
+    const navlist = navSections.querySelectorAll('.nav-drop');
+
+    navlist.forEach((c) => {
+      const isShow = c.classList.contains('show-dropdown');
+      if (isShow) c.classList.remove('show-dropdown');
+    });
+
+    if (target.classList.contains('nav-drop')) {
+      target.classList.toggle('show-dropdown');
+    }
+  });
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -125,26 +145,27 @@ export default async function decorate(block) {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('mouseover', () => {
         if (isDesktop.matches) {
+          /*
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
-           /*toggleAllNavSections(navSections);*/
-           navSection.setAttribute('aria-expanded', 'true');
-         /*navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');*/
+          toggleAllNavSections(navSections);
+          */
+          navSection.setAttribute('aria-expanded', 'true');
+          /*
+         navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+         */
         }
       });
-
     });
   }
-  //Create function to mouse out
-
-if (navSections) {
+  // mouse out case in desktop
+  if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('mouseout', () => {
         if (isDesktop.matches) {
-           navSection.setAttribute('aria-expanded', 'false');
+          navSection.setAttribute('aria-expanded', 'false');
         }
       });
-
     });
   }
 
@@ -164,5 +185,17 @@ if (navSections) {
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+
+  const navDrops = navSections.querySelectorAll('.nav-drop');
+  navDrops.forEach((child) => {
+    const accordionArrow = document.createElement('i');
+    accordionArrow.className = 'arrow';
+    child.insertBefore(accordionArrow, child.firstChild);
+  });
+
+  if (window.innerWidth < 1280) {
+    addShowHideEvent(navSections);
+  }
+
   block.append(navWrapper);
 }

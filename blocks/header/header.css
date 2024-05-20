@@ -18,6 +18,7 @@ header .section > div {
   padding: 0;
 }
 
+
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -177,7 +178,8 @@ header nav[aria-expanded="true"] .nav-sections {
   visibility: visible;
   align-self: start;
 }
-/*Added for Mobile starts*/
+
+/* Added for Mobile starts */
 @media (width < 1279px) {
     header nav[aria-expanded="true"] .nav-sections {
       background-color: black;
@@ -186,27 +188,68 @@ header nav[aria-expanded="true"] .nav-sections {
       width:70%;
       height:100em;
     }
+
     header nav .nav-sections ul  {
       padding:40px 0 0 10px;
     }
+
     header nav .nav-sections ul > li {
       padding-top:0;
     }
 
     header nav .nav-sections ul > li > ul {
       padding-top:0;
+      display: none;
     }
 
     header nav .nav-sections ul > li > ul > li {
       padding-top:0;
     }
-}
-/*Added for Mobile ends*/
 
+   header nav .nav-sections ul > li ul {
+      height: 0;
+      display: none;
+    }
+
+    header nav .nav-sections ul > li.show-dropdown {
+    background : #5D5D5D;
+    }
+
+    header nav .nav-sections ul > li.show-dropdown ul {
+      height: auto;
+      display: block;
+      background : #5D5D5D;
+      position:absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+   header nav .nav-sections ul > li .arrow {
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 0.25rem;
+      right: 10px;
+      position: absolute;
+      transform: rotate(45deg);
+    }
+
+    header nav .nav-sections ul > li.show-dropdown .arrow {
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 4px;
+      right: 10px;
+      position: absolute;
+      transform: rotate(225deg);
+    }
+}
+
+/* Added for Mobile ends */
 header nav .nav-sections ul  {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   font-weight: 500;
 }
 
@@ -282,7 +325,7 @@ header nav .nav-sections ul > li > ul > li {
     position: absolute;
     left: -1em;
     width: 200px;
-    margin-top: 0px;
+    margin-top: 0;
     padding: 1em;
     background-color: var(--body-text-color);
     color:var(--text-color);
