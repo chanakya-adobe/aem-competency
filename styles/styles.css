@@ -69,7 +69,8 @@
   --gutter-space-section-desktop: 3.313rem; /* 53px */
   --gutter-space-section-mobile: 2.5rem; /* 40px */
   --gutter-space-triangle-desktop: 11rem; 
-  --gutter-space-triangle-mobile: 9.5rem; 
+  --gutter-space-triangle-mobile: 9.5rem;
+  --gutter-space-triangle-mobile-s: 3rem; 
 }
 
 /** Breakpoints
@@ -307,6 +308,14 @@ main .section.full-width-banner img.banner-img {
 }
 
 main .section.full-width-banner.bottom-edge {
+  padding-bottom:  var(--gutter-space-triangle-mobile-s);
+}
+
+main .section.full-width-banner.top-edge {
+  padding-top:  var(--gutter-space-triangle-mobile);
+}
+
+.section.full-width-banner.hero-banner.bottom-edge {
   padding-bottom:  var(--gutter-space-triangle-mobile);
 }
 
@@ -314,10 +323,6 @@ main .section.full-width-banner.bottom-edge {
   main .section {
     max-width: var(--desktop-max-width);
     margin: auto;
-  }
-
-  main .section.full-width-banner.bottom-edge {
-    padding-bottom: var(--gutter-space-triangle-mobile);
   }
 }
 

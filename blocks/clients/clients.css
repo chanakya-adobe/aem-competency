@@ -1,5 +1,5 @@
 .clients {
-  padding: 4rem 0;
+  padding: 4rem 0 0;
 }
 
 .clients ul {
@@ -11,6 +11,10 @@
   gap: 32px;
   overflow-x: auto;
   scrollbar-width: none;
+}
+
+.clients ul::-webkit-scrollbar {
+  display: none;
 }
 
 .clients ul li {
