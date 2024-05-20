@@ -67,5 +67,5 @@ export function decorateLinkedPictures(container) {
  * Checks whether device is desktop or not.
  */
 export function isDesktop() {
-  return window.innerWidth < 1280;
+  return window.innerWidth >= 1280;
 }

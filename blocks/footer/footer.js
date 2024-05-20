@@ -52,7 +52,7 @@ export default async function decorate(block) {
   });
 
   // add show hide event for mobile and tablet
-  if (isDesktop()) {
+  if (!isDesktop()) {
     addShowHideEvent(footer);
   }
 
