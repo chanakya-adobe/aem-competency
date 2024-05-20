@@ -28,6 +28,16 @@ footer .footer .footer-nav .nav-lists > li {
   font-weight: bold;
 }
 
+footer .footer .footer-legal .default-content-wrapper ul li{
+  padding-bottom: 1.188rem;
+}
+
+footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
+  font-size: var( --body-font-size-xxs);
+  font-weight: 500;
+  padding: 1rem 0 0;
+}
+
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li:first-child {
   border-top: 1px solid var(--border-color);
 }
@@ -44,7 +54,6 @@ footer .footer .footer-nav .nav-lists > li .arrow {
   right: 10px;
   position: absolute;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
   transition: 0.4s all ease-in-out;
 }
 
@@ -59,10 +68,8 @@ footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul {
   transition-property: max-height;
 }
 
-footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
-  font-size: var( --body-font-size-xxs);
-  font-weight: 500;
-  padding: 1rem 0 0;
+footer .footer .footer-legal .default-content-wrapper ul li a{
+  color: var(--body-text-color);
 }
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li a{
@@ -78,7 +85,6 @@ footer .footer .footer-nav .nav-lists.nav-lists-with-child > li.show-dropdown ul
 
 footer .footer .footer-nav .nav-lists.nav-lists-with-child > li.show-dropdown .arrow {
   transform: rotate(225deg);
-  -webkit-transform: rotate(225deg);
 }
 
 footer .footer .footer-legal .default-content-wrapper {
@@ -87,13 +93,6 @@ footer .footer .footer-legal .default-content-wrapper {
   flex-direction: column-reverse;
   font-size: var(--body-font-size-xxs);
   line-height: 1.215;
-}
-
-footer .footer .footer-legal .default-content-wrapper ul li{
-  padding-bottom: 1.188rem;
-}
-footer .footer .footer-legal .default-content-wrapper ul li a{
-  color: var(--body-text-color);
 }
 
 footer .footer .footer-legal .default-content-wrapper p{
@@ -114,7 +113,7 @@ footer .footer .footer-legal .default-content-wrapper p{
   footer .footer .footer-nav .default-content-wrapper {
     display: flex;
     flex-direction: row;
-    padding: 2.5rem 0 2.668rem 0;
+    padding: 2.5rem 0 2.668rem;
   }
 
   footer .footer .footer-nav .nav-lists {
@@ -122,26 +121,39 @@ footer .footer .footer-legal .default-content-wrapper p{
     flex: 1;
   }
 
-  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li:first-child {
-    border: none;
-  }
-
   footer .footer .footer-nav .nav-lists li {
     border: none;
     padding: 0; 
+  }
+
+  footer .footer .footer-legal .default-content-wrapper ul li{
+    padding-left: 2.375rem;
+  }
+  
+  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
+    padding: 1rem 0 0;
+    line-height: 1.2;
+  }
+
+  footer .footer .footer-nav ul.nav-lists.nav-lists-without-child > li ul li {
+    padding: 0;
+  }
+
+  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li:first-child {
+    border: none;
   }
 
   footer .footer .footer-nav .nav-lists li .arrow {
     display: none;
   }
 
-  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul {
-    max-height: max-content;
+  footer .footer .footer-legal .default-content-wrapper ul{
+    display: flex;
+    flex-direction: row;
   }
 
-  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul li {
-    padding: 1rem 0 0 0;
-    line-height: 1.2;
+  footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul {
+    max-height: max-content;
   }
 
   footer .footer .footer-nav .nav-lists.nav-lists-with-child > li ul a{
@@ -153,25 +165,12 @@ footer .footer .footer-legal .default-content-wrapper p{
     flex-direction: column;
   }
 
-  footer .footer .footer-nav ul.nav-lists.nav-lists-without-child > li ul li {
-    padding: 0;
-  }
-
   footer .footer .footer-legal {
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgb(255 255 255 / 30%);
   }
 
   footer .footer .footer-legal .default-content-wrapper {
     flex-direction: row;
-  }
-
-  footer .footer .footer-legal .default-content-wrapper ul{
-    display: flex;
-    flex-direction: row;
-  }
-
-  footer .footer .footer-legal .default-content-wrapper ul li{
-    padding-left: 2.375rem;
   }
 
   footer .footer .footer-legal .default-content-wrapper p{
