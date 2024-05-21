@@ -95,13 +95,6 @@ function addShowHideEvent(navSections) {
   navSections.addEventListener('click', (e) => {
     let { target } = e;
     target = target.classList.contains('arrow') ? target.parentNode : target;
-    const navlist = navSections.querySelectorAll('.nav-drop');
-
-    navlist.forEach((c) => {
-      const isShow = c.classList.contains('show-dropdown');
-      if (isShow) c.classList.remove('show-dropdown');
-    });
-
     if (target.classList.contains('nav-drop')) {
       target.classList.toggle('show-dropdown');
     }
