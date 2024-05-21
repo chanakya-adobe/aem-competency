@@ -1,37 +1,32 @@
 .tabs .tabs-list {
   display: flex;
-  gap: 8px;
+  gap: 32px;
   max-width: 100%;
   overflow-x: auto;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
-@media screen and (max-width:360px) { 
-.tabs .tabs-list {
-  flex-direction: row;
+@media screen and (min-width: 1280px) { 
+  .tabs .tabs-list {
+    justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
   }
 }
 
 .tabs .tabs-list button {
   flex: 0 0 max-content;
   margin: 0;
-  background-color: var(--background-color);
+  background-color: transparent; /* Set background as transparent */
   border-radius: 0;
-  padding: 0px 16px;
-  font-size: unset;
-  line-height: unset;
-  text-align: initial;
-  text-overflow: unset;
-  overflow: unset;
-  white-space: unset;
+  padding: 0px 1px;
+  text-align: left;
   transition: color 0.2s;
-  color: var(--button-color-tab-default-dark);
-  border: unset;
+  color: var(--heading-primary);
+  font-size: var(--body-font-size-xs);
 }
+
 .section.theme-secondary .tabs .tabs-list button {
-  background-color: white;
-  color: black;
-  
+  background-color: var(--body-text-color);
+  color: var(--text-color);
 }
 
 .tabs .tabs-list button[aria-selected="true"] {
@@ -41,14 +36,13 @@
 }
 
 .section.theme-secondary .tabs .tabs-list button[aria-selected="true"] {
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid var(--primary-color);
   cursor: initial;
-  color: blue;
+  color: var(--primary-color);
 }
 
 /*.tabs .tabs-list button[aria-selected="false"]:hover,
 .tabs .tabs-list button[aria-selected="false"]:focus {
-  
 }*/
 
 .tabs .tabs-panel {
@@ -64,9 +58,11 @@
 .tabs-wrapper {
   z-index: 12;
   position: relative;
-  margin-top: -60px;
+  margin-top: 0px;
 }
-@media screen and (max-width:360px) { 
+
+@media screen and (min-width: 1280px) { 
   .tabs-wrapper {
-    margin-top: 0px;
-}}
+    margin-top: -60px;
+  }
+}
