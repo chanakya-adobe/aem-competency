@@ -5,6 +5,12 @@ import { loadFragment } from '../fragment/fragment.js';
 function hasWrapper(el) {
   return !!el.firstElementChild && window.getComputedStyle(el.firstElementChild).display === 'block';
 }
+function createTablist() {
+  const tablist = document.createElement('div');
+  tablist.className = 'tabs-list';
+  tablist.setAttribute('role', 'tablist');
+  return tablist;
+}
 /**
  * Decorates a tabpanel element.
  * @param {HTMLElement} tabpanel - The tabpanel element to decorate.
@@ -78,17 +84,13 @@ async function loadFragmentTabs(block) {
 }
 export default async function decorate(block) {
   // build tablist
-  const tablist = document.createElement('div');
-  tablist.className = 'tabs-list';
-  tablist.setAttribute('role', 'tablist');
-
+  const tablist = createTablist();
   const isFragment = block.classList.contains('fragment');
 
   // decorate tabs and tabpanels
   const tabs = [...block.children].map((child) => child.firstElementChild);
   tabs.forEach((tab, i) => {
     const id  = toClassName(tab.textContent) + `-` + Math.floor(Math.random() * 999);
-
     // decorate tabpanel
     const tabpanel = block.children[i];
     tabpanel.className = 'tabs-panel';
