@@ -12,10 +12,20 @@
   box-shadow: 0 3px 6px #00000029;
   border-radius: 16px;
   opacity: 1;
+  color: var(--dark-gray);
 }
 
 .cards .cards-card-body {
   margin: 16px;
+}
+
+.cards .cards-card-body strong {
+  color: var(--text-color);
+}
+
+.cards .cards-card-body h6 {
+  color: var(--medium-gray);
+  font-size: 12px;
 }
 
 .cards .cards-card-image {
