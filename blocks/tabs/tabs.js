@@ -60,11 +60,11 @@ async function loadFragmentTabs(block) {
   links.forEach(async (link) => {
     const path = link ? link.getAttribute('href') : '';
     if (path !== '') {
+      tabPanel.innerHTML = '';
       const tabPanel = link.closest('[role=tabpanel]');
       const fragment = await loadFragment(path);
       const content = document.createElement('div');
       content.append(fragment);
-      tabPanel.innerHTML = '';
       tabPanel.append(content);
     }
   });
