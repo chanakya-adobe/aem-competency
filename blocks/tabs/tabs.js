@@ -11,22 +11,7 @@ function createTablist() {
   tablist.setAttribute('role', 'tablist');
   return tablist;
 }
-/**
- * Decorates a tabpanel element.
- * @param {HTMLElement} tabpanel - The tabpanel element to decorate.
- * @param {string} id - The unique ID for the tabpanel.
- * @param {boolean} isFragment - Whether the tab is a fragment.
- */
-function decorateTabpanel(tabpanel, id, isFragment) {
-  tabpanel.className = 'tabs-panel';
-  tabpanel.id = `tabpanel-${id}`;
-  tabpanel.setAttribute('aria-hidden', true);
-  tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
-  tabpanel.setAttribute('role', 'tabpanel');
-  if (!isFragment && !hasWrapper(tabpanel.lastElementChild)) {
-    tabpanel.lastElementChild.innerHTML = `<p>${tabpanel.lastElementChild.innerHTML}</p>`;
-  }
-}
+
 /**
  * Creates a tab button element.
  * @param {string} id - The unique ID for the tab button.
@@ -71,16 +56,18 @@ function addTabButtonClickListener(button, tabpanel, block, tablist) {
  */
 async function loadFragmentTabs(block) {
   const links = block.querySelectorAll('[role=tabpanel] a');
-  for (const link of links) {
+
+  links.forEach(async (link) => {
     const path = link ? link.getAttribute('href') : '';
-    if (path === '') continue;
-    const tabPanel = link.closest('[role=tabpanel]');
-    const fragment = await loadFragment(path);
-    const content = document.createElement('div');
-    content.append(fragment);
-    tabPanel.innerHTML = '';
-    tabPanel.append(content);
-  }
+    if (path !== '') {
+      const tabPanel = link.closest('[role=tabpanel]');
+      const fragment = await loadFragment(path);
+      const content = document.createElement('div');
+      content.append(fragment);
+      tabPanel.innerHTML = '';
+      tabPanel.append(content);
+    }
+  });
 }
 export default async function decorate(block) {
   // build tablist
@@ -90,7 +77,7 @@ export default async function decorate(block) {
   // decorate tabs and tabpanels
   const tabs = [...block.children].map((child) => child.firstElementChild);
   tabs.forEach((tab, i) => {
-    const id  = toClassName(tab.textContent) + `-` + Math.floor(Math.random() * 999);
+    const id = `${toClassName(tab.textContent)}-${Math.floor(Math.random() * 999)}`;
     // decorate tabpanel
     const tabpanel = block.children[i];
     tabpanel.className = 'tabs-panel';
@@ -99,7 +86,7 @@ export default async function decorate(block) {
     tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
     tabpanel.setAttribute('role', 'tabpanel');
     if (!isFragment && !hasWrapper(tabpanel.lastElementChild)) {
-      tabpanel.lastElementChild.innerHTML = `<p>${tabpanel.lastElementChild.innerHTML}</p>`;
+      tabpanel.lastElementChild.innerHTML = `${tabpanel.lastElementChild.innerHTML}`;
     }
 
     // build tab button
@@ -109,10 +96,9 @@ export default async function decorate(block) {
     tab.remove();
   });
 
- // if tab is fragment type then the content is loaded from fragment
- if (isFragment) {
-  await loadFragmentTabs(block);
-}
-
+  // if tab is fragment type then the content is loaded from fragment
+  if (isFragment) {
+    await loadFragmentTabs(block);
+  }
   block.prepend(tablist);
 }

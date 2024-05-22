@@ -6,7 +6,7 @@
   flex-direction: row;
 }
 
-@media screen and (min-width: 1280px) { 
+@media (width >= 1280px) { 
   .tabs .tabs-list {
     justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
   }
@@ -17,7 +17,7 @@
   margin: 0;
   background-color: transparent; /* Set background as transparent */
   border-radius: 0;
-  padding: 0px 1px;
+  padding: 0 1px;
   text-align: left;
   transition: color 0.2s;
   color: var(--heading-primary);
@@ -41,10 +41,6 @@
   color: var(--primary-color);
 }
 
-/*.tabs .tabs-list button[aria-selected="false"]:hover,
-.tabs .tabs-list button[aria-selected="false"]:focus {
-}*/
-
 .tabs .tabs-panel {
   margin-top: -1px;
   padding: 0 16px;
@@ -58,10 +54,10 @@
 .tabs-wrapper {
   z-index: 12;
   position: relative;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
-@media screen and (min-width: 1280px) { 
+@media (width >= 1280px) { 
   .tabs-wrapper {
     margin-top: -60px;
   }
