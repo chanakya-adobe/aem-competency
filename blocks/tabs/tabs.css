@@ -24,6 +24,10 @@
   font-size: var(--body-font-size-xs);
 }
 
+.tabs .tabs-list button p {
+  margin: 14px 0;
+}
+
 .section.theme-secondary .tabs .tabs-list button {
   background-color: var(--body-text-color);
   color: var(--text-color);
@@ -41,10 +45,8 @@
   color: var(--primary-color);
 }
 
-.tabs .tabs-panel {
-  margin-top: -1px;
-  padding: 0 16px;
-  overflow: auto;
+.tabs .tabs-panel main .section > div {
+  padding: 0;
 }
 
 .tabs .tabs-panel[aria-hidden="true"] {
