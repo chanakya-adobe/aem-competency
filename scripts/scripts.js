@@ -17,6 +17,18 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
 
+/**
+ * Add a wrapper to icons parent element.
+ * @param {Element} [element] Element containing icons
+ * @param {string} [prefix] prefix to be added to icon the src
+ */
+function decorateIconsWrapper(element) {
+  const icons = [...element.querySelectorAll('span.icon')];
+  icons.forEach((span) => {
+    span.parentElement.classList.add('icon-container');
+  });
+}
+
 export function createPicture(props) {
   const desktopImgUrl = props[SECTION_BG_DESKTOP];
   const mobileImgUrl = props[SECTION_BG_MOBILE];
@@ -123,6 +135,7 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
+  decorateIconsWrapper(main);
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
