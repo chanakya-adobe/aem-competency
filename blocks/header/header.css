@@ -213,6 +213,7 @@ header nav[aria-expanded="true"] .nav-sections {
 
     header nav .nav-sections ul > li.show-dropdown {
     background : #454545;
+    margin-left: -10px;
     }
 
     header nav .nav-sections ul > li.show-dropdown ul {
@@ -276,6 +277,7 @@ header nav .nav-sections ul > li > ul > li {
 
  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
     background-color: #d1d1d1;
+    margin-left: -.5px;
  }
   header nav[aria-expanded="true"] .nav-sections {
     align-self: unset;
