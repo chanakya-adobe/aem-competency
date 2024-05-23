@@ -15,7 +15,7 @@
   order: 0;
 }
 
-.columns.col-66-33 > div > .columns-img-col {
+.columns.col-two-third > div > .columns-img-col {
   order: 1;
 }
 
@@ -35,7 +35,7 @@
     order: unset;
   }
 
-  .columns.col-66-33 > div > div:first-child {
+  .columns.col-two-third > div > div:first-child {
     flex: 2;
   }
 }
@@ -87,6 +87,6 @@
   }
 
   .columns.hackathon > div > div.columns-img-col img {
-    width: 75%;
+    width: 65%;
   }
 }
