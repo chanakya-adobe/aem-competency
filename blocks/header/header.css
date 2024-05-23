@@ -255,8 +255,6 @@ header nav .nav-sections ul  {
 header nav .nav-sections ul > li {
   font-weight: 300;
   font-size: var(--body-font-size-xs);
-  margin-bottom:15px;
-  margin-top:5px;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -276,6 +274,9 @@ header nav .nav-sections ul > li > ul > li {
     margin-left:50px;
   }
 
+ header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
+    background-color: #d1d1d1;
+ }
   header nav[aria-expanded="true"] .nav-sections {
     align-self: unset;
   }
@@ -334,7 +335,6 @@ header nav .nav-sections ul > li > ul > li {
     left: -1em;
     width: 200px;
     margin-top: 0;
-    padding: 1em;
     background-color: var(--body-text-color);
     color:var(--text-color);
     white-space: initial;
@@ -352,7 +352,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 8px 10px;
   }
 }
 
