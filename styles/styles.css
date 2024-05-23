@@ -148,6 +148,11 @@ h6 { font-size: var(--heading-font-size-xs) }
 
 .theme-secondary .heading p {
   color: var(--heading-secondary);
+  font-weight: 600;
+}
+
+.theme-secondary.heading-dark .heading p {
+  color: var(--text-color);
 }
 
 .heading h2 {
