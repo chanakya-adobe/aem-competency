@@ -275,10 +275,10 @@ header nav .nav-sections ul > li > ul > li {
     margin-left:50px;
   }
 
- header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
-    background-color: #d1d1d1;
-    margin-left: -.5px;
- }
+  header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
+       text-decoration: none;
+     }
+
   header nav[aria-expanded="true"] .nav-sections {
     align-self: unset;
   }
@@ -327,10 +327,6 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
-   header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
-    text-decoration: none;
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
     display: block;
     position: absolute;
@@ -356,7 +352,13 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 10px;
   }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
+      background-color: #d1d1d1;
+      margin-left: -.5px;
+   }
 }
+
 
 /* tools */
 header nav .nav-tools {
