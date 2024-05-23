@@ -8,6 +8,7 @@
 }
 
 .cards > ul > li {
+  position: relative;
   background: var(--body-text-color) 0% 0% no-repeat padding-box;
   box-shadow: 0 3px 6px #00000029;
   border-radius: 16px;
@@ -24,6 +25,17 @@
 }
 
 .cards .cards-card-body h6 {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  background-color: var(--very-light-gray);
+  font-size: 14px;
+  padding: 6px;
+  color: var(--text-color);
+
+}
+
+.cards .cards-card-body h5 {
   color: var(--medium-gray);
   font-size: 12px;
 }
