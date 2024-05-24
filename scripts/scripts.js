@@ -137,13 +137,13 @@ function createBreadcrumb(doc) {
     },
   ];
 
-  const toTitleCase = (phrase) => {
-    return phrase
+  const toTitleCase = (phrase) => (
+    phrase
       .toLowerCase()
       .split(' ')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
+      .join(' ')
+    );
 
   breadCrumbArr.forEach((item, index) => {
     const linkPath = breadCrumbArr.slice(0, index + 1).join('/');
