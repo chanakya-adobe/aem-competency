@@ -102,12 +102,37 @@ function buildHeadings(main) {
     });
 }
 
+function buildBreadcrumbs(doc, breadcrumbs) {
+   const main = doc.querySelector('main');
+   const $div = doc.createElement('div');
+   $div.classList.add('breadcrumb-wrapper');
+   if(main) {
+    while (breadcrumbs.length) {
+      const step = breadcrumbs.shift();
+      const $ul = doc.createElement('ul');
+      const $li = doc.createElement('li');
+      $ul.append($li);
+      let $wrap = $li;
+      if (step.link) {
+        $wrap = doc.createElement('a');
+        $wrap.href = step.link;
+        $li.append($wrap);
+      }
+      const $span = doc.createElement('span');
+      $wrap.append($span);
+      $span.textContent = step.text;
+      $div.append($ul);
+    }
+    main.insertBefore($div, main.firstChild);
+   }
+}
+
 function createBreadcrumb(doc) {
    const path = window.location.pathname;
    const breadCrumbArr = path.split('/');
    const breadcrumbs = [{
        text: 'Home',
-       link: '/',
+       link: window.location.origin,
      }];
 
    const toTitleCase = (phrase) => {
@@ -123,17 +148,16 @@ function createBreadcrumb(doc) {
        if(item != '' && index != breadCrumbArr.length - 1) {
            breadcrumbs.push({
               text : toTitleCase(item.replace(/-/g, ' ')),
-              link : linkPath
+              link : (window.location.origin).concat(linkPath)
            });
        } else if(item != '' && index == breadCrumbArr.length - 1) {
           breadcrumbs.push({
              text : getMetadata('og:title'),
-             link : linkPath
+             link : (window.location.origin).concat(linkPath)
           });
        }
    })
-
-   console.log(breadcrumbs);
+   buildBreadcrumbs(doc, breadcrumbs)
 }
 
 /**
