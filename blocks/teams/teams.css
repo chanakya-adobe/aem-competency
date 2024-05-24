@@ -1,0 +1,39 @@
+.teams {
+  background-color: var(--teams-background-color);
+  box-shadow: 1px 2px 4px var(--teams-shadow-color);
+  border-radius: 8px;
+  padding: 24px 16px;
+  color: var(--teams-text-color);
+}
+
+.teams h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--body-text-color);
+}
+
+.teams h4 {
+  margin: 1.25rem 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.teams .team-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.teams .team-list > div {
+  width: 170px;
+}
+
+.teams .team-list > div.team-user-img {
+  display: flex;
+}
+
+.teams .team-list > div.team-user-img img {
+  margin-right: 1rem;
+}

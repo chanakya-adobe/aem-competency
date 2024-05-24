@@ -23,6 +23,9 @@
   --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
+  --teams-background-color: #0D2D52;
+  --teams-shadow-color: #000029;
+  --teams-text-color: #E6E6E6;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -117,6 +120,10 @@ header {
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+dl, ol, ul {
+  padding-inline-start: 14px;
 }
 
 /* Headings */

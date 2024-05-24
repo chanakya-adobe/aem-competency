@@ -1,3 +1,5 @@
+import { toCamelCase } from './aem.js';
+
 const TEMPLATE_COL_LEFT = '.section.template-left-column';
 const TEMPLATE_COL_RIGHT = '.section.template-right-column';
 
@@ -99,4 +101,17 @@ export function decorateTwoColTemplate(main) {
   templateContainer.append(rightContainer);
 
   main.append(templateContainer);
+}
+
+/**
+ * Generate author image url by author name.
+ *
+ * @param {*} author
+ * @param {*} placeholder
+ * @returns
+ */
+export function getAuthorImage(author, placeholder) {
+  const authorIdentifier = toCamelCase(`user-${author}`);
+
+  return placeholder[authorIdentifier];
 }
