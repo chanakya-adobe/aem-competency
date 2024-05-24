@@ -10,7 +10,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  getMetadata
+  getMetadata,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -103,57 +103,57 @@ function buildHeadings(main) {
 }
 
 function buildBreadcrumbs(doc, breadcrumbs) {
-   const main = doc.querySelector('main');
-   const $div = doc.createElement('div');
-   $div.classList.add('breadcrumb-wrapper');
-   if(main) {
-    while (breadcrumbs.length) {
-      const step = breadcrumbs.shift();
-      const $ul = doc.createElement('ul');
-      const $li = doc.createElement('li');
-      $ul.append($li);
-      let $wrap = $li;
-      if (step.link) {
-        $wrap = doc.createElement('a');
-        $wrap.href = step.link;
-        $li.append($wrap);
-      }
-      const $span = doc.createElement('span');
-      $wrap.append($span);
-      $span.textContent = step.text;
-      $div.append($ul);
+  const main = doc.querySelector('main');
+  const $div = doc.createElement('div');
+  $div.classList.add('breadcrumb-wrapper');
+  if (main) {
+   while (breadcrumbs.length) {
+    const step = breadcrumbs.shift();
+    const $ul = doc.createElement('ul');
+    const $li = doc.createElement('li');
+    $ul.append($li);
+    let $wrap = $li;
+    if (step.link) {
+      $wrap = doc.createElement('a');
+      $wrap.href = step.link;
+      $li.append($wrap);
     }
-    main.insertBefore($div, main.firstChild);
-   }
+    const $span = doc.createElement('span');
+    $wrap.append($span);
+    $span.textContent = step.text;
+    $div.append($ul);
+  }
+  main.insertBefore($div, main.firstChild);
+  }
 }
 
 function createBreadcrumb(doc) {
-   const path = window.location.pathname;
-   const breadCrumbArr = path.split('/');
-   const breadcrumbs = [{
-       text: 'Home',
-       link: window.location.origin,
-     }];
+  const path = window.location.pathname;
+  const breadCrumbArr = path.split('/');
+  const breadcrumbs = [{
+    text: 'Home',
+    link: window.location.origin,
+  }];
 
-   const toTitleCase = (phrase) => {
-      return phrase
-        .toLowerCase()
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-   };
+  const toTitleCase = (phrase) => {
+    return phrase
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
 
    breadCrumbArr.forEach((item, index) => {
-       const linkPath = breadCrumbArr.slice( 0, index + 1 ).join('/');
-       if(item != '' && index != breadCrumbArr.length - 1) {
-           breadcrumbs.push({
-              text : toTitleCase(item.replace(/-/g, ' ')),
-              link : (window.location.origin).concat(linkPath)
-           });
-       } else if(item != '' && index == breadCrumbArr.length - 1) {
+     const linkPath = breadCrumbArr.slice( 0, index + 1 ).join('/');
+     if (item != '' && index != breadCrumbArr.length - 1) {
+         breadcrumbs.push({
+            text : toTitleCase(item.replace(/-/g, ' ')),
+            link : (window.location.origin).concat(linkPath)
+         });
+       } else if (item != '' && index == breadCrumbArr.length - 1) {
           breadcrumbs.push({
-             text : getMetadata('og:title'),
-             link : (window.location.origin).concat(linkPath)
+            text : getMetadata('og:title'),
+            link : (window.location.origin).concat(linkPath)
           });
        }
    })
