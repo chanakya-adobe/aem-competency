@@ -143,7 +143,7 @@ function createBreadcrumb(doc) {
       .split(' ')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ')
-    );
+  );
 
   breadCrumbArr.forEach((item, index) => {
     const linkPath = breadCrumbArr.slice(0, index + 1).join('/');
