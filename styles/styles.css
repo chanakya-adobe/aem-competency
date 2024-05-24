@@ -375,6 +375,6 @@ main .breadcrumb-wrapper li:not(:last-child)::after {
   content: ">";
 }
 
-main .breadcrumb-wrapper a {
+main .breadcrumb-wrapper a.breadcrumb-link {
    color: var(--body-text-color);
 }

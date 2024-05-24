@@ -115,6 +115,7 @@ function buildBreadcrumbs(doc, breadcrumbs) {
       let $wrap = $li;
       if (step.link) {
         $wrap = doc.createElement('a');
+        $wrap.classList.add('breadcrumb-link');
         $wrap.href = step.link;
         $li.append($wrap);
       }
