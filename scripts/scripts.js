@@ -104,7 +104,7 @@ function buildHeadings(main) {
 
 function buildBreadcrumbs(doc, breadcrumbs) {
   const main = doc.querySelector('main');
-  if (main) {
+  if (main && breadcrumbs.length > 1) {
     const $div = doc.createElement('div');
     $div.classList.add('breadcrumb-wrapper');
     const $ul = doc.createElement('ul');

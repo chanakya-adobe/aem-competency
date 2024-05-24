@@ -357,19 +357,24 @@ main .section.highlight {
 }
 
 main .breadcrumb-wrapper {
-  padding-top: 2rem;
+  padding-top: 20px;
 }
 
 main .breadcrumb-wrapper ul {
   display: flex;
+  height: 20px;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 2.5rem;
+  margin: 0 40px;
   padding: 0;
 }
 
 main .breadcrumb-wrapper li:not(:last-child)::after {
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 12px;
   content: ">";
+}
+
+main .breadcrumb-wrapper a {
+   color: var(--body-text-color);
 }
