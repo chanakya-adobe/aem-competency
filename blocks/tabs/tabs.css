@@ -8,6 +8,10 @@
 .full-view {
   margin-top: -80px;
 }
+
+.full-view .tabs-list {
+  border-bottom: solid 1px var(--button-secondary-text-color) ;
+}
 @media (width >= 1280px) { 
   .tabs .tabs-list {
     justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
