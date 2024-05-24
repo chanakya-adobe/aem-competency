@@ -10,7 +10,11 @@
   .tabs .tabs-list {
     justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
   }
-}
+  .full-view .tabs-list{
+    justify-content: flex-start;
+    border-bottom: solid 1px var(--button-secondary-text-color) ;
+  }
+} 
 
 .tabs .tabs-list button {
   flex: 0 0 max-content;
@@ -60,7 +64,11 @@
 }
 
 @media (width >= 1280px) { 
-  .tabs-wrapper {
+  .tabs {
     margin-top: -60px;
   }
+  .full-view {
+    margin-top: -110px;
+  }
+  
 }
