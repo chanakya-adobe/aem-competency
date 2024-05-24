@@ -129,10 +129,10 @@ function buildBreadcrumbs(doc, breadcrumbs) {
 
 function createBreadcrumb(doc) {
   const path = window.location.pathname;
-  const breadCrumbArr = path.split("/");
+  const breadCrumbArr = path.split('/');
   const breadcrumbs = [
     {
-      text: "Home",
+      text: 'Home',
       link: window.location.origin,
     },
   ];
@@ -140,21 +140,21 @@ function createBreadcrumb(doc) {
   const toTitleCase = (phrase) => {
     return phrase
       .toLowerCase()
-      .split(" ")
+      .split(' ')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+      .join(' ');
   };
 
   breadCrumbArr.forEach((item, index) => {
-    const linkPath = breadCrumbArr.slice(0, index + 1).join("/");
-    if (item != "" && index != breadCrumbArr.length - 1) {
+    const linkPath = breadCrumbArr.slice(0, index + 1).join('/');
+    if (item !== '' && index !== breadCrumbArr.length - 1) {
       breadcrumbs.push({
-        text: toTitleCase(item.replace(/-/g, " ")),
+        text: toTitleCase(item.replace(/-/g, ' ')),
         link: window.location.origin.concat(linkPath),
       });
-    } else if (item != "" && index == breadCrumbArr.length - 1) {
+    } else if (item !== '' && index === breadCrumbArr.length - 1) {
       breadcrumbs.push({
-        text: getMetadata("og:title"),
+        text: getMetadata('og:title'),
         link: window.location.origin.concat(linkPath),
       });
     }
