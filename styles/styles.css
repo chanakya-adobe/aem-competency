@@ -355,3 +355,21 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
+
+main .breadcrumb-wrapper {
+  padding-top: 2rem;
+}
+
+main .breadcrumb-wrapper ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 40px;
+  padding: 0;
+}
+
+main .breadcrumb-wrapper li:not(:last-child)::after {
+  display: inline-block;
+  margin: 0 1rem;
+  content: ">";
+}

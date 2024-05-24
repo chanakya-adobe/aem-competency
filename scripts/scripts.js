@@ -104,12 +104,12 @@ function buildHeadings(main) {
 
 function buildBreadcrumbs(doc, breadcrumbs) {
   const main = doc.querySelector('main');
-  const $div = doc.createElement('div');
-  $div.classList.add('breadcrumb-wrapper');
   if (main) {
+    const $div = doc.createElement('div');
+    $div.classList.add('breadcrumb-wrapper');
+    const $ul = doc.createElement('ul');
     while (breadcrumbs.length) {
       const step = breadcrumbs.shift();
-      const $ul = doc.createElement('ul');
       const $li = doc.createElement('li');
       $ul.append($li);
       let $wrap = $li;
