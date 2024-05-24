@@ -364,7 +364,7 @@ main .breadcrumb-wrapper ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 40px;
+  margin: 0 2.5rem;
   padding: 0;
 }
 
