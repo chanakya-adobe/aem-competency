@@ -6,10 +6,6 @@
   flex-direction: row;
 }
 
-.full-view {
-  margin-top: -80px;
-}
-
 .full-view .tabs-list {
   border-bottom: solid 1px var(--button-secondary-text-color) ;
 }
@@ -21,7 +17,6 @@
 
   .full-view .tabs-list{
     justify-content: flex-start;
-    border-bottom: solid 1px var(--button-secondary-text-color) ;
   }
 } 
 
@@ -76,9 +71,4 @@
   .tabs {
     margin-top: -60px;
   }
-  
-  .full-view {
-    margin-top: -110px;
-  }
-  
 }
