@@ -71,4 +71,8 @@
   .tabs {
     margin-top: -60px;
   }
+
+  .tabs.full-view {
+    margin-top: 0;
+  }
 }
