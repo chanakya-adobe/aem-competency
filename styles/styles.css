@@ -367,3 +367,8 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
+
+/* Template specific rules */
+.bigbet h1 {
+  margin-bottom: 45px;
+}
