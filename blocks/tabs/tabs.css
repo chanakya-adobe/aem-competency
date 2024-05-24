@@ -6,11 +6,19 @@
   flex-direction: row;
 }
 
+.full-view .tabs-list {
+  border-bottom: solid 1px var(--button-secondary-text-color) ;
+}
+
 @media (width >= 1280px) { 
   .tabs .tabs-list {
     justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
   }
-}
+
+  .full-view .tabs-list{
+    justify-content: flex-start;
+  }
+} 
 
 .tabs .tabs-list button {
   flex: 0 0 max-content;
@@ -60,7 +68,11 @@
 }
 
 @media (width >= 1280px) { 
-  .tabs-wrapper {
+  .tabs {
     margin-top: -60px;
+  }
+
+  .tabs.full-view {
+    margin-top: 0;
   }
 }

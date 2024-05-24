@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Smock_Bell_18_N" transform="translate(1 1)">
+    <rect id="Canvas" width="24" height="24" transform="translate(-1 -1)" fill="#ff13dc" opacity="0"/>
+    <g id="Group_196672" data-name="Group 196672">
+      <path id="Path_12952" data-name="Path 12952" d="M9,18a2.2,2.2,0,0,0,2-2H7a2.2,2.2,0,0,0,2,2Z" transform="translate(2.022 2.999)" fill="#fff"/>
+      <path id="Path_12953" data-name="Path 12953" d="M16.381,6.832c0-2.136-1.992-3.039-4.439-3.274V1.622A.671.671,0,0,0,11.232,1H10.167a.671.671,0,0,0-.71.621V3.559C7.01,3.793,5.018,4.7,5.018,6.832,5.018,16.411,2,15.983,2,17.253V18.4H19.4V17.253C19.4,15.914,16.381,16.411,16.381,6.832Z" transform="translate(0 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
