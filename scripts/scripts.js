@@ -107,23 +107,23 @@ function buildBreadcrumbs(doc, breadcrumbs) {
   const $div = doc.createElement('div');
   $div.classList.add('breadcrumb-wrapper');
   if (main) {
-   while (breadcrumbs.length) {
-    const step = breadcrumbs.shift();
-    const $ul = doc.createElement('ul');
-    const $li = doc.createElement('li');
-    $ul.append($li);
-    let $wrap = $li;
-    if (step.link) {
-      $wrap = doc.createElement('a');
-      $wrap.href = step.link;
-      $li.append($wrap);
+    while (breadcrumbs.length) {
+      const step = breadcrumbs.shift();
+      const $ul = doc.createElement('ul');
+      const $li = doc.createElement('li');
+      $ul.append($li);
+      let $wrap = $li;
+      if (step.link) {
+        $wrap = doc.createElement('a');
+        $wrap.href = step.link;
+        $li.append($wrap);
+      }
+      const $span = doc.createElement('span');
+      $wrap.append($span);
+      $span.textContent = step.text;
+      $div.append($ul);
     }
-    const $span = doc.createElement('span');
-    $wrap.append($span);
-    $span.textContent = step.text;
-    $div.append($ul);
-  }
-  main.insertBefore($div, main.firstChild);
+    main.insertBefore($div, main.firstChild);
   }
 }
 
@@ -143,21 +143,21 @@ function createBreadcrumb(doc) {
       .join(' ');
   };
 
-   breadCrumbArr.forEach((item, index) => {
-     const linkPath = breadCrumbArr.slice( 0, index + 1 ).join('/');
-     if (item != '' && index != breadCrumbArr.length - 1) {
-         breadcrumbs.push({
-            text : toTitleCase(item.replace(/-/g, ' ')),
-            link : (window.location.origin).concat(linkPath)
-         });
-       } else if (item != '' && index == breadCrumbArr.length - 1) {
-          breadcrumbs.push({
-            text : getMetadata('og:title'),
-            link : (window.location.origin).concat(linkPath)
-          });
-       }
-   })
-   buildBreadcrumbs(doc, breadcrumbs)
+  breadCrumbArr.forEach((item, index) => {
+    const linkPath = breadCrumbArr.slice(0, index + 1).join('/');
+    if (item != '' && index != breadCrumbArr.length - 1) {
+      breadcrumbs.push({
+        text: toTitleCase(item.replace(/-/g, ' ')),
+        link: (window.location.origin).concat(linkPath)
+      });
+    } else if (item != '' && index == breadCrumbArr.length - 1) {
+      breadcrumbs.push({
+        text: getMetadata('og:title'),
+        link: (window.location.origin).concat(linkPath)
+      });
+    }
+  })
+  buildBreadcrumbs(doc, breadcrumbs)
 }
 
 /**
