@@ -1,3 +1,6 @@
+const TEMPLATE_COL_LEFT = '.section.template-left-column';
+const TEMPLATE_COL_RIGHT = '.section.template-right-column';
+
 /**
  * Add classes to elements.
  * @param {String} tag Element tag
@@ -68,4 +71,32 @@ export function decorateLinkedPictures(container) {
  */
 export function isDesktop() {
   return window.innerWidth >= 1280;
+}
+
+/**
+ * Decorate page with two columns
+ *
+ * @param {} main
+ */
+export function decorateTwoColTemplate(main) {
+  const leftContainer = document.createElement('div');
+  leftContainer.className = 'template-left-container';
+  [...main.querySelectorAll(TEMPLATE_COL_LEFT)]
+    .forEach((section) => {
+      leftContainer.append(section);
+    });
+
+  const rightContainer = document.createElement('div');
+  rightContainer.className = 'template-right-container';
+  [...main.querySelectorAll(TEMPLATE_COL_RIGHT)]
+    .forEach((section) => {
+      rightContainer.append(section);
+    });
+
+  const templateContainer = document.createElement('div');
+  templateContainer.className = 'template-two-col-container';
+  templateContainer.append(leftContainer);
+  templateContainer.append(rightContainer);
+
+  main.append(templateContainer);
 }
