@@ -12,7 +12,7 @@ function generateTeamList(category, team, placeholder) {
 
   const teamContainer = document.createElement('div');
   teamContainer.className = 'team-container';
-  const teamHeading = document.createElement('h4');
+  const teamHeading = document.createElement('h3');
   teamHeading.innerHTML = `${category.replace(/-/g, ' ')} (${teamSize})`;
   teamContainer.append(teamHeading);
 
@@ -41,7 +41,7 @@ export default async function decorate(block) {
   Object.entries(blockConfig).map((entry) => {
     const key = entry[0]; const value = entry[1];
     if (key === HEADING) {
-      const heading = document.createElement('h3');
+      const heading = document.createElement('h2');
       heading.innerHTML = value;
       block.append(heading);
     } else {
