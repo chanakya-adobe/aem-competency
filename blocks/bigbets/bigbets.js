@@ -11,7 +11,7 @@ const getListHTML = (row) => `
 const getButtonHTML = (row) => `<p class='button-container'><a href="${row.path}" class="button primary" title="${row.title}">Join</a><p>`;
 const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span> ${row.visibility}</div>`;
 const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
-const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
+const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
 
 function getAuthorImage(author, placeholder) {
