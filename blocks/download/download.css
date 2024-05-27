@@ -1,6 +1,6 @@
 .download > div {
     display: flex;
-    gap: 1rem; /* Optional: Adds space between the elements */
+    gap: 70px; /* Optional: Adds space between the elements */
 }
 
 .columns.columns-2-cols > div {
@@ -9,7 +9,7 @@
 }
 
 a:any-link{
- margin-left:20px;
+ margin-left:10px;
 }
 
 .icon-container p {
