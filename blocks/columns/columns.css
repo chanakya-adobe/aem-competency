@@ -7,8 +7,29 @@
   width: 100%;
 }
 
+.download > div {
+   display: flex;
+   padding:0;
+}
+
 .columns > div > div {
   order: 1;
+}
+
+.columns.columns-2-cols > div {
+   display: flex;
+   flex-direction: row;
+}
+
+a:any-link{
+   margin-left:10px;
+   padding:0;
+}
+
+.icon-container p {
+    display: flex;
+    align-items: center;
+    padding:0;
 }
 
 .columns > div > .columns-img-col {
@@ -90,3 +111,6 @@
     width: 65%;
   }
 }
+
+
+
