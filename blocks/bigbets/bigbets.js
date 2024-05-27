@@ -20,6 +20,16 @@ function getAuthorImage(author, placeholder) {
   return placeholder[authorIdentifier];
 }
 
+function createCardImage(src, alt) {
+  const cardImg = document.createElement('div');
+  cardImg.className = 'bb-image';
+  cardImg.append(createOptimizedPicture(src, alt));
+  cardImg.querySelector('img').width = 600;
+  cardImg.querySelector('img').height = 300;
+
+  return cardImg;
+}
+
 async function printList(list, placeholder) {
   let printCount = 0;
   const containerDiv = document.createElement('div');
@@ -33,10 +43,7 @@ async function printList(list, placeholder) {
     }
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('bb-card');
-    const cardImg = document.createElement('div');
-    cardImg.className = 'bb-image';
-    cardImg.append(createOptimizedPicture(row.image, row.title));
-    cardDiv.append(cardImg);
+    cardDiv.append(createCardImage(row.image, row.title));
     cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
 
     const metaContainer = document.createElement('div');
