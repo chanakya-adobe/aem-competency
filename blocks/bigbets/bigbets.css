@@ -30,10 +30,8 @@
 }
 
 .bb-card .bb-content {
-  padding: 24px 24px 60px;
+  padding: 24px 24px 0;
   font-size: var(--body-font-size-xxs);
-  display: block;
-  position: relative;
 }
 
 .bb-card h3 {
@@ -89,8 +87,6 @@
 
 .bb-content .button-container {
   margin-top: 1.5rem;
-  position: absolute;
-  bottom: 0;
 }
 
 .bb-content .button-container a {
