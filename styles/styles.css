@@ -25,7 +25,7 @@
   --heading-secondary: #EB1100;
   --dark-gray: #454545;
   --light-gray: #5D5D5D;
-  --medium-gray: #5c5151;
+  --medium-gray: #727272;
   --very-light-gray: #D5D5D5;
 
   /* fonts */
@@ -217,7 +217,6 @@ a.button:any-link, button {
   cursor: pointer;
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
-  margin: .5rem 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

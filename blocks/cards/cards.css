@@ -2,9 +2,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
-  grid-gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cards > ul > li {
@@ -13,7 +12,55 @@
   box-shadow: 0 3px 6px #00000029;
   border-radius: 16px;
   opacity: 1;
-  color: var(--dark-gray);
+  color: var(--light-gray);
+}
+
+.cards.training .cards-card-body > ul {
+  display: flex;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 14px;
+  color: var(--text-color);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cards.training .cards-card-body > ul li {
+  flex: 1;
+}
+
+.cards.training .cards-card-body progress {
+  height: 4px;
+  width: 92px;
+  border-radius: 2px;
+  background-color: var(--body-text-color);
+  vertical-align: top;
+  margin-top: 5px;
+}
+
+/* Style the progress value */
+progress::-webkit-progress-value {
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Style the progress bar text */
+progress::-webkit-progress-bar {
+  border-radius: 2px;
+  background: var(--body-text-color) 0% 0% no-repeat padding-box;
+  border: 0.2px solid var(--text-color);
+}
+
+@media (width > 900px) {
+  .cards > ul > li {
+    flex: 1;
+    margin-right: 32px;
+  }
+
+  .cards > ul > li:last-child {
+    margin-right: 0;
+  }
 }
 
 .cards .cards-card-body {
@@ -24,20 +71,27 @@
   color: var(--text-color);
 }
 
-.cards .cards-card-body h6 {
+.cards .cards-card-body h5 {
   position: absolute;
   right: 0;
   top: 16px;
   background-color: var(--very-light-gray);
+  border-radius: 8px 0 0 8px;
   font-size: 14px;
-  padding: 6px;
+  padding: 8px;
   color: var(--text-color);
 
 }
 
-.cards .cards-card-body h5 {
+.cards .cards-card-body h6 {
   color: var(--medium-gray);
   font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.cards .cards-card-body h6 + p {
+  margin-top: 0;
+  margin-bottom: 4px;
 }
 
 .cards .cards-card-image {
