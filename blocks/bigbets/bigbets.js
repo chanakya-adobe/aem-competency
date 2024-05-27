@@ -10,10 +10,9 @@ const getListHTML = (row) => `
   </div>`;
 
 const getButtonHTML = (row) => `<p class='button-container'><a href="${row.path}" class="button primary" title="${row.title}">Join</a><p>`;
-
 const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span> ${row.visibility}</div>`;
-const metaStatusHTML = (row) => `<div class="status">Status: <strong> ${row.status}</strong></div>`;
-const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}"> <strong>${row.author}</strong></div>`;
+const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
+const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
 
 function getAuthorImage(author, placeholder) {
@@ -35,13 +34,10 @@ async function printList(list, placeholder) {
     }
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('bb-card');
-
     cardDiv.innerHTML = getListHTML(row);
-
     cardDiv.querySelector('.bb-image').innerHTML = createOptimizedPicture(row.image, row.title).outerHTML;
 
     const metaContainer = document.createElement('div');
-
     const authorImg = getAuthorImage(row.author, placeholder);
 
     metaContainer.className = 'big-bet-meta';

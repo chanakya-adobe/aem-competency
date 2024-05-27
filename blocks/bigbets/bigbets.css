@@ -1,6 +1,10 @@
+.bigbets {
+  margin-top: 2.5rem;
+}
+
 .bb-container {
   display: flex;
-  gap: 32px;
+  gap: 2rem;
   color: var(--text-color);
   flex-direction: column;
 }
@@ -9,18 +13,12 @@
   background-color: white;
   overflow: hidden;
   border-radius: 1.25rem;
-  top: 148px;
-  left: 40px;
+  flex: 1;
 }
 
 .bb-card .bb-image {
   max-height: 250px;
   overflow: hidden;
-}
-
-.bb-meta > div > span > img {
-  height: 24px;
-  width: 24px;
 }
 
 .bb-card .bb-image img {
@@ -31,103 +29,75 @@
   transform: scale(1.1);
 }
 
-.bb-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .bb-card .bb-content {
-  padding: 16px 16px 0;
+  padding: 24px 24px 60px;
+  font-size: var(--body-font-size-xxs);
+  display: block;
+  position: relative;
 }
 
 .bb-card h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
-  min-height: 40px;
+  line-height: 1.5rem;
+  min-height: 3rem;
 }
 
-.bbtags {
-  list-style-type: none;
-  text-align: center;
+.bb-card .bb-description {
+  margin: 0;
+}
+
+.bb-card .big-bet-meta {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 8px;
-  padding: 0;
-  margin-top: 2;
-}
-
-.bbtags li {
-  display: inline-block;
-  text-align: center;
-  border: 1px solid #454545;
-  border-radius: 2px;
-  padding: 2px 4px;
-  font-size: 14px;
-  letter-spacing: 0;
-  color: #454545;
-  opacity: 1;
-  top: 580px;
-  left: 64px;
-}
-
-.bb-meta {
-  display: flex;
-  gap: 8px;
-  margin: 8px 0;
-  align-items: center;
-  justify-content: start;
-}
-
-.bb-meta > div {
-  height: 35px;
-}
-
-.bb-content .big-bet-meta {
-  display: flex;
-  font-size: var(--body-font-size-xxs);
-  flex-wrap: wrap;
   justify-content: space-between;
-  padding-top: 10px;
+  margin: 1rem 0 .5rem;
+  gap: .5rem;
 }
 
-.bb-content .big-bet-meta .icon-container {
-  display: flex;
-}
-
-.bb-content .big-bet-meta .owner {
+.bb-card .big-bet-meta > div {
   display: flex;
   justify-content: center;
 }
 
-.bb-content .big-bet-meta > div {
-  padding-right: 1.5rem;
+.bb-card .big-bet-meta .icon.icon-globe {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+.bb-card .big-bet-meta .owner img {
+  margin: 0 6px;
+  width: 24px;
+  height: 24px;
+}
+
+.bbtags {
+  list-style-type: none;
+  display: flex;
+  gap: .5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.bbtags li {
+  border: 1px solid #454545;
+  border-radius: 3px;
+  padding: .25rem .5rem;
+  color: #454545;
 }
 
 .bb-content .button-container {
-  flex-direction: row;
-  gap: 8px;
-  margin: 8px 0;
+  margin-top: 1.5rem;
+  position: absolute;
+  bottom: 0;
 }
 
-.bb-meta > div > span {
-  display: block;
-  height: 35px;
-}
-
-.bb-description {
+.bb-content .button-container a {
   margin: 0;
-  font-size: 14px;
-  color: #454545;
-  letter-spacing: 0;
 }
 
 @media (width >= 768px) {
-  .bb-card .bb-content {
-    padding: 24px 24px 0;
-  }
-
   .bb-container {
     flex-direction: row;
   }

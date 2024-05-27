@@ -102,6 +102,7 @@ body {
   background-color: var(--background-color);
   background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-gradient)); 
   display: none;
+  min-height: 800px;
 }
 
 body.appear {
