@@ -3,7 +3,13 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+@media (width > 900px) {
+  .cards > ul {
+    overflow: hidden;
+  }
 }
 
 .cards > ul > li {
@@ -13,6 +19,12 @@
   border-radius: 16px;
   opacity: 1;
   color: var(--light-gray);
+  margin-right: 32px;
+  min-width: 275px;
+}
+
+.cards > ul > li:last-child {
+  margin-right: 0;
 }
 
 .cards.training .cards-card-body > ul {
@@ -55,11 +67,6 @@ progress::-webkit-progress-bar {
 @media (width > 900px) {
   .cards > ul > li {
     flex: 1;
-    margin-right: 32px;
-  }
-
-  .cards > ul > li:last-child {
-    margin-right: 0;
   }
 }
 
