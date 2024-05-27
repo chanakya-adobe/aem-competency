@@ -3,7 +3,6 @@ import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
 import { getTagList } from '../../scripts/utils.js';
 
 const getListHTML = (row) => `
-<div class="bb-image"><img src="${row.image}" alt="${row.title}"/></div>
 <div class="bb-content">
   <h3>${row.title}</h3>
   <p class="bb-description">${row.description}</p>
@@ -34,8 +33,11 @@ async function printList(list, placeholder) {
     }
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('bb-card');
-    cardDiv.innerHTML = getListHTML(row);
-    cardDiv.querySelector('.bb-image').innerHTML = createOptimizedPicture(row.image, row.title).outerHTML;
+    const cardImg = document.createElement('div');
+    cardImg.className = 'bb-image';
+    cardImg.append(createOptimizedPicture(row.image, row.title));
+    cardDiv.append(cardImg);
+    cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
 
     const metaContainer = document.createElement('div');
     const authorImg = getAuthorImage(row.author, placeholder);
