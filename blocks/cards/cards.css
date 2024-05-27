@@ -3,12 +3,12 @@
   margin: 0;
   padding: 0;
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 
 @media (width > 600px) {
   .cards > ul {
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
