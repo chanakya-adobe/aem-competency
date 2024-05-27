@@ -1,16 +1,6 @@
-import {fetchPlaceholders, toCamelCase } from '../../scripts/aem.js';
-
-import {
-  fetchSearch,
-  CATEGORY_BIGBETS,
-} from '../../scripts/scripts.js';
-
-import {
-  getTagList,
-} from '../../scripts/utils.js';
-
-
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { fetchPlaceholders, toCamelCase, createOptimizedPicture } from '../../scripts/aem.js';
+import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
+import { getTagList } from '../../scripts/utils.js';
 
 const getListHTML = (row) => `
 <div class="bb-image"><img src="${row.image}" alt="${row.title}"/></div>
@@ -56,7 +46,7 @@ async function printList(list, placeholder) {
 
     metaContainer.className = 'big-bet-meta';
     metaContainer.insertAdjacentHTML('beforeend', metaVisibilityHTML(row));
-    
+
     if (authorImg) {
       metaContainer.insertAdjacentHTML('beforeend', metaAuthorImgHTML(row, authorImg));
     } else {
@@ -64,7 +54,6 @@ async function printList(list, placeholder) {
     }
 
     metaContainer.insertAdjacentHTML('beforeend', metaStatusHTML(row));
-  
     cardDiv.querySelector('.bb-content').insertAdjacentElement('beforeend', metaContainer);
 
     if (row.tags) {
@@ -72,13 +61,12 @@ async function printList(list, placeholder) {
     }
 
     cardDiv.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row));
-  
     containerDiv.append(cardDiv);
     printCount += 1;
 
     return true;
   });
- 
+
   return containerDiv;
 }
 
