@@ -1,0 +1,55 @@
+.community-cards .cc-container {
+  gap: 32px;
+  color: var(--text-color);
+  display: flex;
+  overflow-x: scroll;
+}
+.community-cards .cc-container::-webkit-scrollbar {
+  display: none;
+}
+
+.community-cards .cc-container .card {
+  background: var(--body-text-color) 0 0 no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 16px;
+  opacity: 1;
+  flex: 1;
+  min-width: 240px;
+  overflow: none;
+  padding: 1.5rem 0;
+}
+
+.community-cards .cc-container .card .card-header{
+  display: flex;
+  padding-left: 1rem;
+}
+
+.community-cards .cc-container .card .card-header h3{
+  margin: 0;
+  flex: 1;
+  line-height: 1.25;
+  font-weight: 700;
+  font-size: var(--body-font-size-xs);
+}
+
+.community-cards .cc-container .card .card-header .card-category{
+  margin: 0 0 0 5px;
+  height: fit-content;
+  font-weight: 650;
+  line-height: 1.25;
+  padding: 8px 4px;
+  background-color: var(--light-grey);
+  border-radius: 4px 0 0 4px;
+  font-size: var(--body-font-size-xxs);
+}
+
+.community-cards .cc-container .card .card-description{
+  padding: 0 1rem;
+  margin: 0.5rem 0 1.188rem 0;
+  font-size: var(--body-font-size-xxs);
+}
+
+.community-cards .cc-container .card .card-meta{
+  padding: 0 1rem;
+  font-size: var(--body-font-size-xxs);
+}

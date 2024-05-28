@@ -22,6 +22,10 @@ const TEMPLATE_LIST = {
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
 
+export const CATEGORY_BIGBETS = 'Big Bets';
+export const CATEGORY_FORUM = 'Forum';
+export const CATEGORY_MENTORING = 'Mentoring';
+
 /**
  * Add a wrapper to icons parent element.
  * @param {Element} [element] Element containing icons
@@ -229,6 +233,22 @@ function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
+}
+
+export async function fetchSearch(category = '') {
+  window.searchData = window.searchData || {};
+  if (Object.keys(window.searchData).length === 0) {
+    const path = '/query-index.json?limit=500&offset=0';
+
+    const resp = await fetch(path);
+    window.searchData = JSON.parse(await resp.text()).data;
+  }
+
+  if (category !== '') {
+    return window.searchData.filter((el) => el.category === category);
+  }
+
+  return window.searchData;
 }
 
 async function loadPage() {
