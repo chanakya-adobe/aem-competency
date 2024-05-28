@@ -2,6 +2,7 @@ import {
   fetchSearch, CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING,
 } from '../../scripts/scripts.js';
 import { readBlockConfig } from '../../scripts/aem.js';
+import { getTagList } from '../../scripts/utils.js';
 
 async function getCommunityCards(communityList, block) {
   const blockConfig = readBlockConfig(block);
@@ -14,40 +15,51 @@ async function getCommunityCards(communityList, block) {
   return arr;
 }
 
-const generateBigBetsCard = (card) => `<div class="card big-bets-content">
-    <div class="card-header">
-    <h3>${card.title}</h3>
-    <div class="card-category">${card.category}</div>
-    </div>
-    <p class="card-description">${card.description}</p>
-    <div class="card-meta">
-      <div class="visibility"><img src="https://main--aem-competency--aem-comp.hlx.live/assets/users/media_15e8d069f911ce3c77611de6ae5818e6445deaf30.png" /> ${card.visibility}</div>
-      <div class="owner">Owner: <img src="https://main--aem-competency--aem-comp.hlx.live/assets/users/media_15e8d069f911ce3c77611de6ae5818e6445deaf30.png"/ > <strong>${card.author}</strong></div>
-      <div class="status">Status: <strong>${card.status}</strong></div>
-    </div> 
-    <div class='button-container'><a href="${card.path}" class="button primary" title="${card.title}">Learn More</a></div>
-    </div>`;
+const generateBigBetsCard = (card) => {
+  const bigBetsContainer = document.createElement('div');
+  bigBetsContainer.classList.add('card');
+  bigBetsContainer.classList.add('big-bets-content');
+  const bigBetContent = `
+      <div class="card-header">
+      <h3>${card.title}</h3>
+      <div class="card-category">${card.category}</div>
+      </div>
+      <p class="card-description">${card.description}</p>
+      <div class="card-meta">
+      <div class="card-meta-first-section">
+        <div class="visibility card-meta-items icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span>${card.visibility}</div>
+        <div class="owner card-meta-items">Owner <img src="https://main--aem-competency--aem-comp.hlx.live/assets/users/media_15e8d069f911ce3c77611de6ae5818e6445deaf30.png"></img><strong>${card.author}</strong></div>
+      </div>  
+        <div class="status">Status: <strong>${card.status}</strong></div>
+      </div>`;
+  bigBetsContainer.innerHTML = bigBetContent;
+  bigBetsContainer.append(getTagList(card.tags));
+  const ctaButtonHtml = `<a href="${card.path}" class="button primary" title="${card.title}">Learn More</a>`;
+  const ctaButtonEl = document.createElement('div');
+  ctaButtonEl.className = 'button-container';
+  ctaButtonEl.innerHTML = ctaButtonHtml;
+  bigBetsContainer.append(ctaButtonEl);
+  return bigBetsContainer;
+};
 
 const generateForumCard = (card) => {
-
+  
 };
 
 const generateMentoringCard = (card) => {
 
 };
 
-const getCardListHtml = (cards) => {
-  let list = '';
+const getCardListHtml = (cards, cardContainer) => {
   while (cards.length > 0) {
     const card = cards.splice(0, 1)[0];
     switch (card.category) {
-      case CATEGORY_BIGBETS: list += generateBigBetsCard(card); break;
-      case CATEGORY_FORUM: list += generateForumCard(card); break;
-      case CATEGORY_MENTORING: list += generateMentoringCard(card); break;
+      case CATEGORY_BIGBETS: cardContainer.append(generateBigBetsCard(card)); break;
+      case CATEGORY_FORUM: cardContainer.append(generateForumCard(card)); break;
+      case CATEGORY_MENTORING: cardContainer.append(generateMentoringCard(card)); break;
       default:
     }
   }
-  return list;
 };
 
 export default async function decorate(block) {
@@ -56,7 +68,7 @@ export default async function decorate(block) {
   block.textContent = '';
   const cardContainer = document.createElement('div');
   cardContainer.className = 'cc-container';
-  cardContainer.innerHTML = getCardListHtml(cards, cardContainer);
+  getCardListHtml(cards, cardContainer);
 
   block.append(cardContainer);
 }

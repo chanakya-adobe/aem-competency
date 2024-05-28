@@ -100,3 +100,37 @@ export function decorateTwoColTemplate(main) {
 
   main.append(templateContainer);
 }
+
+
+/**
+ * Generate ul list based on page tags (random list)
+ *
+ * @param {*} tags
+ * @param {*} prefix
+ */
+export function getTagList(tags, prefix = '') {
+  const tagContainer = document.createElement('ul');
+  tagContainer.className = `${prefix}tags`;
+  const tagsList = JSON.parse(tags);
+  const randomList = tagsList.sort(() => 0.5 - Math.random());
+  const remain = tagsList.length - 3;
+  let i = 0;
+  let exitLoop = false;
+  randomList.forEach((tag) => {
+    const tagItem = document.createElement('li');
+    if (exitLoop) {
+      return true;
+    }
+    if (i < 3) {
+      tagItem.innerHTML = tag;
+      tagContainer.append(tagItem);
+    }
+    if (i === 3 && remain > 0) {
+      tagContainer.append('+'.concat(remain));
+      exitLoop = true;
+    }
+    i += 1;
+    return false;
+  });
+  return tagContainer;
+}
