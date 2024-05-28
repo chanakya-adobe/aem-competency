@@ -30,5 +30,5 @@ export default async function decorate(main) {
   const placeholder = await fetchPlaceholders();
   decorateTwoColTemplate(main);
 
-  // autoBlockBigBetData(main, placeholder);
+  autoBlockBigBetData(main, placeholder);
 }
