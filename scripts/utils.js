@@ -83,21 +83,20 @@ export function getTagList(tags, prefix = '') {
   tagContainer.className = `${prefix}tags`;
   const tagsList = JSON.parse(tags);
   const randomList = tagsList.sort(() => 0.5 - Math.random());
- 
   const remain = tagsList.length - 3;
   let i = 0;
-  //tagsList.forEach((tag) => {
-  for (const tag of randomList) {
+  randomList.forEach((tag) => {
     const tagItem = document.createElement('li');
-    tagItem.innerHTML = tag;
-    if (i == 3 && remain > 0) {
-      tagContainer.append('+' + remain);
-      break;
+    if (i < 3) {
+      tagItem.innerHTML = tag;
+      tagContainer.append(tagItem);
+    } 
+    if (i === 3 && remain > 0) {
+      tagContainer.append('+'.concat(remain));
+      return tagContainer;
     }
-    tagContainer.append(tagItem);
-    i++;
-  }
-
+    i += 1;
+  });
   return tagContainer;
 }
 
