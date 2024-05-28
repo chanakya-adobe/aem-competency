@@ -93,6 +93,11 @@
   margin: 0;
 }
 
+.bigbets .view-all {
+  text-align: center;
+  margin: 1.5rem 0 0;
+}
+
 @media (width >= 768px) {
   .bb-container {
     flex-direction: row;

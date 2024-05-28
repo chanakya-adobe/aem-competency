@@ -1,4 +1,4 @@
-import { fetchPlaceholders, toCamelCase, createOptimizedPicture } from '../../scripts/aem.js';
+import { fetchPlaceholders, toCamelCase, createOptimizedPicture ,readBlockConfig} from '../../scripts/aem.js';
 import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
 import { getTagList } from '../../scripts/utils.js';
 
@@ -13,7 +13,7 @@ const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="ic
 const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
 const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
-
+const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
 function getAuthorImage(author, placeholder) {
   const authorIdentifier = toCamelCase(`user-${author}`);
 
@@ -75,10 +75,27 @@ async function printList(list, placeholder) {
   return containerDiv;
 }
 
+function getConfig(block, placeholder) {
+  const config = {};
+  const blockConfig = readBlockConfig(block);
+  config.clientsData = placeholder.clientsData ?? '/clients.json';
+  config.viewAllLabel = blockConfig.viewalllabel ?? 'View all';
+  config.viewAllLink = blockConfig.viewalllink ?? '/';
+  return config;
+}
+
 export default async function decorate(block) {
   const list = await fetchSearch(CATEGORY_BIGBETS);
   block.textContent = '';
   const placeholder = await fetchPlaceholders();
+  const config = getConfig(block, placeholder);
+
   const objects = await printList(list, placeholder);
   block.append(objects);
+
+  const viewAllContainer = document.createElement('div');
+  viewAllContainer.className = 'view-all';
+  viewAllContainer.innerHTML = viewAllLinkHTML(config);
+
+  block.append(viewAllContainer);
 }
