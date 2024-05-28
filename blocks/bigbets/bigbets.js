@@ -1,4 +1,4 @@
-import { fetchPlaceholders, toCamelCase, createOptimizedPicture ,readBlockConfig} from '../../scripts/aem.js';
+import { fetchPlaceholders, toCamelCase, createOptimizedPicture, readBlockConfig } from '../../scripts/aem.js';
 import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
 import { getTagList } from '../../scripts/utils.js';
 
