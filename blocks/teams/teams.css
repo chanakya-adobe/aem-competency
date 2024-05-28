@@ -36,4 +36,6 @@
 
 .teams .team-list > div.team-user-img img {
   margin-right: 1rem;
+  width: 24px;
+  height: 24px;
 }
