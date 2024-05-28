@@ -1,10 +1,11 @@
 .community-cards .cc-container {
-  gap: 32px;
+  gap: 2rem;
   color: var(--text-color);
   display: flex;
   overflow-x: scroll;
   font-size: var(--body-font-size-xxs);
 }
+
 .community-cards .cc-container::-webkit-scrollbar {
   display: none;
 }
@@ -45,12 +46,12 @@
 
 .community-cards .cc-container .card .card-description{
   padding: 0 1rem;
-  margin: 0.5rem 0 1.188rem 0;
+  margin: 0.5rem 0 1.188rem;
 }
 
 .community-cards .cc-container .card .card-meta{
   padding: 0 1rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
 
 .community-cards .cc-container .card .card-meta .card-meta-first-section{
@@ -62,6 +63,10 @@
   align-items: center;
 }
 
+.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items .meta-separator{
+  display: none;
+}
+
 .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner{
   justify-content: right;
   flex: 1;
@@ -69,6 +74,8 @@
 
 .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner img{
   margin: 0 5px;
+  width: 24px;
+  height: 24px;
 }
 
 .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.visibility .icon-globe{
@@ -88,7 +95,7 @@
   align-items: center;
   gap: .5rem;
   padding: 0 1rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
 
 .community-cards .cc-container .card .tags li {
@@ -103,6 +110,40 @@
   font-size: var(--body-font-size-xs);
   line-height: 1.25;
 }
+
 .community-cards .cc-container .card .button-container a {
   margin: 0;
+}
+
+@media (width >= 1280px) {
+  .community-cards .cc-container .card:hover {
+    background-color: #F0F0F0;
+  }
+
+  .community-cards .cc-container .card .card-header .card-category {
+   font-size: 12px;
+  }
+
+  .community-cards .cc-container .card .card-description {
+    margin: 0.625rem 0 1.188rem;
+  }
+
+  .community-cards .cc-container .card .card-meta {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.5rem;
+  }
+
+  .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner {
+    justify-content: normal;
+  }
+
+  .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items .meta-separator{
+    display: block;
+    margin: 0 0.281rem;
+  }
+  
+  .community-cards .cc-container .card .card-meta .status {
+    margin: 0;
+  }
 }
