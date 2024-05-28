@@ -85,17 +85,22 @@ export function getTagList(tags, prefix = '') {
   const randomList = tagsList.sort(() => 0.5 - Math.random());
   const remain = tagsList.length - 3;
   let i = 0;
+  let exitLoop = false;
   randomList.forEach((tag) => {
     const tagItem = document.createElement('li');
+    if (exitLoop) {
+      return true;
+    }
     if (i < 3) {
       tagItem.innerHTML = tag;
       tagContainer.append(tagItem);
-    } 
+    }
     if (i === 3 && remain > 0) {
       tagContainer.append('+'.concat(remain));
-      return tagContainer;
+      exitLoop = true;
     }
     i += 1;
+    return false;
   });
   return tagContainer;
 }
