@@ -118,67 +118,6 @@ function buildHeadings(main) {
     });
 }
 
-function buildBreadcrumbs(doc, breadcrumbs) {
-  const main = doc.querySelector('main');
-  if (main && breadcrumbs.length > 1) {
-    const $div = doc.createElement('div');
-    $div.classList.add('breadcrumb-wrapper');
-    const $ul = doc.createElement('ul');
-    while (breadcrumbs.length) {
-      const step = breadcrumbs.shift();
-      const $li = doc.createElement('li');
-      $ul.append($li);
-      let $wrap = $li;
-      if (step.link) {
-        $wrap = doc.createElement('a');
-        $wrap.classList.add('breadcrumb-link');
-        $wrap.href = step.link;
-        $li.append($wrap);
-      }
-      const $span = doc.createElement('span');
-      $wrap.append($span);
-      $span.textContent = step.text;
-      $div.append($ul);
-    }
-    main.insertBefore($div, main.firstChild);
-  }
-}
-
-function createBreadcrumb(doc) {
-  const path = window.location.pathname;
-  const breadCrumbArr = path.split('/');
-  const breadcrumbs = [
-    {
-      text: 'Home',
-      link: window.location.origin,
-    },
-  ];
-
-  const toTitleCase = (phrase) => (
-    phrase
-      .toLowerCase()
-      .split(' ')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ')
-  );
-
-  breadCrumbArr.forEach((item, index) => {
-    const linkPath = breadCrumbArr.slice(0, index + 1).join('/');
-    if (item !== '' && index !== breadCrumbArr.length - 1) {
-      breadcrumbs.push({
-        text: toTitleCase(item.replace(/-/g, ' ')),
-        link: window.location.origin.concat(linkPath),
-      });
-    } else if (item !== '' && index === breadCrumbArr.length - 1) {
-      breadcrumbs.push({
-        text: getMetadata('og:title'),
-        link: window.location.origin.concat(linkPath),
-      });
-    }
-  });
-  buildBreadcrumbs(doc, breadcrumbs);
-}
-
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -286,17 +225,16 @@ async function loadLazy(doc) {
  * Loads everything that happens a lot later,
  * without impacting the user experience.
  */
-function loadDelayed(doc) {
+function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
-  createBreadcrumb(doc);
 }
 
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
-  loadDelayed(document);
+  loadDelayed();
 }
 
 loadPage();
