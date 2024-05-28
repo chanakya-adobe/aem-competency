@@ -73,7 +73,7 @@ export function isDesktop() {
   return window.innerWidth >= 1280;
 }
 /**
- * Generate ul list based on page tags
+ * Generate ul list based on page tags (random list)
  *
  * @param {*} tags
  * @param {*} prefix
@@ -82,11 +82,21 @@ export function getTagList(tags, prefix = '') {
   const tagContainer = document.createElement('ul');
   tagContainer.className = `${prefix}tags`;
   const tagsList = JSON.parse(tags);
-  tagsList.forEach((tag) => {
+  const randomList = tagsList.sort(() => 0.5 - Math.random());
+ 
+  const remain = tagsList.length - 3;
+  let i = 0;
+  //tagsList.forEach((tag) => {
+  for (const tag of randomList) {
     const tagItem = document.createElement('li');
     tagItem.innerHTML = tag;
+    if (i == 3 && remain > 0) {
+      tagContainer.append('+' + remain);
+      break;
+    }
     tagContainer.append(tagItem);
-  });
+    i++;
+  }
 
   return tagContainer;
 }
