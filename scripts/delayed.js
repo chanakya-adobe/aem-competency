@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { sampleRUM, getMetadata, } from './aem.js';
+import { sampleRUM, getMetadata } from './aem.js';
 
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
@@ -66,4 +66,4 @@ function createBreadcrumb() {
   buildBreadcrumbs(breadcrumbs);
 }
 
-createBreadcrumb();
+createBreadcrumb()
