@@ -66,4 +66,4 @@ function createBreadcrumb() {
   buildBreadcrumbs(breadcrumbs);
 }
 
-createBreadcrumb()
+createBreadcrumb();
