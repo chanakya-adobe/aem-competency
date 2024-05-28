@@ -11,12 +11,28 @@ import {
   loadBlocks,
   loadCSS,
   getMetadata,
+  toClassName,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
+const TEMPLATE_LIST = {
+  bigbet: 'big-bet',
+};
 
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
+
+/**
+ * Add a wrapper to icons parent element.
+ * @param {Element} [element] Element containing icons
+ * @param {string} [prefix] prefix to be added to icon the src
+ */
+function decorateIconsWrapper(element) {
+  const icons = [...element.querySelectorAll('span.icon')];
+  icons.forEach((span) => {
+    span.parentElement.classList.add('icon-container');
+  });
+}
 
 export function createPicture(props) {
   const desktopImgUrl = props[SECTION_BG_DESKTOP];
@@ -185,12 +201,37 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
+  decorateIconsWrapper(main);
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
 
   buildSectionBanners(main);
   buildHeadings(main);
+}
+
+/**
+ * Include template specific css/js
+ *
+ * @param {*} main
+ */
+async function decorateTemplates(main) {
+  try {
+    const template = toClassName(getMetadata('template'));
+    const templates = Object.keys(TEMPLATE_LIST);
+    if (templates.includes(template)) {
+      const templateName = TEMPLATE_LIST[template];
+      loadCSS(`${window.hlx.codeBasePath}/templates/${templateName}/${templateName}.css`);
+      const mod = await import(`../templates/${templateName}/${templateName}.js`);
+      if (mod.default) {
+        await mod.default(main);
+      }
+      document.body.classList.add(templateName);
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Auto Blocking failed', error);
+  }
 }
 
 /**
@@ -224,6 +265,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadBlocks(main);
+  await decorateTemplates(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
