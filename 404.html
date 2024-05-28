@@ -34,6 +34,10 @@
     main.error {
       min-height: calc(70vh - var(--nav-height));
     }
+
+    .error .heading {
+      margin-bottom: 4rem;
+    }
   </style>
   <link rel="stylesheet" href="/styles/lazy-styles.css">
 </head>
@@ -43,9 +47,9 @@
   <main class="error">
     <div class="section">
       <h1>404 - Page not found</h1>
-      <div><div class="heading"><p><i>Searching for something?</i></p><h2>Sorry, we couldn’t find that page.</h2></div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <div><p><i>Searching for something?</i></p><h2>Sorry, we couldn’t find that page.</h2></div>
+      <p>Head over to the <a href="/">homepage</a> to check out interesting stuff.</p>
+      <a href="/" class="button"><< Home Page</a>
     </div>
     </div>
   </main>
