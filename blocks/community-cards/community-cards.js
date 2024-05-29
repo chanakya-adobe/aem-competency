@@ -66,7 +66,7 @@ const generateForumCard = (card) => {
 };
 
 const generateMentoringCard = (card) => {
-  // TODO: update the logic for rendering forum card
+  // TODO: update the logic for rendering forum card.
   generateBigBetsCard(card);
 };
 
