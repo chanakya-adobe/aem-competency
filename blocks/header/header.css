@@ -13,11 +13,6 @@ header nav {
   font-family: var(--body-font-family);
 }
 
-header .section > div {
-  padding-left: 10px;
-}
-
-
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -51,20 +46,12 @@ header nav a:any-link {
 }
 
 /* hamburger */
-header nav .nav-hamburger {
-  grid-area: hamburger;
-  height: 22px;
-  display: flex;
-  align-items: center;
-}
-
 header nav .nav-hamburger button {
-  height: 22px;
   margin: 0;
   border: 0;
   border-radius: 0;
   background-color: transparent;
-  padding-left: 10px;
+  padding-left: 20px;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
@@ -177,6 +164,7 @@ header nav[aria-expanded="true"] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  padding: 20px;
 }
 
 /* Added for Mobile starts */
@@ -194,7 +182,7 @@ header nav[aria-expanded="true"] .nav-sections {
     }
 
     header nav .nav-sections ul > li {
-      padding-top:0;
+      padding: 10px 0;
     }
 
     header nav .nav-sections ul > li > ul {
@@ -203,7 +191,7 @@ header nav[aria-expanded="true"] .nav-sections {
     }
 
     header nav .nav-sections ul > li > ul > li {
-      padding-top:0;
+      padding: 0;
     }
 
    header nav .nav-sections ul > li ul {
@@ -211,21 +199,21 @@ header nav[aria-expanded="true"] .nav-sections {
       display: none;
     }
 
-    header nav .nav-sections ul > li.show-dropdown {
-    background : #454545;
-    margin-left: -10px;
-    }
-
     header nav .nav-sections ul > li.show-dropdown ul {
       height: auto;
       display: block;
       background : #454545;
       width: 100%;
-      position:absolute;
       z-index: 1;
       max-height: 1000px;
       transition: 0.3s ease-in-out;
       transition-property: max-height;
+      margin: 10px 0;
+    }
+
+    header nav .nav-sections ul > li.show-dropdown ul a {
+      display: block;
+      padding: 10px;
     }
 
    header nav .nav-sections ul > li .arrow {
@@ -233,7 +221,7 @@ header nav[aria-expanded="true"] .nav-sections {
       border-width: 0 2px 2px 0;
       display: inline-block;
       padding: 0.25rem;
-      right: 10px;
+      right: 25px;
       position: absolute;
       transform: rotate(45deg);
       transition: 0.4s all ease-in-out;

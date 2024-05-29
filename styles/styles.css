@@ -107,6 +107,10 @@ body.appear {
   display: block;
 }
 
+body.appear[style*="overflow-y: hidden;"] main {
+  opacity: 0.1;
+}
+
 header {
   height: var(--nav-height);
   position: relative;
