@@ -11,6 +11,7 @@
 }
 
 .community-cards .cc-container .card {
+  cursor: default;
   background: var(--body-text-color) 0 0 no-repeat padding-box;
   box-shadow: 0 3px 6px #00000029;
   border-radius: 16px;
