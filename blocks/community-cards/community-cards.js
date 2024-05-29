@@ -19,7 +19,7 @@ async function getCommunityCards(communityList, itemsPath) {
   return arr.length >= 3 ? arr.splice(0, 3) : arr.splice(0, arr.length);
 }
 
-const metaAuthorImgHTML = (card, authorImg) => `<div class="owner card-meta-items">Owner: <img src="${authorImg}" title="${card.author}" width="24" height="24" /> <strong>${card.author}</strong><span class="meta-separator">|</span></div>`;
+const metaAuthorImgHTML = (card, authorImg) => `<div class="owner card-meta-items">Owner: <img src="${authorImg}" title="${card.author}" width="24px" height="24px" /> <strong>${card.author}</strong><span class="meta-separator">|</span></div>`;
 const metaAuthorHTML = (card) => `<div class="owner card-meta-items">Owner:&nbsp;<strong> ${card.author}</strong><span class="meta-separator">|</span></div>`;
 
 const getAuthorImage = (card, placeholder) => {
