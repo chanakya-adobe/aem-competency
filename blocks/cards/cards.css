@@ -8,7 +8,7 @@
 
 @media (width > 600px) {
   .cards > ul {
-    overflow-x: hidden;
+    overflow-x: unset;
   }
 }
 
@@ -20,7 +20,7 @@
   opacity: 1;
   color: var(--light-gray);
   margin-right: 32px;
-  min-width: 275px;
+  min-width: 245px;
 }
 
 .cards > ul > li:last-child {
@@ -28,7 +28,8 @@
 }
 
 .cards.training .cards-card-body > ul {
-  display: flex;
+  /* TODO: Uncomment logic for phase 2 later, hiding duration for phase 1 */
+  display: none;
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -99,6 +100,7 @@ progress::-webkit-progress-bar {
 .cards .cards-card-body h6 + p {
   margin-top: 0;
   margin-bottom: 4px;
+  min-height: 50px;
 }
 
 .cards .cards-card-image {
