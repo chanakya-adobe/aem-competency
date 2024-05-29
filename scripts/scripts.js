@@ -12,12 +12,15 @@ import {
   loadCSS,
   getMetadata,
   toClassName,
+  buildBlock,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 const TEMPLATE_LIST = {
   bigbet: 'big-bet',
 };
+
+export const CATEGORY_BIGBETS = 'Big Bets';
 
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
@@ -118,30 +121,44 @@ function buildHeadings(main) {
     });
 }
 
+function buildBreadcrumb(main) {
+  const noBreadcrumb = getMetadata('nobreadcrumb');
+  const alreadyBreadcrumb = main.querySelector('.breadcrumb');
+
+  if (!alreadyBreadcrumb && (!noBreadcrumb || noBreadcrumb === 'false')) {
+    const breadcrumbBlock = document.createElement('div');
+    const blockEl = buildBlock('breadcrumb', { elems: [] });
+    breadcrumbBlock.append(blockEl);
+    main.prepend(breadcrumbBlock);
+  }
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
- function buildAutoBlocks(main) {
+ */
+function buildAutoBlocks(main) {
   try {
-    // TBD
+    buildBreadcrumb(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
-*/
 
 /**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
-export function decorateMain(main) {
+export function decorateMain(main, loadAutoBlock = true) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
   decorateIconsWrapper(main);
-  // buildAutoBlocks(main);
+  if (loadAutoBlock) {
+    buildAutoBlocks(main);
+  }
   decorateSections(main);
   decorateBlocks(main);
 
@@ -229,6 +246,51 @@ function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
+}
+
+/**
+ * Helper function to create DOM elements
+ * @param {string} tag DOM element to be created
+ * @param {Object} attributes attributes to be added
+ * @param {HTMLElement|SVGElement|string} html HTML or SVG to append to/after new element
+ */
+export function createTag(tag, attributes, html = undefined) {
+  const el = document.createElement(tag);
+  if (html) {
+    if (html instanceof HTMLElement || html instanceof SVGElement) {
+      el.append(html);
+    } else {
+      el.insertAdjacentHTML('beforeend', html);
+    }
+  }
+  if (attributes) {
+    Object.entries(attributes).forEach(([key, val]) => {
+      el.setAttribute(key, val);
+    });
+  }
+  return el;
+}
+
+/**
+ * Fetch filtered search results
+ * @param {*} cat The category filter
+ *   CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING
+ * @returns List of search results
+ */
+export async function fetchSearch(category = '') {
+  window.searchData = window.searchData || {};
+  if (Object.keys(window.searchData).length === 0) {
+    const path = '/query-index.json?limit=500&offset=0';
+
+    const resp = await fetch(path);
+    window.searchData = JSON.parse(await resp.text()).data;
+  }
+
+  if (category !== '') {
+    return window.searchData.filter((el) => el.category === category);
+  }
+
+  return window.searchData;
 }
 
 async function loadPage() {
