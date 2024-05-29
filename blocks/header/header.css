@@ -344,7 +344,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
-    background-color: #d1d1d1;
+    background-color: var(--nav-grey);
   }
 }
 
