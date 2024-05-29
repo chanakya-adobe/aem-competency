@@ -23,10 +23,14 @@ function getAuthorImage(author, placeholder) {
   return placeholder[authorIdentifier];
 }
 
-function createCardImage(src, alt) {
+function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');
   cardImg.className = 'bb-image';
-  cardImg.append(createOptimizedPicture(src, alt));
+  if (config.type === 'teaser-view') {
+    cardImg.append(createOptimizedPicture(src, alt));
+  } else {
+    cardImg.append(createOptimizedPicture(src, alt, true));
+  }
   cardImg.querySelector('img').width = 600;
   cardImg.querySelector('img').height = 300;
 
@@ -46,7 +50,7 @@ async function printList(list, placeholder, config) {
     }
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('bb-card');
-    cardDiv.append(createCardImage(row.image, row.title));
+    cardDiv.append(createCardImage(row.image, row.title, config));
     cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
 
     const metaContainer = document.createElement('div');
