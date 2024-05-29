@@ -74,6 +74,8 @@
 
 .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner img{
   margin: 0 5px;
+  width:24px;
+  height:24px;
 }
 
 .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.visibility .icon-globe{
