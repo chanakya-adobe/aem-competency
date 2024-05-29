@@ -15,7 +15,7 @@ import {
   buildBlock,
 } from './aem.js';
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
+const LCP_BLOCKS = ['community-cards']; // add your LCP blocks to the list
 const TEMPLATE_LIST = {
   bigbet: 'big-bet',
 };
