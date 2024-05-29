@@ -23,7 +23,8 @@
   --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
-  --light-grey: #D5D5D5;
+  --light-gray-color: #D5D5D5;
+  --gray-color: #454545;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -57,10 +58,10 @@
 
   /* heading sizes */
   --heading-font-size-xxl: 2rem;
-  --heading-font-size-xl: 1.5rem;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
+  --heading-font-size-xl: 2rem;
+  --heading-font-size-l: 1.75rem;
+  --heading-font-size-m: 1.5rem;
+  --heading-font-size-s: 1.25rem;
   --heading-font-size-xs: 18px;
   --heading-font-size-xxs: 14px;
 
@@ -103,6 +104,7 @@ body {
   background-color: var(--background-color);
   background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-gradient)); 
   display: none;
+  min-height: 800px;
 }
 
 body.appear {
@@ -131,11 +133,14 @@ h4, h5, h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
+h1 { 
+  font-size: var(--heading-font-size-xl); 
+  margin-top: 0; 
+}
+h2 { font-size: var(--heading-font-size-l) }
+h3 { font-size: var(--heading-font-size-m) }
+h4 { font-size: var(--heading-font-size-s) }
+h5 { font-size: var(--heading-font-size-xs) }
 h6 { font-size: var(--heading-font-size-xs) }
 
 .heading {
@@ -295,6 +300,10 @@ main .section > div {
 
 .section.full-width-banner.hero-banner {
   overflow: visible;
+}
+
+.section.full-width-banner.hero-banner h1 { 
+  font-size: var(--heading-font-size-xxl) 
 }
 
 .section.full-width-banner .default-content-wrapper {
