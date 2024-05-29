@@ -4,6 +4,7 @@
   border-radius: 8px;
   padding: 24px 16px;
   color: var(--teams-text-color);
+  margin-bottom: 1rem;
 }
 
 .teams h2 {
@@ -38,4 +39,24 @@
   margin-right: 1rem;
   width: 24px;
   height: 24px;
+}
+
+/* Leadboard varient */
+.teams .leadboard-container {
+  display: flex;
+  gap: 1rem 7rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.teams .leadboard-container .lb-user-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teams .leadboard-container > div.lb-user-img img {
+  width: 4.5rem;
+  height: 4.5rem;
 }

@@ -2,6 +2,7 @@ import { readBlockConfig, fetchPlaceholders } from '../../scripts/aem.js';
 import { getAuthorImage } from '../../scripts/utils.js';
 
 const OWNER = 'owner';
+const leadBoardHTML = (author, authorImg) => `<div class="lb-user-img"><img src="${authorImg}" alt="${author}" width="72" height="72"><strong>${author}</strong></div>`;
 const teamMemberImgHTML = (author, authorImg) => `<div class="team-user-img"><img src="${authorImg}" alt="${author}" width="24" height="24">${author}</div>`;
 const teamMemberHTML = (author) => `<div>${author}</div>`;
 
@@ -32,10 +33,26 @@ function generateTeamList(category, team, placeholder) {
   return teamContainer;
 }
 
+function generateLeadboardList(team, placeholder) {
+  const users = team.split(',');
+  const teamContainer = document.createElement('div');
+  teamContainer.className = 'leadboard-container';
+
+  users.forEach((user) => {
+    const userImg = getAuthorImage(user.trim(), placeholder);
+    if (userImg) {
+      teamContainer.insertAdjacentHTML('beforeend', leadBoardHTML(user, userImg));
+    }
+  });
+
+  return teamContainer;
+}
+
 export default async function decorate(block) {
   const HEADING = 'heading';
   const blockConfig = readBlockConfig(block);
   const placeholder = await fetchPlaceholders();
+  const isLeaderboard = block.classList.contains('leaderboard');
 
   block.innerHTML = '';
   Object.entries(blockConfig).map((entry) => {
@@ -44,6 +61,8 @@ export default async function decorate(block) {
       const heading = document.createElement('h2');
       heading.innerHTML = value;
       block.append(heading);
+    } else if (isLeaderboard) {
+      block.append(generateLeadboardList(value, placeholder));
     } else {
       block.append(generateTeamList(key, value, placeholder));
     }
