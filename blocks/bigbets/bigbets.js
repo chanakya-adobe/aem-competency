@@ -10,12 +10,13 @@ const getListHTML = (row) => `
   <p class="bb-description">${row.description}</p>
   </div>`;
 
-const getButtonHTML = (row) => `<p class='button-container'><a href="${row.path}" class="button primary" title="${row.title}">Join</a><p>`;
+const getButtonHTML = (row, joinLabel) => `<p class='button-container'><a href="${row.path}" class="button primary" title="${row.title}">${joinLabel}</a><p>`;
 const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span> ${row.visibility}</div>`;
 const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
 const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
+
 function getAuthorImage(author, placeholder) {
   const authorIdentifier = toCamelCase(`user-${author}`);
 
@@ -32,7 +33,7 @@ function createCardImage(src, alt) {
   return cardImg;
 }
 
-async function printList(list, placeholder) {
+async function printList(list, placeholder, config) {
   let printCount = 0;
   const containerDiv = document.createElement('div');
   containerDiv.classList.add('bb-container');
@@ -67,7 +68,7 @@ async function printList(list, placeholder) {
       cardDiv.querySelector('.bb-content').append(getTagList(row.tags, 'bb'));
     }
 
-    cardDiv.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row));
+    cardDiv.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row, config.cardCTALabel));
     containerDiv.append(cardDiv);
     printCount += 1;
 
@@ -80,23 +81,29 @@ async function printList(list, placeholder) {
 function getConfig(block, placeholder) {
   const config = {};
   const blockConfig = readBlockConfig(block);
-  config.clientsData = placeholder.clientsData ?? '/clients.json';
-  config.viewAllLabel = blockConfig.viewalllabel ?? 'View all';
-  config.viewAllLink = blockConfig.viewalllink ?? '/';
+
+  config.type = blockConfig.type || 'teaser-view';
+  config.cardCTALabel = placeholder.bigbetCtaLabel || 'Join me';
+  config.viewAllLabel = blockConfig.viewalllabel || placeholder.bigbetViewall || 'View all 1';
+  config.viewAllLink = blockConfig.viewalllink || '/';
+  if (config.type === 'full-view') {
+    config.viewAllLink = '#';
+  }
   return config;
 }
 
 export default async function decorate(block) {
-  const list = await fetchSearch(CATEGORY_BIGBETS);
-  block.textContent = '';
   const placeholder = await fetchPlaceholders();
   const config = getConfig(block, placeholder);
 
-  const objects = await printList(list, placeholder);
+  block.textContent = '';
+  const list = await fetchSearch(CATEGORY_BIGBETS);
+
+  const objects = await printList(list, placeholder, config);
   block.append(objects);
 
   const viewAllContainer = document.createElement('div');
-  viewAllContainer.className = 'view-all';
+  viewAllContainer.className = `view-all ${config.type}`;
   viewAllContainer.innerHTML = viewAllLinkHTML(config);
 
   block.append(viewAllContainer);

@@ -96,7 +96,9 @@ export function getTagList(tags, prefix = '') {
       tagContainer.append(tagItem);
     }
     if (i === 3 && remain > 0) {
-      tagContainer.append('+'.concat(remain));
+      tagItem.className = 'tag-count';
+      tagItem.innerHTML = '+'.concat(remain);
+      tagContainer.append(tagItem);
       exitLoop = true;
     }
     i += 1;
