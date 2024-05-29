@@ -264,7 +264,6 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
-  margin-left: 10px;
 }
 
 @media (width >= 1280px) {
@@ -275,9 +274,14 @@ header nav .nav-sections ul > li > ul > li {
     margin-left:50px;
   }
 
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    padding: 10px;
+    display: block;
+  }
+
   header nav .nav-sections .default-content-wrapper > ul > li > ul a:hover {
-       text-decoration: none;
-     }
+    text-decoration: none;
+  }
 
   header nav[aria-expanded="true"] .nav-sections {
     align-self: unset;
@@ -330,12 +334,14 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
     display: block;
     position: absolute;
-    left: -1em;
-    width: 200px;
+    left: 0;
+    top: 25px;
+    width: 138px;
     margin-top: 0;
     background-color: var(--body-text-color);
     color:var(--text-color);
     white-space: initial;
+    box-shadow: 0 3px 6px #00000029;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -349,14 +355,9 @@ header nav .nav-sections ul > li > ul > li {
     border-bottom: 8px solid var(--light-color);
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 10px;
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
+    background-color: #d1d1d1;
   }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover {
-      background-color: #d1d1d1;
-      margin-left: -.5px;
-   }
 }
 
 
