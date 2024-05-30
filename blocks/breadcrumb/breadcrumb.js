@@ -18,7 +18,7 @@ export default async function decorate(block) {
   let segments = window.location.origin;
 
   pathSegments.forEach((page, index) => {
-    segments += (index !==  pathSegments.length - 1) ? `${page}/` : `${page}`;
+    segments += (index !== pathSegments.length - 1) ? `${page}/` : `${page}`;
     const label = toTitleCase(page || 'Home');
     const anchor = createTag('a', { href: `${segments}` }, label);
     const crumb = createTag('li', { class: 'crumb' }, anchor);
