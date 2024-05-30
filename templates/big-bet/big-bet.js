@@ -1,16 +1,10 @@
-import { decorateTwoColTemplate } from '../../scripts/utils.js';
-import { getMetadata, fetchPlaceholders, toCamelCase } from '../../scripts/aem.js';
+import { decorateTwoColTemplate, getAuthorImage } from '../../scripts/utils.js';
+import { getMetadata, fetchPlaceholders } from '../../scripts/aem.js';
 
 const metaVisibilityHTML = (visibility) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span>${visibility}</div>`;
 const metaStatusHTML = (status) => `<div class="status">Status: <strong>${status}</strong></div>`;
 const metaAuthorImgHTML = (author, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" alt="${author}" width="24" height="24"> <strong>${author}</strong></div>`;
 const metaAuthorHTML = (author) => `<div class="owner">Owner:&nbsp;<strong>${author}</strong></div>`;
-
-function getAuthorImage(author, placeholder) {
-  const authorIdentifier = toCamelCase(`user-${author}`);
-
-  return placeholder[authorIdentifier];
-}
 
 function autoBlockBigBetData(main, placeholder) {
   const mainHeading = main.querySelector('h1');
