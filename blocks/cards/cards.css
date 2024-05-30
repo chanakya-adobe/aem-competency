@@ -2,22 +2,112 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(278px, 1fr));
-  grid-gap: 16px;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+@media (width > 768px) {
+  .cards > ul {
+    overflow-x: unset;
+  }
 }
 
 .cards > ul > li {
-  border: 1px solid var(--dark-color);
-  background-color: var(--background-color)
+  position: relative;
+  background: var(--body-text-color) 0% 0% no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 16px;
+  opacity: 1;
+  color: var(--light-gray);
+  margin-right: 32px;
+  min-width: 245px;
+}
+
+.cards > ul > li:last-child {
+  margin-right: 0;
+}
+
+.cards.training .cards-card-body > ul {
+  display: flex;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 14px;
+  color: var(--text-color);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cards.training .cards-card-body > ul li {
+  flex: 1;
+}
+
+.cards.training .cards-card-body progress {
+  height: 4px;
+  width: 92px;
+  border-radius: 2px;
+  background-color: var(--body-text-color);
+  margin-top: 5px;
+  display: block;
+}
+
+/* Style the progress value */
+progress::-webkit-progress-value {
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Style the progress bar text */
+progress::-webkit-progress-bar {
+  border-radius: 2px;
+  background: var(--body-text-color) 0% 0% no-repeat padding-box;
+  border: 0.2px solid var(--text-color);
+}
+
+@media (width > 768px) {
+  .cards > ul > li {
+    flex: 1;
+  }
 }
 
 .cards .cards-card-body {
   margin: 16px;
 }
 
+.cards .cards-card-body strong {
+  color: var(--text-color);
+}
+
+.cards .cards-card-body h5 {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  background-color: var(--very-light-gray);
+  border-radius: 8px 0 0 8px;
+  font-size: 14px;
+  padding: 8px;
+  color: var(--text-color);
+
+}
+
+.cards .cards-card-body h6 {
+  color: var(--medium-gray);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.cards .cards-card-body h6 + p {
+  margin-top: 0;
+  margin-bottom: 4px;
+  min-height: 50px;
+}
+
 .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .cards .cards-card-body > *:first-child {
@@ -28,4 +118,13 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transition: transform 0.3s ease, border-radius 0.3s ease;;
+}
+
+.cards > ul > li img:hover {
+  transform: scale(1.1);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
