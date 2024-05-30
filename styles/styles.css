@@ -23,8 +23,18 @@
   --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
+<<<<<<< HEAD
   --light-gray-color: #D5D5D5;
   --gray-color: #454545;
+=======
+  --light-gray: #5D5D5D;
+  --medium-gray: #727272;
+  --very-light-gray: #D5D5D5;
+  --light-gray-color: #454545;
+  --teams-background-color: #0D2D52;
+  --teams-shadow-color: #000029;
+  --teams-text-color: #E6E6E6;
+>>>>>>> origin
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -120,6 +130,10 @@ header {
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+dl, ol, ul {
+  padding-inline-start: 14px;
 }
 
 /* Headings */
@@ -219,7 +233,6 @@ a.button:any-link, button {
   cursor: pointer;
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
-  margin: .5rem 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -281,6 +294,10 @@ main img {
 }
 
 /* sections */
+.bigbet h1 {
+  margin-bottom: 45px;
+}
+
 main .section {
   padding: var(--gutter-space-section-mobile) 0;
 }

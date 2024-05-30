@@ -33,6 +33,8 @@
   display: flex;
   font-size: var(--body-font-size-xxs);
   flex-wrap: wrap;
+  position: relative;
+  top: -40px;
 }
 
 .big-bet .big-bet-meta > div {
