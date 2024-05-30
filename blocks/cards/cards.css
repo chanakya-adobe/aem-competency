@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 @media (width > 768px) {
