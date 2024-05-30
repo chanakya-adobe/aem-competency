@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Smock_Calendar_18_N" transform="translate(2)">
+    <rect id="Canvas" width="24" height="24" transform="translate(-2)" fill="#ff13dc" opacity="0"/>
+    <path id="Path_12954" data-name="Path 12954" d="M19.412,3.353H16.471V1.588A.588.588,0,0,0,15.882,1H14.706a.588.588,0,0,0-.588.588V3.353H5.882V1.588A.588.588,0,0,0,5.294,1H4.118a.588.588,0,0,0-.588.588V3.353H.588A.588.588,0,0,0,0,3.941V19.235a.588.588,0,0,0,.588.588H19.412A.588.588,0,0,0,20,19.235V3.941A.588.588,0,0,0,19.412,3.353Zm-.588,15.294H1.176V4.529H3.529v.588a.588.588,0,0,0,.588.588H5.294a.588.588,0,0,0,.588-.588V4.529h8.235v.588a.588.588,0,0,0,.588.588h1.176a.588.588,0,0,0,.588-.588V4.529h2.353Z" transform="translate(0 2)"/>
+    <g id="Group_196673" data-name="Group 196673" transform="translate(0 3)">
+      <rect id="Rectangle_187917" data-name="Rectangle 187917" width="2" height="2" transform="translate(3 6)"/>
+      <rect id="Rectangle_187918" data-name="Rectangle 187918" width="2" height="2" transform="translate(7 6)"/>
+      <rect id="Rectangle_187919" data-name="Rectangle 187919" width="2" height="2" transform="translate(11 6)"/>
+      <rect id="Rectangle_187920" data-name="Rectangle 187920" width="2" height="2" transform="translate(15 6)"/>
+      <rect id="Rectangle_187921" data-name="Rectangle 187921" width="2" height="2" transform="translate(3 10.091)"/>
+      <rect id="Rectangle_187922" data-name="Rectangle 187922" width="2" height="2" transform="translate(7 10.091)"/>
+      <rect id="Rectangle_187923" data-name="Rectangle 187923" width="2" height="2" transform="translate(11 10.091)"/>
+      <rect id="Rectangle_187924" data-name="Rectangle 187924" width="2" height="2" transform="translate(15 10.091)"/>
+      <rect id="Rectangle_187925" data-name="Rectangle 187925" width="2" height="2" transform="translate(3 14.182)"/>
+      <rect id="Rectangle_187926" data-name="Rectangle 187926" width="2" height="2" transform="translate(7 14.182)"/>
+      <rect id="Rectangle_187927" data-name="Rectangle 187927" width="2" height="2" transform="translate(11 14.182)"/>
+      <rect id="Rectangle_187928" data-name="Rectangle 187928" width="2" height="2" transform="translate(15 14.182)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,78 @@
+.tabs .tabs-list {
+  display: flex;
+  gap: 32px;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-direction: row;
+}
+
+.full-view .tabs-list {
+  border-bottom: solid 1px var(--button-secondary-text-color) ;
+}
+
+@media (width >= 1280px) { 
+  .tabs .tabs-list {
+    justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
+  }
+
+  .full-view .tabs-list{
+    justify-content: flex-start;
+  }
+} 
+
+.tabs .tabs-list button {
+  flex: 0 0 max-content;
+  margin: 0;
+  background-color: transparent; /* Set background as transparent */
+  border-radius: 0;
+  padding: 0 1px;
+  text-align: left;
+  transition: color 0.2s;
+  color: var(--heading-primary);
+  font-size: var(--body-font-size-xs);
+}
+
+.tabs .tabs-list button p {
+  margin: 14px 0;
+}
+
+.section.theme-secondary .tabs .tabs-list button {
+  background-color: var(--body-text-color);
+  color: var(--text-color);
+}
+
+.tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 2px solid var(--body-text-color);
+  cursor: initial;
+  color: var(--color-text-main);
+}
+
+.section.theme-secondary .tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 2px solid var(--primary-color);
+  cursor: initial;
+  color: var(--primary-color);
+}
+
+.tabs .tabs-panel main .section > div {
+  padding: 0;
+}
+
+.tabs .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs-wrapper {
+  z-index: 12;
+  position: relative;
+  margin-top: 0;
+}
+
+@media (width >= 1280px) { 
+  .tabs {
+    margin-top: -60px;
+  }
+
+  .tabs.full-view {
+    margin-top: 0;
+  }
+}
