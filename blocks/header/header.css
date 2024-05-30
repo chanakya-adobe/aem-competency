@@ -164,7 +164,6 @@ header nav[aria-expanded="true"] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
-  padding: 20px;
 }
 
 /* Added for Mobile starts */
@@ -178,11 +177,15 @@ header nav[aria-expanded="true"] .nav-sections {
     }
 
     header nav .nav-sections ul  {
-      padding:40px 0 0 10px;
+      padding: 50px 0 0 10px;
     }
 
     header nav .nav-sections ul > li {
-      padding: 10px 0;
+      padding: 10px 20px;
+    }
+
+    header nav .nav-sections ul > li.show-dropdown {
+      background-color: var(--light-gray-color);
     }
 
     header nav .nav-sections ul > li > ul {
@@ -202,7 +205,7 @@ header nav[aria-expanded="true"] .nav-sections {
     header nav .nav-sections ul > li.show-dropdown ul {
       height: auto;
       display: block;
-      background : #454545;
+      background : var(--light-gray-color);
       width: 100%;
       z-index: 1;
       max-height: 1000px;
@@ -293,6 +296,7 @@ header nav .nav-sections ul > li > ul > li {
     border: 2px solid currentcolor;
     border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
+    transition: 0.4s all ease-in-out;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded="true"]::after {
