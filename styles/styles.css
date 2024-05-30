@@ -28,6 +28,9 @@
   --medium-gray: #727272;
   --very-light-gray: #D5D5D5;
   --light-gray-color: #454545;
+  --teams-background-color: #0D2D52;
+  --teams-shadow-color: #000029;
+  --teams-text-color: #E6E6E6;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -127,6 +130,10 @@ header {
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+dl, ol, ul {
+  padding-inline-start: 14px;
 }
 
 /* Headings */
@@ -287,6 +294,10 @@ main img {
 }
 
 /* sections */
+.bigbet h1 {
+  margin-bottom: 45px;
+}
+
 main .section {
   padding: var(--gutter-space-section-mobile) 0;
 }

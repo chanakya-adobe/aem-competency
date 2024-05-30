@@ -1,0 +1,62 @@
+.teams {
+  background-color: var(--teams-background-color);
+  box-shadow: 1px 2px 4px var(--teams-shadow-color);
+  border-radius: 8px;
+  padding: 24px 16px;
+  color: var(--teams-text-color);
+  margin-bottom: 1rem;
+}
+
+.teams h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--body-text-color);
+}
+
+.teams h3 {
+  margin: 1.25rem 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.teams .team-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.teams .team-list > div {
+  width: 170px;
+}
+
+.teams .team-list > div.team-user-img {
+  display: flex;
+}
+
+.teams .team-list > div.team-user-img img {
+  margin-right: 1rem;
+  width: 24px;
+  height: 24px;
+}
+
+/* Leadboard varient */
+.teams .leadboard-container {
+  display: flex;
+  gap: 1rem 7rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.teams .leadboard-container .lb-user-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teams .leadboard-container > div.lb-user-img img {
+  width: 4.5rem;
+  height: 4.5rem;
+}
