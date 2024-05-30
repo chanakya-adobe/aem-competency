@@ -24,6 +24,8 @@ export const CATEGORY_BIGBETS = 'Big Bets';
 
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
+const THEME_COL_LEFT = '.section.left-column';
+const THEME_COL_RIGHT = '.section.right-column';
 
 /**
  * Add a wrapper to icons parent element.
@@ -147,6 +149,44 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Decorate page with two columns
+ *
+ * @param {} main
+ */
+function decorateTwoColTemplate(main) {
+  const leftContainer = document.createElement('div');
+  leftContainer.className = 'theme-left-container';
+  [...main.querySelectorAll(THEME_COL_LEFT)]
+    .forEach((section) => {
+      leftContainer.append(section);
+    });
+
+  const rightContainer = document.createElement('div');
+  rightContainer.className = 'theme-right-container';
+  [...main.querySelectorAll(THEME_COL_RIGHT)]
+    .forEach((section) => {
+      rightContainer.append(section);
+    });
+
+  const templateContainer = document.createElement('div');
+  templateContainer.className = 'theme-two-col-container';
+  templateContainer.append(leftContainer);
+  templateContainer.append(rightContainer);
+
+  main.append(templateContainer);
+}
+
+/**
+ * Setup different themes
+ * @param {*} main
+ */
+async function buildTheme(main) {
+  if (document.body.classList.contains('two-column-page')) {
+    decorateTwoColTemplate(main);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -222,6 +262,7 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadBlocks(main);
   await decorateTemplates(main);
+  await buildTheme(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
