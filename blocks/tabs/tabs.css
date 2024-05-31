@@ -53,6 +53,10 @@
   color: var(--primary-color);
 }
 
+.tabs .tabs-panel {
+  min-height: 200px;
+}
+
 .tabs .tabs-panel main .section > div {
   padding: 0;
 }

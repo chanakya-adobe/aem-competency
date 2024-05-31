@@ -1,33 +1,3 @@
-/* Big-bet two column template rules, 67%-33%*/
-.big-bet .template-two-col-container {
-  display: flex;
-  max-width: var(--desktop-max-width);
-  margin: auto;
-  flex-direction: column;
-}
-
-.big-bet .template-two-col-container .section {
-  padding-top: 0;
-}
-
-@media (width >= 1280px) {
-  .big-bet .template-two-col-container {
-    flex-direction: row;
-  }
-
-  .big-bet .template-two-col-container .template-left-container {
-    flex: 2;
-  }
-  
-  .big-bet .template-two-col-container .template-right-container {
-    flex: 1;
-  }
-
-  .big-bet .template-two-col-container .template-right-container .section > div {
-    padding-left: 0;
-  }
-}
-
 /* Big-bet meta section below heading */
 .big-bet .big-bet-meta {
   display: flex;

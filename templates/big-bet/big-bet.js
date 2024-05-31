@@ -1,4 +1,4 @@
-import { decorateTwoColTemplate, getAuthorImage } from '../../scripts/utils.js';
+import { getAuthorImage } from '../../scripts/utils.js';
 import { getMetadata, fetchPlaceholders } from '../../scripts/aem.js';
 
 const metaVisibilityHTML = (visibility) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span>${visibility}</div>`;
@@ -28,7 +28,6 @@ function autoBlockBigBetData(main, placeholder) {
 
 export default async function decorate(main) {
   const placeholder = await fetchPlaceholders();
-  decorateTwoColTemplate(main);
 
   autoBlockBigBetData(main, placeholder);
 }
