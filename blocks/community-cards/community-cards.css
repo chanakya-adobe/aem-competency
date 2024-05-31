@@ -23,13 +23,13 @@
   position: relative;
 }
 
-.community-cards .cc-container .card .card-header{
+.community-cards .cc-container .card .card-header {
   display: flex;
   padding-left: 1rem;
   width: 65%;
 }
 
-.community-cards .cc-container .card .card-header h3{
+.community-cards .cc-container .card .card-header h3 {
   margin: 0;
   flex: 1;
   line-height: 1.25;
@@ -37,7 +37,7 @@
   font-size: var(--body-font-size-xs);
 }
 
-.community-cards .cc-container .card .card-category{
+.community-cards .cc-container .card .card-category {
   font-weight: 650;
   line-height: 1.25;
   padding: 8px 4px;
@@ -48,41 +48,41 @@
   top: 13px;
 }
 
-.community-cards .cc-container .card .card-description{
+.community-cards .cc-container .card .card-description {
   padding: 0 1rem;
   margin: 0.5rem 0 1.188rem;
 }
 
-.community-cards .cc-container .card .card-meta{
+.community-cards .cc-container .card .card-meta {
   padding: 0 1rem;
   margin: 0 0 1rem;
 }
 
-.community-cards .cc-container .card .card-meta .card-meta-first-section{
+.community-cards .cc-container .card .card-meta .card-meta-first-section {
   display: flex;
 }
 
-.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items{
+.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items {
   display: flex;
   align-items: center;
 }
 
-.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items .meta-separator{
+.community-cards .card .card-meta .card-meta-items .meta-separator {
   display: none;
 }
 
-.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner{
+.community-cards .card .card-meta .card-meta-items.owner {
   justify-content: right;
   flex: 1;
 }
 
-.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner img{
+.community-cards .card .card-meta .card-meta-items.owner img {
   margin: 0 5px;
   width:24px;
   height:24px;
 }
 
-.community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.visibility .icon-globe{
+.community-cards .card .card-meta .visibility .icon-globe {
   margin-right: 4px;
   width: 14px;
   height: 14px;
@@ -147,11 +147,11 @@
     margin: 0 0 0.5rem;
   }
 
-  .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items.owner {
+  .community-cards .card .card-meta .card-meta-items.owner {
     justify-content: normal;
   }
 
-  .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items .meta-separator{
+  .community-cards .card .card-meta .card-meta-items .meta-separator {
     display: block;
     margin: 0 0.281rem;
   }
