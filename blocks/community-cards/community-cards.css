@@ -26,7 +26,7 @@
 .community-cards .cc-container .card .card-header{
   display: flex;
   padding-left: 1rem;
-  width: 70%;
+  width: 65%;
 }
 
 .community-cards .cc-container .card .card-header h3{
@@ -38,8 +38,6 @@
 }
 
 .community-cards .cc-container .card .card-category{
-  margin: 0 0 0 5px;
-  height: fit-content;
   font-weight: 650;
   line-height: 1.25;
   padding: 8px 4px;
@@ -130,6 +128,10 @@
   .community-cards .cc-container .card:hover {
     background-color: #F0F0F0;
   }
+
+  .community-cards .cc-container .card .card-header {
+    width: 70%;
+   }
 
   .community-cards .cc-container .card .card-header .card-category {
    font-size: 12px;
