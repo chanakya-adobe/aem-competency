@@ -1,8 +1,8 @@
 import {
-  fetchPlaceholders, toCamelCase, createOptimizedPicture, readBlockConfig,
+  fetchPlaceholders, createOptimizedPicture, readBlockConfig,
 } from '../../scripts/aem.js';
 import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
-import { getTagList } from '../../scripts/utils.js';
+import { getTagList, getAuthorImage } from '../../scripts/utils.js';
 
 const getListHTML = (row) => `
 <div class="bb-content">
@@ -16,12 +16,6 @@ const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row
 const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
-
-function getAuthorImage(author, placeholder) {
-  const authorIdentifier = toCamelCase(`user-${author}`);
-
-  return placeholder[authorIdentifier];
-}
 
 function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');

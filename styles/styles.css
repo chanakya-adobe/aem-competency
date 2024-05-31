@@ -387,3 +387,34 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
+
+/* Two Column theme */
+.theme-two-col-container {
+  display: flex;
+  max-width: var(--desktop-max-width);
+  margin: auto;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+.theme-two-col-container .section {
+  padding-top: 0;
+}
+
+@media (width >= 1280px) {
+  .theme-two-col-container {
+    flex-direction: row;
+  }
+
+  .theme-two-col-container .theme-left-container {
+    flex: 2;
+  }
+  
+  .theme-two-col-container .theme-right-container {
+    flex: 1;
+  }
+
+  .theme-two-col-container .theme-right-container .section > div {
+    padding-left: 0;
+  }
+}

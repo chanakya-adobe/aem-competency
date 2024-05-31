@@ -24,6 +24,8 @@ export const CATEGORY_BIGBETS = 'Big Bets';
 
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
+const THEME_COL_LEFT = '.section.left-column';
+const THEME_COL_RIGHT = '.section.right-column';
 
 /**
  * Add a wrapper to icons parent element.
@@ -147,6 +149,49 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Decorate page with two columns
+ *
+ * @param {} main
+ */
+function decorateTwoColTemplate(main) {
+  let status = false;
+  const leftContainer = document.createElement('div');
+  leftContainer.className = 'theme-left-container';
+  [...main.querySelectorAll(THEME_COL_LEFT)]
+    .forEach((section) => {
+      status = true;
+      leftContainer.append(section);
+    });
+
+  const rightContainer = document.createElement('div');
+  rightContainer.className = 'theme-right-container';
+  [...main.querySelectorAll(THEME_COL_RIGHT)]
+    .forEach((section) => {
+      status = true;
+      rightContainer.append(section);
+    });
+
+  if (status) {
+    const templateContainer = document.createElement('div');
+    templateContainer.className = 'theme-two-col-container';
+    templateContainer.append(leftContainer);
+    templateContainer.append(rightContainer);
+
+    main.append(templateContainer);
+  }
+}
+
+/**
+ * Setup different themes
+ * @param {*} main
+ */
+async function buildTheme(main) {
+  if (document.body.classList.contains('two-column-page')) {
+    decorateTwoColTemplate(main);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -160,8 +205,8 @@ export function decorateMain(main, loadAutoBlock = true) {
     buildAutoBlocks(main);
   }
   decorateSections(main);
+  buildTheme(main);
   decorateBlocks(main);
-
   buildSectionBanners(main);
   buildHeadings(main);
 }
@@ -187,6 +232,30 @@ async function decorateTemplates(main) {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
+  }
+}
+
+/**
+ * Updates all section status in a container element.
+ * @param {Element} main The container element
+ */
+async function updateSectionsStatus(main) {
+  const sections = [...main.querySelectorAll('div.section')];
+  for (let i = 0; i < sections.length; i += 1) {
+    const section = sections[i];
+    const status = section.dataset.sectionStatus;
+    if (status !== 'loaded') {
+      const loadingBlock = section.querySelector(
+        '.block[data-block-status="initialized"], .block[data-block-status="loading"]',
+      );
+      if (loadingBlock) {
+        section.dataset.sectionStatus = 'loading';
+        break;
+      } else {
+        section.dataset.sectionStatus = 'loaded';
+        section.style.display = null;
+      }
+    }
   }
 }
 
@@ -221,6 +290,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadBlocks(main);
+  await updateSectionsStatus(main);
   await decorateTemplates(main);
 
   const { hash } = window.location;
