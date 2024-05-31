@@ -1,7 +1,7 @@
 import {
   fetchSearch, CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING,
 } from '../../scripts/scripts.js';
-import { getTagList } from '../../scripts/utils.js';
+import { getTagList, createElementWithClasses, getAuthorImage } from '../../scripts/utils.js';
 import { fetchPlaceholders, toCamelCase } from '../../scripts/aem.js';
 
 async function getCommunityCards(communityList, itemsPath) {
@@ -22,23 +22,29 @@ async function getCommunityCards(communityList, itemsPath) {
 const metaAuthorImgHTML = (card, authorImg) => `<div class="owner card-meta-items">Owner: <img src="${authorImg}" title="${card.author}" width="24px" height="24px" /> <strong>${card.author}</strong><span class="meta-separator">|</span></div>`;
 const metaAuthorHTML = (card) => `<div class="owner card-meta-items">Owner:&nbsp;<strong> ${card.author}</strong><span class="meta-separator">|</span></div>`;
 
-const getAuthorImage = (card, placeholder) => {
-  const authorImage = placeholder[toCamelCase(`user-${card.author}`)];
+const getAuthorImageHtml = (card, authorImage) => {
   if (authorImage) {
     return metaAuthorImgHTML(card, authorImage);
   }
   return metaAuthorHTML(card, authorImage);
 };
 
+const getCtaButton = (card, labelKey, placeholder) => {
+  const ctaButtonEl = createElementWithClasses('div', 'button-container');
+  const ctaLabel = placeholder[toCamelCase(labelKey)];
+  const ctaButtonHtml = `<a href="${card.path}" class="button primary" title="${card.title}">${ctaLabel}</a>`;
+  ctaButtonEl.innerHTML = ctaButtonHtml;
+  return ctaButtonEl;
+};
+
 const generateBigBetsCard = (card, placeholder) => {
-  const bigBetsContainer = document.createElement('div');
-  bigBetsContainer.classList.add('card');
-  bigBetsContainer.classList.add('big-bets-content');
-  const authorImage = getAuthorImage(card, placeholder);
+  const bigBetsContainer = createElementWithClasses('div', 'card', 'big-bets-content');
+  const authorImageFromPlaceholder = getAuthorImage(card.author, placeholder);
+  const authorImage = getAuthorImageHtml(card, authorImageFromPlaceholder);
   const bigBetContent = `
-      <div class="card-header">
-      <h3>${card.title}</h3>
       <div class="card-category">${card.category}</div>
+      <div class="card-header">
+        <h3>${card.title}</h3>
       </div>
       <p class="card-description">${card.description}</p>
       <div class="card-meta">
@@ -52,10 +58,7 @@ const generateBigBetsCard = (card, placeholder) => {
       </div>`;
   bigBetsContainer.innerHTML = bigBetContent;
   bigBetsContainer.append(getTagList(card.tags));
-  const ctaButtonHtml = `<a href="${card.path}" class="button primary" title="${card.title}">Learn More</a>`;
-  const ctaButtonEl = document.createElement('div');
-  ctaButtonEl.className = 'button-container';
-  ctaButtonEl.innerHTML = ctaButtonHtml;
+  const ctaButtonEl = getCtaButton(card, 'bigbet-cta-label', placeholder);
   bigBetsContainer.append(ctaButtonEl);
   return bigBetsContainer;
 };
@@ -106,8 +109,7 @@ export default async function decorate(block) {
   block.textContent = '';
   const communityList = await fetchSearch();
   const cards = await getCommunityCards(communityList, itemsPath);
-  const cardContainer = document.createElement('div');
-  cardContainer.className = 'cc-container';
+  const cardContainer = createElementWithClasses('div', 'cc-container');
   const placeholder = await fetchPlaceholders();
   getCardListHtml(cards, cardContainer, placeholder);
 
