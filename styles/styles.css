@@ -23,6 +23,7 @@
   --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
+  --nav-grey: #d1d1d1;
   --light-gray: #5D5D5D;
   --medium-gray: #727272;
   --very-light-gray: #D5D5D5;
@@ -116,10 +117,14 @@ body.appear {
   display: block;
 }
 
+body.appear[style*="overflow-y: hidden;"] main {
+  opacity: 0.1;
+}
+
 header {
   height: var(--nav-height);
   position: relative;
-  z-index: 10;
+  z-index: 11;
 }
 
 p, dl, ol, ul, pre, blockquote {

@@ -88,6 +88,20 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 }
 
 /**
+ * add dropdown show hide event listener
+ * @param {Element} footer
+ */
+function addShowHideEvent(navSections) {
+  navSections.addEventListener('click', (e) => {
+    let { target } = e;
+    target = target.classList.contains('arrow') ? target.parentNode : target;
+    if (target.classList.contains('nav-drop')) {
+      target.classList.toggle('show-dropdown');
+    }
+  });
+}
+
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
@@ -122,11 +136,27 @@ export default async function decorate(block) {
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
+      navSection.addEventListener('mouseover', () => {
         if (isDesktop.matches) {
+          /*
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          */
+          navSection.setAttribute('aria-expanded', 'true');
+          /*
+         navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+         */
+        }
+      });
+    });
+  }
+  // mouse out case in desktop
+  if (navSections) {
+    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      navSection.addEventListener('mouseout', () => {
+        if (isDesktop.matches) {
+          navSection.setAttribute('aria-expanded', 'false');
         }
       });
     });
@@ -148,5 +178,17 @@ export default async function decorate(block) {
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+
+  const navDrops = navSections.querySelectorAll('.nav-drop');
+  navDrops.forEach((child) => {
+    const accordionArrow = document.createElement('i');
+    accordionArrow.className = 'arrow';
+    child.insertBefore(accordionArrow, child.firstChild);
+  });
+
+  if (!isDesktop.matches) {
+    addShowHideEvent(navSections);
+  }
+
   block.append(navWrapper);
 }
