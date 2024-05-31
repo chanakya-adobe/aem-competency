@@ -154,10 +154,12 @@ function buildAutoBlocks(main) {
  * @param {} main
  */
 function decorateTwoColTemplate(main) {
+  let status = false;
   const leftContainer = document.createElement('div');
   leftContainer.className = 'theme-left-container';
   [...main.querySelectorAll(THEME_COL_LEFT)]
     .forEach((section) => {
+      status = true;
       leftContainer.append(section);
     });
 
@@ -165,15 +167,18 @@ function decorateTwoColTemplate(main) {
   rightContainer.className = 'theme-right-container';
   [...main.querySelectorAll(THEME_COL_RIGHT)]
     .forEach((section) => {
+      status = true;
       rightContainer.append(section);
     });
 
-  const templateContainer = document.createElement('div');
-  templateContainer.className = 'theme-two-col-container';
-  templateContainer.append(leftContainer);
-  templateContainer.append(rightContainer);
+  if (status) {
+    const templateContainer = document.createElement('div');
+    templateContainer.className = 'theme-two-col-container';
+    templateContainer.append(leftContainer);
+    templateContainer.append(rightContainer);
 
-  main.append(templateContainer);
+    main.append(templateContainer);
+  }
 }
 
 /**
