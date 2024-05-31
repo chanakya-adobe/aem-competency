@@ -200,8 +200,8 @@ export function decorateMain(main, loadAutoBlock = true) {
     buildAutoBlocks(main);
   }
   decorateSections(main);
+  buildTheme(main);
   decorateBlocks(main);
-
   buildSectionBanners(main);
   buildHeadings(main);
 }
@@ -227,6 +227,30 @@ async function decorateTemplates(main) {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
+  }
+}
+
+/**
+ * Updates all section status in a container element.
+ * @param {Element} main The container element
+ */
+async function updateSectionsStatus(main) {
+  const sections = [...main.querySelectorAll('div.section')];
+  for (let i = 0; i < sections.length; i += 1) {
+    const section = sections[i];
+    const status = section.dataset.sectionStatus;
+    if (status !== 'loaded') {
+      const loadingBlock = section.querySelector(
+        '.block[data-block-status="initialized"], .block[data-block-status="loading"]',
+      );
+      if (loadingBlock) {
+        section.dataset.sectionStatus = 'loading';
+        break;
+      } else {
+        section.dataset.sectionStatus = 'loaded';
+        section.style.display = null;
+      }
+    }
   }
 }
 
@@ -261,8 +285,8 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadBlocks(main);
+  await updateSectionsStatus(main);
   await decorateTemplates(main);
-  await buildTheme(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
