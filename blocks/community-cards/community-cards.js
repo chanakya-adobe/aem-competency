@@ -44,7 +44,7 @@ const generateBigBetsCard = (card, placeholder) => {
   const bigBetContent = `
       <div class="card-category">${card.category}</div>
       <div class="card-header">
-        <h3>${card.title}</h3>
+        <p>${card.title}</p>
       </div>
       <p class="card-description">${card.description}</p>
       <div class="card-meta">

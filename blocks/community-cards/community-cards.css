@@ -29,7 +29,7 @@
   width: 65%;
 }
 
-.community-cards .cc-container .card .card-header h3 {
+.community-cards .cc-container .card .card-header p {
   margin: 0;
   flex: 1;
   line-height: 1.25;
@@ -46,6 +46,7 @@
   position: absolute;
   right: 0;
   top: 13px;
+  font-size: var(--body-font-size-xxxs);
 }
 
 .community-cards .cc-container .card .card-description {
