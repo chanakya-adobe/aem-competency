@@ -21,6 +21,8 @@ const TEMPLATE_LIST = {
 };
 
 export const CATEGORY_BIGBETS = 'Big Bets';
+export const CATEGORY_FORUM = 'Forum';
+export const CATEGORY_MENTORING = 'Mentoring';
 
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
