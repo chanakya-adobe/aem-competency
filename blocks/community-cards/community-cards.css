@@ -14,33 +14,30 @@
   cursor: default;
   background: var(--body-text-color) 0 0 no-repeat padding-box;
   box-shadow: 0 3px 6px #000029;
-  border-radius: 16px;
+  border-radius: 1rem;
   opacity: 1;
   flex: 1;
-  min-width: 240px;
-  overflow: none;
-  padding: 1.5rem 0;
+  min-width: 260px;
+  padding: 1.5rem;
   position: relative;
 }
 
 .community-cards .cc-container .card .card-header {
-  display: flex;
-  padding-left: 1rem;
   width: 65%;
+  height: 3.75rem;
+  overflow: hidden;
 }
 
 .community-cards .cc-container .card .card-header p {
   margin: 0;
-  flex: 1;
   line-height: 1.25;
   font-weight: 700;
   font-size: var(--body-font-size-xs);
 }
 
 .community-cards .cc-container .card .card-category {
-  font-weight: 650;
   line-height: 1.25;
-  padding: 8px 4px;
+  padding: 4px 8px;
   background-color: var(--very-light-gray);
   border-radius: 4px 0 0 4px;
   position: absolute;
@@ -50,12 +47,12 @@
 }
 
 .community-cards .cc-container .card .card-description {
-  padding: 0 1rem;
   margin: 0.5rem 0 1.188rem;
+  overflow: hidden;
+  height: 65px;
 }
 
 .community-cards .cc-container .card .card-meta {
-  padding: 0 1rem;
   margin: 0 0 1rem;
 }
 
@@ -99,7 +96,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: .5rem;
-  padding: 0 1rem;
+  padding: 0;
   margin: 0 0 1rem;
 }
 
@@ -116,7 +113,6 @@
 }
 
 .community-cards .cc-container .card .button-container {
-  padding: 0 1rem;
   font-size: var(--body-font-size-xs);
   line-height: 1.25;
 }
@@ -132,6 +128,7 @@
 
   .community-cards .cc-container .card .card-header {
     width: 70%;
+    height: 2.5rem;
    }
 
   .community-cards .cc-container .card .card-header .card-category {
@@ -140,6 +137,7 @@
 
   .community-cards .cc-container .card .card-description {
     margin: 0.625rem 0 1.188rem;
+    height: 45px;
   }
 
   .community-cards .cc-container .card .card-meta {
