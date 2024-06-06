@@ -6,35 +6,40 @@
   display: flex;
   gap: 2rem;
   color: var(--text-color);
-  flex-direction: column;
 }
 
-.bb-card {
+.bb-card.teaser-view {
   background-color: white;
   overflow: hidden;
   border-radius: 1.25rem;
   flex: 1;
 }
 
-.bb-card .bb-image {
+.bb-card.list-view {
+  background-color: white;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  flex-basis: 46%;
+}
+
+.bb-image {
   max-height: 250px;
   overflow: hidden;
 }
-
-.bb-card .bb-image img {
+.bb-image img {
   transition: transform .2s;
 }
 
-.bb-card .bb-image img:hover {
+.bb-image img:hover {
   transform: scale(1.1);
 }
 
-.bb-card .bb-content {
+.bb-content {
   padding: 24px 24px 0;
   font-size: var(--body-font-size-xxs);
 }
 
-.bb-card h3 {
+.h3 {
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -42,31 +47,31 @@
   min-height: 3rem;
 }
 
-.bb-card .bb-description {
+.bb-description {
   margin: 0;
   height: 4rem;
   overflow: hidden;
 }
 
-.bb-card .big-bet-meta {
+.big-bet-meta {
   display: flex;
   justify-content: space-between;
   margin: 1rem 0 .5rem;
   gap: .5rem;
 }
 
-.bb-card .big-bet-meta > div {
+.big-bet-meta > div {
   display: flex;
   justify-content: center;
 }
 
-.bb-card .big-bet-meta .icon.icon-globe {
+.big-bet-meta .icon.icon-globe {
   width: 14px;
   height: 14px;
   margin-right: 6px;
 }
 
-.bb-card .big-bet-meta .owner img {
+.big-bet-meta .owner img {
   margin: 0 6px;
   width: 24px;
   height: 24px;
@@ -106,8 +111,16 @@
   margin: 1.5rem 0 0;
 }
 
+.bb-container.list-view {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 @media (width >= 768px) {
-  .bb-container {
+  .bb-container.teaser-view {
+    flex-direction: row;
+  }
+  .bb-container.list-view {
     flex-direction: row;
   }
 }

@@ -1,3 +1,6 @@
+/**
+ *  eslint max-len: ["error", { "ignoreComments": true }]
+ */
 import {
   fetchPlaceholders, createOptimizedPicture, readBlockConfig,
 } from '../../scripts/aem.js';
@@ -16,6 +19,7 @@ const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row
 const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
+const viewLoadMoreLinkHTML = (config) => `<button class="button secondary">${config.viewAllLabel}</button>`;
 
 function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');
@@ -31,19 +35,12 @@ function createCardImage(src, alt, config) {
   return cardImg;
 }
 
-async function printList(list, placeholder, config) {
-  let printCount = 0;
-  const containerDiv = document.createElement('div');
-  containerDiv.classList.add('bb-container');
-
-  const randomList = list.sort(() => 0.5 - Math.random());
-
-  randomList.every((row) => {
-    if (printCount > 2) {
-      return false;
-    }
+function buildBlock(slicedResults, containerDiv, placeholder, config) {
+  slicedResults.every((row) => {
     const cardDiv = document.createElement('div');
-    cardDiv.classList.add('bb-card');
+    // cardDiv.classList.add('bb-card ${config.type}');
+    cardDiv.className = `bb-card ${config.type}`;
+
     cardDiv.append(createCardImage(row.image, row.title, config));
     cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
 
@@ -68,12 +65,80 @@ async function printList(list, placeholder, config) {
 
     cardDiv.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row, config.cardCTALabel));
     containerDiv.append(cardDiv);
-    printCount += 1;
-
     return true;
   });
+}
 
-  return containerDiv;
+/**
+ * The below function is leveraged for View More button functionality
+ * eslint-disable-next-line
+ */
+async function loadMoreResults(
+  block,
+  containerDiv,
+  results,
+  placeholder,
+  config,
+  loadMoreContainer,
+  chunk,
+) {
+  const currentResults = document.querySelectorAll('.bb-card').length;
+  const slicedResults = results.slice(currentResults, currentResults + chunk);
+  buildBlock(slicedResults, containerDiv, placeholder, config);
+  if ((results.length - currentResults) > chunk) {
+    block.append(loadMoreContainer);
+  } else loadMoreContainer.remove();
+}
+
+/**
+ * Method for paginataed/non-paginated view
+ */
+async function loadResults(block, containerDiv, results, placeholder, config) {
+  let slicedResults = 0;
+  let loadMoreContainer = 0;
+  let currentResults = 0;
+
+  if (config.type === 'list-view') {
+    const chunk = 2;
+    if (results.length > chunk) {
+      currentResults = document.querySelectorAll('.bb-card').length;
+      slicedResults = results.slice(currentResults, currentResults + chunk);
+
+      loadMoreContainer = document.createElement('div');
+      loadMoreContainer.className = `view-all ${config.type}`;
+      loadMoreContainer.innerHTML = viewLoadMoreLinkHTML(config);
+
+      loadMoreContainer.addEventListener('click', () => {
+        loadMoreResults(
+          block,
+          containerDiv,
+          results,
+          placeholder,
+          config,
+          loadMoreContainer,
+          chunk,
+        );
+      });
+    } else {
+      slicedResults = results.slice(currentResults, currentResults + chunk);
+    }
+    buildBlock(slicedResults, containerDiv, placeholder, config);
+    block.append(containerDiv);
+    if ((results.length - currentResults) > chunk) {
+      block.append(loadMoreContainer);
+    } else loadMoreContainer.remove();
+  } else {
+    const chunk = 3;
+    const randomList = results.sort(() => 0.5 - Math.random());
+    slicedResults = randomList.slice(currentResults, currentResults + chunk);
+    buildBlock(slicedResults, containerDiv, placeholder, config);
+    block.append(containerDiv);
+
+    loadMoreContainer = document.createElement('div');
+    loadMoreContainer.className = `view-all ${config.type}`;
+    loadMoreContainer.innerHTML = viewAllLinkHTML(config);
+    block.append(loadMoreContainer);
+  }
 }
 
 function getConfig(block, placeholder) {
@@ -95,14 +160,9 @@ export default async function decorate(block) {
   const config = getConfig(block, placeholder);
 
   block.textContent = '';
-  const list = await fetchSearch(CATEGORY_BIGBETS);
+  const results = await fetchSearch(CATEGORY_BIGBETS);
 
-  const objects = await printList(list, placeholder, config);
-  block.append(objects);
-
-  const viewAllContainer = document.createElement('div');
-  viewAllContainer.className = `view-all ${config.type}`;
-  viewAllContainer.innerHTML = viewAllLinkHTML(config);
-
-  block.append(viewAllContainer);
+  const containerDiv = document.createElement('div');
+  containerDiv.className = `bb-container ${config.type}`;
+  await loadResults(block, containerDiv, results, placeholder, config);
 }
