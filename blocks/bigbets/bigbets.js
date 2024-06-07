@@ -1,18 +1,12 @@
-/**
- *  eslint max-len: ["error", { "ignoreComments": true }]
- */
 import {
   fetchPlaceholders, createOptimizedPicture, readBlockConfig,
 } from '../../scripts/aem.js';
 import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
 import { getTagList, getAuthorImage } from '../../scripts/utils.js';
 
-const getListHTML = (row) => `
-<div class="bb-content">
-  <h3>${row.title}</h3>
-  <p class="bb-description">${row.description}</p>
-  </div>`;
-
+const VIEW_TEASER = 'teaser-view';
+const VIEW_FULL = 'list-view';
+const getListHTML = (row) => `<div class="bb-content"><h3>${row.title}</h3><p class="bb-description">${row.description}</p></div>`;
 const getButtonHTML = (row, joinLabel) => `<p class='button-container'><a href="${row.path}" class="button primary" title="${row.title}">${joinLabel}</a><p>`;
 const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span> ${row.visibility}</div>`;
 const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
@@ -24,13 +18,13 @@ const viewLoadMoreLinkHTML = (config) => `<button class="button secondary">${con
 function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');
   cardImg.className = 'bb-image';
-  if (config.type === 'teaser-view') {
+  if (config.type === VIEW_TEASER) {
     cardImg.append(createOptimizedPicture(src, alt));
   } else {
     cardImg.append(createOptimizedPicture(src, alt, true));
   }
-  cardImg.querySelector('img').width = 600;
-  cardImg.querySelector('img').height = 300;
+  cardImg.querySelector('img').width = 800;
+  cardImg.querySelector('img').height = 500;
 
   return cardImg;
 }
@@ -97,9 +91,9 @@ async function loadResults(block, containerDiv, results, placeholder, config) {
   let slicedResults = 0;
   let loadMoreContainer = 0;
   let currentResults = 0;
+  const chunk = config.count;
 
-  if (config.type === 'list-view') {
-    const chunk = 2;
+  if (config.type === VIEW_FULL) {
     if (results.length > chunk) {
       currentResults = document.querySelectorAll('.bb-card').length;
       slicedResults = results.slice(currentResults, currentResults + chunk);
@@ -128,7 +122,6 @@ async function loadResults(block, containerDiv, results, placeholder, config) {
       block.append(loadMoreContainer);
     } else loadMoreContainer.remove();
   } else {
-    const chunk = 3;
     const randomList = results.sort(() => 0.5 - Math.random());
     slicedResults = randomList.slice(currentResults, currentResults + chunk);
     buildBlock(slicedResults, containerDiv, placeholder, config);
@@ -145,12 +138,14 @@ function getConfig(block, placeholder) {
   const config = {};
   const blockConfig = readBlockConfig(block);
 
-  config.type = blockConfig.type || 'teaser-view';
+  config.type = blockConfig.type || VIEW_TEASER;
   config.cardCTALabel = placeholder.bigbetCtaLabel || 'Join me';
-  config.viewAllLabel = blockConfig.viewalllabel || placeholder.bigbetViewall || 'View all 1';
+  config.viewAllLabel = blockConfig.viewalllabel || placeholder.bigbetViewall || 'View all';
   config.viewAllLink = blockConfig.viewalllink || '/';
-  if (config.type === 'full-view') {
+  config.count = 3;
+  if (config.type === VIEW_FULL) {
     config.viewAllLink = '#';
+    config.count = blockConfig.tilesCount || 4;
   }
   return config;
 }

@@ -4,11 +4,18 @@
 
 .bb-container {
   display: flex;
+  flex-flow: column;
   gap: 2rem;
   color: var(--text-color);
 }
 
-.bb-card.teaser-view {
+@media (width >= 768px) {
+  .bb-container {
+    flex-flow: wrap;
+  }
+}
+
+.bb-card {
   background-color: white;
   overflow: hidden;
   border-radius: 1.25rem;
@@ -16,30 +23,28 @@
 }
 
 .bb-card.list-view {
-  background-color: white;
-  overflow: hidden;
-  border-radius: 1.25rem;
   flex-basis: 46%;
 }
 
-.bb-image {
+.bb-card .bb-image {
   max-height: 250px;
   overflow: hidden;
 }
-.bb-image img {
+
+.bb-card .bb-image img {
   transition: transform .2s;
 }
 
-.bb-image img:hover {
+.bb-card .bb-card .bb-image img:hover {
   transform: scale(1.1);
 }
 
-.bb-content {
+.bb-card .bb-content {
   padding: 24px 24px 0;
   font-size: var(--body-font-size-xxs);
 }
 
-.h3 {
+.bb-card .bb-content h3 {
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -47,37 +52,38 @@
   min-height: 3rem;
 }
 
-.bb-description {
+.bb-card .bb-content .bb-description {
   margin: 0;
   height: 4rem;
   overflow: hidden;
 }
 
-.big-bet-meta {
+.bb-card .bb-content .big-bet-meta {
   display: flex;
   justify-content: space-between;
   margin: 1rem 0 .5rem;
   gap: .5rem;
+  flex-wrap: wrap;
 }
 
-.big-bet-meta > div {
+.bb-card .bb-content .big-bet-meta > div {
   display: flex;
   justify-content: center;
 }
 
-.big-bet-meta .icon.icon-globe {
+.bb-card .bb-content .big-bet-meta .icon.icon-globe {
   width: 14px;
   height: 14px;
   margin-right: 6px;
 }
 
-.big-bet-meta .owner img {
+.bb-card .bb-content .big-bet-meta .owner img {
   margin: 0 6px;
   width: 24px;
   height: 24px;
 }
 
-.bbtags {
+.bb-card .bb-content .bbtags {
   list-style-type: none;
   display: flex;
   gap: .5rem;
@@ -86,41 +92,27 @@
   flex-wrap: wrap;
 }
 
-.bbtags li {
+.bb-card .bb-content .bbtags li {
   border: 0.3px solid var(--light-gray-color);
   border-radius: 3px;
   padding: .25rem .5rem;
   color: var(--light-gray-color);
 }
 
-.bbtags li.tag-count {
+.bb-card .bb-content .bbtags li.tag-count {
   border: none;
   padding-left: 0;
 }
 
-.bb-content .button-container {
+.bb-card .bb-content .button-container {
   margin-top: 1.5rem;
 }
 
-.bb-content .button-container a {
+.bb-card .bb-content .button-container a {
   margin: 0;
 }
 
 .bigbets .view-all {
   text-align: center;
-  margin: 1.5rem 0 0;
-}
-
-.bb-container.list-view {
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-@media (width >= 768px) {
-  .bb-container.teaser-view {
-    flex-direction: row;
-  }
-  .bb-container.list-view {
-    flex-direction: row;
-  }
+  margin: 2rem 0 0;
 }
