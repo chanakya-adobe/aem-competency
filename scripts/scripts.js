@@ -20,6 +20,8 @@ const TEMPLATE_LIST = {
   bigbet: 'big-bet',
 };
 
+export const PLACEHOLDER_REGEX = /({{.*}})/;
+
 export const CATEGORY_BIGBETS = 'Big Bets';
 export const CATEGORY_FORUM = 'Forum';
 export const CATEGORY_MENTORING = 'Mentoring';
@@ -137,6 +139,32 @@ function buildBreadcrumb(main) {
   }
 }
 
+function renderMessage() {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+  const splitAfternoon = 12; // 24hr time to split the afternoon
+  const splitEvening = 17; // 24hr time to split the evening
+  let message = 'Good Morning';
+  if (currentHour >= splitAfternoon && currentHour <= splitEvening) {
+    // Between 12 PM and 5PM
+    message = 'Good Afternoon';
+  }
+  if (currentHour >= splitEvening) {
+    // Between 5PM and Midnight
+    message = 'Good Evening';
+  }
+  // Between dawn and noon
+  return message;
+}
+
+function setGreetingMessage(main) {
+  const banner = main.querySelector('div');
+  const greetingsHeading = banner.querySelector('h1');
+  const greetingText = greetingsHeading.textContent;
+  const updatedGreeting = greetingText.replace(PLACEHOLDER_REGEX, renderMessage());
+  greetingsHeading.textContent = updatedGreeting;
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -144,6 +172,7 @@ function buildBreadcrumb(main) {
 function buildAutoBlocks(main) {
   try {
     buildBreadcrumb(main);
+    setGreetingMessage(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
