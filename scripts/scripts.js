@@ -29,6 +29,8 @@ const SECTION_BG_DESKTOP = 'bg-desktop';
 const THEME_COL_LEFT = '.section.left-column';
 const THEME_COL_RIGHT = '.section.right-column';
 
+const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
 /**
  * Add a wrapper to icons parent element.
  * @param {Element} [element] Element containing icons
@@ -68,8 +70,8 @@ export function createPicture(props) {
   img.alt = props.alt || '';
   img.className = 'banner-img';
   img.loading = props.loading || 'lazy';
-  // img.width = isMobile ? '360' : '600';
-  // img.height = isMobile ? '298' : '620';
+  img.width = isMobile ? '560' : '800';
+  img.height = isMobile ? '598' : '920';
 
   if (mobileImgUrl && desktopImgUrl) {
     picture.appendChild(img);
@@ -90,7 +92,7 @@ function buildSectionBanners(main) {
       const pictureProps = {
         alt: '',
         loading: (index === 0) ? 'eager' : 'lazy',
-        'bg-mobile': elem.dataset.mobileImage,
+        'bg-mobile': elem.dataset.mobileImage || elem.dataset.desktopImage,
         'bg-desktop': elem.dataset.desktopImage,
       };
       const picture = createPicture(pictureProps);
