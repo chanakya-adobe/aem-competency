@@ -38,7 +38,7 @@
   width: auto;
 }
 
-.clients .teaser h4 {
+.clients .teaser .teaser-title {
   font: normal normal bold 20px/36px var(--body-font-family);
   margin: 0;
 }

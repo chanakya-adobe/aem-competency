@@ -4,7 +4,7 @@ const VIEW_TEASER = 'teaser';
 
 const listHTML = (row, brandImg, config) => `<div class="teaser">
   <div class="teaser-img"><img alt="${row.Title}" loading="lazy" src="${brandImg}" width="200" height="59"></div>
-  <h4>${row.Title}</h4>
+  <p class="teaser-title">${row.Title}</p>
   <p>${row.Description}</p>
   <strong><a href="${row.Link}" title="${row.Title}">${config.teaserlinklabel}</a></strong>
 </div>`;
