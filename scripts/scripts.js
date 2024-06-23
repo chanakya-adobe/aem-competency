@@ -158,11 +158,12 @@ function renderMessage() {
 }
 
 function setGreetingMessage(main) {
-  const banner = main.querySelector('div');
-  const greetingsHeading = banner.querySelector('h1');
-  const greetingText = greetingsHeading.textContent;
-  const updatedGreeting = greetingText.replace(PLACEHOLDER_REGEX, renderMessage());
-  greetingsHeading.textContent = updatedGreeting;
+  const greetingsHeading = main.querySelector('h1');
+  if (greetingsHeading) {
+    const greetingText = greetingsHeading.textContent;
+    const updatedGreeting = greetingText.replace(PLACEHOLDER_REGEX, renderMessage());
+    greetingsHeading.textContent = updatedGreeting;
+  }
 }
 
 /**
