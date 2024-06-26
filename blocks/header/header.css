@@ -1,3 +1,7 @@
+header.has-bg-color {
+  background-color: var(--teams-background-color);
+}
+
 /* header and nav layout */
 header nav {
   box-sizing: border-box;
