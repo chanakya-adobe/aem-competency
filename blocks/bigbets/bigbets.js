@@ -15,14 +15,14 @@ const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.a
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
 const viewLoadMoreLinkHTML = (config) => `<button class="button secondary">${config.viewAllLabel}</button>`;
 
-function createCardImage(src, alt, config) {
+function createCardImage(src, alt) {
   const cardImg = document.createElement('div');
   cardImg.className = 'bb-image';
-  if (config.type === VIEW_TEASER) {
-    cardImg.append(createOptimizedPicture(src, alt));
-  } else {
-    cardImg.append(createOptimizedPicture(src, alt, true));
+  let imgSrc = src;
+  if (window.location.origin === 'null') {
+    imgSrc = window.parent.location.origin + src;
   }
+  cardImg.append(createOptimizedPicture(imgSrc, alt));
   cardImg.querySelector('img').width = 800;
   cardImg.querySelector('img').height = 500;
 
@@ -35,7 +35,7 @@ function buildBlock(slicedResults, containerDiv, placeholder, config) {
     // cardDiv.classList.add('bb-card ${config.type}');
     cardDiv.className = `bb-card ${config.type}`;
 
-    cardDiv.append(createCardImage(row.image, row.title, config));
+    cardDiv.append(createCardImage(row.image, row.title));
     cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
 
     const metaContainer = document.createElement('div');
