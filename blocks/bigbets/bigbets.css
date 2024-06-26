@@ -1,29 +1,38 @@
-.bigbets {
-  margin-top: 2.5rem;
-}
-
 .bb-container {
   display: flex;
   flex-flow: column;
-  gap: 2rem;
-  color: var(--text-color);
+  gap: 1rem;
+}
+
+.bb-container.teaser-view {
+  margin-top: 2.5rem;
 }
 
 @media (width >= 768px) {
   .bb-container {
     flex-flow: wrap;
+    gap: 4rem 2rem;
   }
 }
 
 .bb-card {
-  background-color: white;
+  background-color: var(--dark-blue);
   overflow: hidden;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   flex: 1;
+  box-shadow: 0 3px 6px #00000029;
 }
 
 .bb-card.list-view {
   flex-basis: 46%;
+}
+
+.bb-card a.bb-card-link {
+  color: var(--link-color-dark);
+}
+
+.bb-card a.bb-card-link:hover {
+  text-decoration: none;
 }
 
 .bb-card .bb-image {
@@ -35,27 +44,32 @@
   transition: transform .2s;
 }
 
-.bb-card .bb-card .bb-image img:hover {
+.bb-card:hover .bb-image img {
   transform: scale(1.1);
 }
 
 .bb-card .bb-content {
-  padding: 24px 24px 0;
+  padding: 1.5rem;
   font-size: var(--body-font-size-xxs);
 }
 
 .bb-card .bb-content h3 {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 1.5rem;
   min-height: 3rem;
+}
+
+.bb-card a.bb-card-link:hover h3 {
+  text-decoration: underline;
 }
 
 .bb-card .bb-content .bb-description {
   margin: 0;
   height: 4rem;
   overflow: hidden;
+  line-height: 21px;
 }
 
 .bb-card .bb-content .big-bet-meta {
@@ -71,10 +85,24 @@
   justify-content: center;
 }
 
-.bb-card .bb-content .big-bet-meta .icon.icon-globe {
+.bb-card .bb-content .big-bet-meta .icon {
   width: 14px;
   height: 14px;
   margin-right: 6px;
+  margin-top: 2px;
+  display: none;
+}
+
+.bb-card a.bb-card-link .icon.icon-globe-white {
+  display: block;
+}
+
+.bb-card a.bb-card-link:hover .icon.icon-globe-white {
+  display: none;
+}
+
+.bb-card a.bb-card-link:hover .icon.icon-globe {
+  display: block;
 }
 
 .bb-card .bb-content .big-bet-meta .owner img {
@@ -83,29 +111,21 @@
   height: 24px;
 }
 
-.bb-card .bb-content .bbtags {
-  list-style-type: none;
-  display: flex;
-  gap: .5rem;
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
+.bb-card .bb-content .tags {
+  margin: 5px 0;
 }
 
-.bb-card .bb-content .bbtags li {
-  border: 0.3px solid var(--light-gray-color);
-  border-radius: 3px;
-  padding: .25rem .5rem;
-  color: var(--light-gray-color);
+.bb-card .bb-content .tags li {
+  border-color: var(--link-color-dark);
+  color: var(--link-color-dark);
 }
 
-.bb-card .bb-content .bbtags li.tag-count {
-  border: none;
-  padding-left: 0;
+.bb-card a.bb-card-link:hover .tags li {
+  border-color: var(--dark-gray);
 }
 
 .bb-card .bb-content .button-container {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .bb-card .bb-content .button-container a {
