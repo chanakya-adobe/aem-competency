@@ -15,14 +15,19 @@ const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp; ${row.author}</
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
 const viewLoadMoreLinkHTML = (config) => `<button class="button secondary">${config.viewAllLabel}</button>`;
 
-function createCardImage(src, alt) {
+function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');
   cardImg.className = 'bb-image';
   let imgSrc = src;
   if (window.location.origin === 'null') {
     imgSrc = window.parent.location.origin + src;
   }
-  cardImg.append(createOptimizedPicture(imgSrc, alt));
+  let eagerImg = false;
+  if (config.type === VIEW_FULL) {
+    eagerImg = true;
+  }
+
+  cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg));
   cardImg.querySelector('img').width = 800;
   cardImg.querySelector('img').height = 500;
 
@@ -40,7 +45,7 @@ function buildBlock(slicedResults, containerDiv, placeholder, config) {
     cardLink.href = row.path;
     cardLink.title = row.title;
 
-    cardLink.append(createCardImage(row.image, row.title));
+    cardLink.append(createCardImage(row.image, row.title, config));
     cardLink.insertAdjacentHTML('beforeend', getListHTML(row));
 
     const metaContainer = document.createElement('div');
