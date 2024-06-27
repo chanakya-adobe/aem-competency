@@ -9,6 +9,7 @@
 .tabs .tabs-list::-webkit-scrollbar {
   display: none;
 }
+
 .full-view .tabs-list {
   border-bottom: solid 1px var(--button-secondary-text-color) ;
 }
