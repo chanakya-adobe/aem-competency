@@ -13,9 +13,25 @@ main .breadcrumb-wrapper ol {
   padding: 0;
 }
 
+@media (width < 768px) {
+  main .breadcrumb-wrapper ol {
+    width: max-content;
+  }
+}
+
 main .breadcrumb-wrapper ol li {
   padding-right: 6px;
   position: relative;
+}
+
+@media (width < 768px) {
+  main .breadcrumb-wrapper ol li {
+    padding-right: 10px;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 main .breadcrumb-wrapper li:not(:last-child)::after {
