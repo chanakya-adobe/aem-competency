@@ -57,7 +57,13 @@
   --button-secondary-border-hover-color: var(--button-secondary-bg-hover-color); 
   --button-themes-secondary-color: var(--primary-color); 
   --button-themes-secondary-hover-color: var(--primary-dark-color);
-
+  --button-tertiary-bg-color: unset; 
+  --button-tertiary-bg-hover-color: #0875FF;
+  --button-tertiary-text-color: #0477FB;
+  --button-tertiary-text-hover-color: #fff;
+  --button-tertiary-border-color: var(--button-tertiary-text-color); 
+  --button-tertiary-border-hover-color: var(--button-tertiary-bg-hover-color); 
+  
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
@@ -223,7 +229,7 @@ a:hover {
 }
 
 /* buttons */
-a.button:any-link, button {
+a.button:any-link, button, .btn {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -233,7 +239,7 @@ a.button:any-link, button {
   text-align: center;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
@@ -243,7 +249,7 @@ a.button:any-link, button {
   border-radius: var(--button-redius);
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:hover, a.button:focus, button:hover, button:focus, .btn:hover, .btn:focus  {
   background-color: var(--button-bg-hover-color);
   cursor: pointer;
 }
@@ -253,16 +259,28 @@ button:disabled, button:disabled:hover {
   cursor: unset;
 }
 
-a.button.secondary, button.secondary {
+a.button.secondary, button.secondary, .btn.secondary {
   background-color: var(--button-secondary-bg-color);
   border: 1px solid var(--button-secondary-border-color);
   color: var(--button-secondary-text-color);
 }
 
-a.button.secondary:hover, a.button.secondary:focus, button.secondary:hover, button.secondary:focus  {
+a.button.secondary:hover, a.button.secondary:focus, button.secondary:hover, button.secondary:focus, .btn.secondary:focus, .btn.secondary:hover {
   background-color: var(--button-secondary-bg-hover-color);
   color: var(--button-secondary-text-hover-color);
   border-color: var(--button-secondary-border-hover-color);
+}
+
+a.button.tertiary, button.tertiary, .btn.tertiary {
+  background-color: var(--button-tertiary-bg-color);
+  border: 1px solid var(--button-tertiary-border-color);
+  color: var(--button-tertiary-text-color);
+}
+
+a.button.tertiary:hover, a.button.tertiary:focus, button.tertiary:hover, button.tertiary:focus, .btn.tertiary:hover, .btn.tertiary:focus  {
+  background-color: var(--button-tertiary-bg-hover-color);
+  color: var(--button-tertiary-text-hover-color);
+  border-color: var(--button-tertiary-border-hover-color);
 }
 
 .section.theme-secondary a.button.secondary, 

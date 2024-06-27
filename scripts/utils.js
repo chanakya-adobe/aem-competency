@@ -1,4 +1,5 @@
 import { toCamelCase } from './aem.js';
+import { CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING } from './scripts.js';
 
 /**
  * Add classes to elements.
@@ -117,4 +118,16 @@ export function getAuthorImage(author, placeholder) {
   const authorIdentifier = toCamelCase(`user-${author}`);
 
   return placeholder[authorIdentifier];
+}
+
+/**
+ * Check if category is valid supported category
+ *
+ * @param {*} category
+ * @returns true/false
+ */
+export function isValidCategory(category) {
+  const categories = [CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING];
+
+  return category && categories.includes(category) > 0;
 }
