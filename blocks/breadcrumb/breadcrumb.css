@@ -13,21 +13,18 @@ main .breadcrumb-wrapper ol {
   padding: 0;
 }
 
-@media (width < 768px) {
-  main .breadcrumb-wrapper ol {
-    width: max-content;
-  }
-}
-
 main .breadcrumb-wrapper ol li {
-  padding-right: 6px;
+  padding-right: 10px;
   position: relative;
 }
 
 @media (width < 768px) {
+  main .breadcrumb-wrapper ol {
+    width: max-content;
+  }
+
   main .breadcrumb-wrapper ol li {
-    padding-right: 10px;
-    max-width: 110px;
+    max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
