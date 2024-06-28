@@ -323,6 +323,7 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  const hasHeroBanner = main.querySelector('.hero-banner') != null;
   await loadBlocks(main);
   await updateSectionsStatus(main);
   await decorateTemplates(main);
@@ -331,7 +332,12 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
+  const header = doc.querySelector('header');
+  loadHeader(header);
+  if (!hasHeroBanner) {
+    header.classList.add('has-bg-color');
+  }
+
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

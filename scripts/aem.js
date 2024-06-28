@@ -699,9 +699,6 @@ function decorateBlocks(main) {
  * @returns {Promise}
  */
 async function loadHeader(header) {
-  if (window.location.pathname !== '/') {
-    header.classList.add('has-bg-color');
-  }
   const headerBlock = buildBlock('header', '');
   header.append(headerBlock);
   decorateBlock(headerBlock);

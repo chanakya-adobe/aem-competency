@@ -107,7 +107,6 @@ body {
   line-height: 1.6;
   color: var(--body-text-color);
   background-color: var(--background-color);
-  background-image: linear-gradient(to bottom, var(--background-color)); 
   display: none;
   min-height: 800px;
 }
@@ -350,6 +349,14 @@ main .section.full-width-banner.top-edge {
 
 .section.full-width-banner.hero-banner.bottom-edge {
   padding-bottom:  var(--gutter-space-triangle-mobile);
+}
+
+footer {
+  background-color: var(--teams-background-color);
+}
+
+header.has-bg-color {
+  background-color: var(--teams-background-color);
 }
 
 @media (width >= 768px) {
