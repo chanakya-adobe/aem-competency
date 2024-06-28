@@ -19,7 +19,7 @@ export default async function decorate(block) {
 
   pathSegments.forEach((page, index) => {
     segments += (index !== pathSegments.length - 1) ? `${page}/` : `${page}`;
-    const label = toTitleCase(page || 'Home');
+    const label = toTitleCase(page.replace(/-/g, ' ') || 'Home');
     const anchor = createTag('a', { href: `${segments}` }, label);
     const crumb = createTag('li', { class: 'crumb' }, anchor);
     list.append(crumb);
