@@ -23,7 +23,11 @@
 }
 
 .bb-card.list-view {
-  flex-basis: 46%;
+  flex-basis: 47%;
+}
+
+.bb-card.teaser-view {
+  flex: 1;
 }
 
 .bb-card a.bb-card-link {
