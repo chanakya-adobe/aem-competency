@@ -64,7 +64,7 @@ function buildBlock(slicedResults, containerDiv, placeholder, config) {
     cardLink.querySelector('.bb-content').insertAdjacentElement('beforeend', metaContainer);
 
     if (row.tags) {
-      cardLink.querySelector('.bb-content').append(getTagList(row.tags, ''));
+      cardLink.querySelector('.bb-content').append(getTagList(row.tags, '', true));
     }
     cardLink.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row, config.cardCTALabel));
     cardDiv.append(cardLink);
