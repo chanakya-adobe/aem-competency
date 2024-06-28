@@ -9,6 +9,7 @@ export default async function decorate(block) {
       .split(' ')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ')
+      .replace(/-/g, ' ')
   );
 
   const pathSegments = window.location.pathname.replace(regex, '$1').split('/');
