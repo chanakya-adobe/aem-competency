@@ -3,11 +3,8 @@ body.modal-open {
 }
 
 .modal dialog {
-  /* --dialog-border-radius: 16px; */
-
   overscroll-behavior: none;
   border: 1px solid #ccc;
-  /*border-radius: var(--dialog-border-radius);*/
   width: 100vw;
 }
 
@@ -40,7 +37,6 @@ body.modal-open {
   width: 20px;
   height: 100%;
   max-height: 54px;
-  /* border-radius: 0 var(--dialog-border-radius) 0 0; */
   background-color: unset;
   text-overflow: clip;
   margin: 0;
