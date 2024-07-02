@@ -378,6 +378,7 @@ footer {
 
 header.has-bg-color {
   background-color: var(--medium-blue);
+  filter: drop-shadow(1px 2px 4px #00000029);
 }
 
 @media (width >= 768px) {
