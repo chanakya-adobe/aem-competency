@@ -334,7 +334,6 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  autolinkModals(doc);
   const main = doc.querySelector('main');
   await loadBlocks(main);
   await updateSectionsStatus(main);
@@ -353,6 +352,8 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  autolinkModals(doc);
 }
 
 /**
