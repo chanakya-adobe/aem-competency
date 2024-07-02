@@ -57,7 +57,7 @@ const generateBigBetsCard = (card, placeholder) => {
         <div class="status">Status: <strong>${card.status}</strong></div>
       </div>`;
   bigBetsContainer.innerHTML = bigBetContent;
-  bigBetsContainer.append(getTagList(card.tags));
+  bigBetsContainer.append(getTagList(card.tags, '', true));
   const ctaButtonEl = getCtaButton(card, 'bigbet-cta-label', placeholder);
   bigBetsContainer.append(ctaButtonEl);
   return bigBetsContainer;

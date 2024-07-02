@@ -6,6 +6,7 @@ main .section.breadcrumb-container {
 
 main .breadcrumb-wrapper ol {
   display: flex;
+  width: max-content;
   flex-wrap: wrap;
   gap: 13px;
   list-style: none;
@@ -14,8 +15,18 @@ main .breadcrumb-wrapper ol {
 }
 
 main .breadcrumb-wrapper ol li {
-  padding-right: 6px;
+  padding-right: 10px;
   position: relative;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (width >= 768px) {
+  main .breadcrumb-wrapper ol li {
+    max-width: max-content;
+  }
 }
 
 main .breadcrumb-wrapper li:not(:last-child)::after {

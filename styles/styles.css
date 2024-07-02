@@ -16,6 +16,7 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --text-color-gray: #E6E6E6;
   --body-text-color: #fff;
   --background-color: #002651;
   --border-color: #868686;
@@ -23,12 +24,12 @@
   --heading-secondary: #EB1100;
   --nav-grey: #d1d1d1;
   --light-gray: #5D5D5D;
+  --dark-gray: #707070;
   --medium-gray: #727272;
   --very-light-gray: #D5D5D5;
   --light-gray-color: #454545;
-  --teams-background-color: #0D2D52;
-  --teams-shadow-color: #000029;
-  --teams-text-color: #E6E6E6;
+  --dark-blue: #012C5D;
+  --medium-blue: #0D2D52;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -37,14 +38,15 @@
 
   /* Links & buttons */
   --link-color: #D0D0D0;
+  --link-color-dark: #D6D6D6;
   --link-hover-color: #fff;
   --link-secondary-color: var(--primary-color);
   --link-secondary-hover-color: #136ff6;
-  --button-redius: 1rem;
+  --button-redius: .75rem;
   --button-padding: .5rem 1rem;
-  --button-bg-color: var(--primary-color); /* Pending: confirm color */
+  --button-bg-color: var(--primary-color);
   --button-text-color: #fff;
-  --button-bg-hover-color: var(--primary-dark-color); /* Pending: confirm color */
+  --button-bg-hover-color: var(--primary-dark-color);
   --button-secondary-bg-color: unset; 
   --button-secondary-bg-hover-color: #A2A2A2;
   --button-secondary-text-color: #B0B0B0;
@@ -53,7 +55,13 @@
   --button-secondary-border-hover-color: var(--button-secondary-bg-hover-color); 
   --button-themes-secondary-color: var(--primary-color); 
   --button-themes-secondary-hover-color: var(--primary-dark-color);
-
+  --button-tertiary-bg-color: unset; 
+  --button-tertiary-bg-hover-color: #0875FF;
+  --button-tertiary-text-color: #0477FB;
+  --button-tertiary-text-hover-color: #fff;
+  --button-tertiary-border-color: var(--button-tertiary-text-color); 
+  --button-tertiary-border-hover-color: var(--button-tertiary-bg-hover-color); 
+  
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
@@ -218,7 +226,7 @@ a:hover {
 }
 
 /* buttons */
-a.button:any-link, button {
+a.button:any-link, button, .btn {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -226,8 +234,9 @@ a.button:any-link, button {
   border: 1px solid transparent;
   padding: var(--button-padding);
   text-align: center;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
@@ -237,7 +246,7 @@ a.button:any-link, button {
   border-radius: var(--button-redius);
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:hover, a.button:focus, button:hover, button:focus, .btn:hover, .btn:focus  {
   background-color: var(--button-bg-hover-color);
   cursor: pointer;
 }
@@ -247,16 +256,28 @@ button:disabled, button:disabled:hover {
   cursor: unset;
 }
 
-a.button.secondary, button.secondary {
+a.button.secondary, button.secondary, .btn.secondary {
   background-color: var(--button-secondary-bg-color);
   border: 1px solid var(--button-secondary-border-color);
   color: var(--button-secondary-text-color);
 }
 
-a.button.secondary:hover, a.button.secondary:focus, button.secondary:hover, button.secondary:focus  {
+a.button.secondary:hover, a.button.secondary:focus, button.secondary:hover, button.secondary:focus, .btn.secondary:focus, .btn.secondary:hover {
   background-color: var(--button-secondary-bg-hover-color);
   color: var(--button-secondary-text-hover-color);
   border-color: var(--button-secondary-border-hover-color);
+}
+
+a.button.tertiary, button.tertiary, .btn.tertiary {
+  background-color: var(--button-tertiary-bg-color);
+  border: 1px solid var(--button-tertiary-border-color);
+  color: var(--button-tertiary-text-color);
+}
+
+a.button.tertiary:hover, a.button.tertiary:focus, button.tertiary:hover, button.tertiary:focus, .btn.tertiary:hover, .btn.tertiary:focus  {
+  background-color: var(--button-tertiary-bg-hover-color);
+  color: var(--button-tertiary-text-hover-color);
+  border-color: var(--button-tertiary-border-hover-color);
 }
 
 .section.theme-secondary a.button.secondary, 
@@ -423,4 +444,36 @@ main .section.highlight {
   .theme-two-col-container .theme-right-container .section > div {
     padding-left: 0;
   }
+}
+
+/* tags */
+.tags {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.tags.white {
+  margin-top: 1.25rem;
+}
+
+.tags li {
+  border: 0.3px solid var(--light-gray-color);
+  border-radius: 3px;
+  padding: .25rem .5rem;
+  color: var(--light-gray-color);
+}
+
+.tags.white li {
+  color: var(--body-text-color);
+  border: 0.3px solid var(--body-text-color);
+}
+
+.tags li.tag-count {
+  border: none;
+  padding-left: 0;
 }

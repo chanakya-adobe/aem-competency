@@ -1,4 +1,5 @@
 import { toCamelCase } from './aem.js';
+import { CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING } from './scripts.js';
 
 /**
  * Add classes to elements.
@@ -77,24 +78,23 @@ export function isDesktop() {
  * @param {*} tags
  * @param {*} prefix
  */
-export function getTagList(tags, prefix = '') {
+export function getTagList(tags, prefix = '', showTagCount = false) {
   const tagContainer = document.createElement('ul');
   tagContainer.className = `${prefix}tags`;
   const tagsList = JSON.parse(tags);
-  const randomList = tagsList.sort(() => 0.5 - Math.random());
   const remain = tagsList.length - 3;
   let i = 0;
   let exitLoop = false;
-  randomList.forEach((tag) => {
+  tagsList.forEach((tag) => {
     const tagItem = document.createElement('li');
     if (exitLoop) {
       return true;
     }
-    if (i < 3) {
+    if (!showTagCount || i < 3) {
       tagItem.innerHTML = tag;
       tagContainer.append(tagItem);
     }
-    if (i === 3 && remain > 0) {
+    if (showTagCount && i === 3 && remain > 0) {
       tagItem.className = 'tag-count';
       tagItem.innerHTML = '+'.concat(remain);
       tagContainer.append(tagItem);
@@ -117,4 +117,16 @@ export function getAuthorImage(author, placeholder) {
   const authorIdentifier = toCamelCase(`user-${author}`);
 
   return placeholder[authorIdentifier];
+}
+
+/**
+ * Check if category is valid supported category
+ *
+ * @param {*} category
+ * @returns true/false
+ */
+export function isValidCategory(category) {
+  const categories = [CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING];
+
+  return category && categories.includes(category) > 0;
 }
