@@ -333,11 +333,10 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   const header = doc.querySelector('header');
-  loadHeader(header);
   if (!hasHeroBanner) {
     header.classList.add('has-bg-color');
   }
-
+  loadHeader(header);
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
