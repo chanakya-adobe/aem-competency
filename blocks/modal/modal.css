@@ -34,7 +34,7 @@ body.modal-open {
 }
 
 .modal dialog::backdrop {
-  background: rgba(0, 0, 0, 0.53) 0% 0% no-repeat padding-box;
+  background: rgba(0, 0, 0, 0.53) no-repeat padding-box;
 }
 
 .modal .close-button .icon-close {
