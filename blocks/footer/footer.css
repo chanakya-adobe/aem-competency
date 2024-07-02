@@ -1,7 +1,7 @@
 footer .footer {
-  background-color: var(--background-color-footer);
   max-width: var(--desktop-max-width);
   padding: var(--gutter-space-section-mobile)  var(--gutter-space-mobile) var(--gutter-space-mobile);
+  border-top: 1px solid rgb(134 134 134 / 30%);
 }
 
 footer .footer ul{

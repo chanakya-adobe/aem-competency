@@ -318,11 +318,25 @@ async function loadEager(doc) {
 }
 
 /**
+ * Adds background color to header based on the presence of hero banner
+ * @param {Element} header The header element
+ * @param {Element} main The main element
+ */
+function decorateHeaderBackground(header, main) {
+  const hasHeroBanner = main.querySelector('.hero-banner') != null;
+  if (!hasHeroBanner) {
+    header.classList.add('has-bg-color');
+  }
+}
+
+/**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  const header = doc.querySelector('header');
+  decorateHeaderBackground(header, main);
   await loadBlocks(main);
   await updateSectionsStatus(main);
   await decorateTemplates(main);
@@ -331,7 +345,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
+  loadHeader(header);
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

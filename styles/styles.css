@@ -19,8 +19,6 @@
   --text-color-gray: #E6E6E6;
   --body-text-color: #fff;
   --background-color: #002651;
-  --background-color-gradient: #000810;
-  --background-color-footer: var(--text-color);
   --border-color: #868686;
   --heading-primary: #B0B0B0;
   --heading-secondary: #EB1100;
@@ -63,6 +61,7 @@
   --button-tertiary-text-hover-color: #fff;
   --button-tertiary-border-color: var(--button-tertiary-text-color); 
   --button-tertiary-border-hover-color: var(--button-tertiary-bg-hover-color); 
+  --header-shadow-color: #00000029;
   
   /* body sizes */
   --body-font-size-m: 22px;
@@ -117,7 +116,6 @@ body {
   line-height: 1.6;
   color: var(--body-text-color);
   background-color: var(--background-color);
-  background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-gradient)); 
   display: none;
   min-height: 800px;
 }
@@ -373,6 +371,15 @@ main .section.full-width-banner.top-edge {
 
 .section.full-width-banner.hero-banner.bottom-edge {
   padding-bottom:  var(--gutter-space-triangle-mobile);
+}
+
+footer {
+  background-color: var(--medium-blue);
+}
+
+header.has-bg-color {
+  background-color: var(--medium-blue);
+  filter: drop-shadow(1px 2px 4px var(--header-shadow-color));
 }
 
 @media (width >= 768px) {
