@@ -125,6 +125,7 @@ header .nav-brand {
   flex-basis: 150px;
   line-height: 1;
   text-align: center;
+  margin-right: 48px;
 }
 
 header nav .nav-brand p + p {
