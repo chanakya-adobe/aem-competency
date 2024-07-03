@@ -62,6 +62,10 @@
   min-height: 200px;
 }
 
+.tabs .tabs-panel a {
+  color:var(--tabs-link-color);
+ }
+
 .tabs .tabs-panel main .section > div {
   padding: 0;
 }
