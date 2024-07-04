@@ -67,6 +67,7 @@
   --light-gray-color: #454545;
   --dark-blue: #012C5D;
   --medium-blue: #0D2D52;
+  --link-color-blue:#88D;
 
   /* fonts */
   --body-font-family: "Adobe Clean", sans-serif;
@@ -251,13 +252,13 @@ main pre {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
+  color: var(--link-color-blue);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--link-hover-color);
+  color: var(--link-color-blue);
 }
 
 .theme-secondary a:any-link {
