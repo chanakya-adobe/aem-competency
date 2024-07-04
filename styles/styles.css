@@ -383,6 +383,7 @@ main .section > div {
 }
 
 .section.full-width-banner.hero-banner {
+  min-height: 525px;
   overflow: visible;
 }
 
@@ -414,10 +415,6 @@ main .section.full-width-banner.bottom-edge {
 
 main .section.full-width-banner.top-edge {
   padding-top:  var(--gutter-space-triangle-mobile);
-}
-
-.section.full-width-banner.hero-banner {
-  min-height: 525px;
 }
 
 .section.full-width-banner.hero-banner.bottom-edge {
