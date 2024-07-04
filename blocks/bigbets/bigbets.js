@@ -8,7 +8,7 @@ const VIEW_TEASER = 'teaser-view';
 const VIEW_FULL = 'list-view';
 const getListHTML = (row) => `<div class="bb-content"><h3>${row.title}</h3><p class="bb-description">${row.description}</p></div>`;
 const getButtonHTML = (row, joinLabel) => `<button class="button-container button primary">${joinLabel}</button>`;
-const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe-white"><img data-icon-name="globe-white" src="/icons/globe-white.svg" alt="" loading="lazy"></span><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span> ${row.visibility}</div>`;
+const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe-white"><img data-icon-name="globe-white" src="/icons/globe-white.svg" alt="" loading="lazy" width="14" height="14"></span><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy" width="14" height="14"></span> ${row.visibility}</div>`;
 const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;${row.status}</div>`;
 const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> ${row.author}</div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp; ${row.author}</div>`;
@@ -27,9 +27,9 @@ function createCardImage(src, alt, config) {
     eagerImg = true;
   }
 
-  cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg));
-  cardImg.querySelector('img').width = 800;
-  cardImg.querySelector('img').height = 500;
+  cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg, [{ width: '600' }]));
+  cardImg.querySelector('img').width = 600;
+  cardImg.querySelector('img').height = 350;
 
   return cardImg;
 }

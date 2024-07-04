@@ -17,7 +17,6 @@ import {
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 const TEMPLATE_LIST = {
-  bigbet: 'big-bet',
 };
 
 export const PLACEHOLDER_REGEX = /({{.*}})/;
@@ -54,7 +53,7 @@ export function createPicture(props) {
     const { pathname } = new URL(desktopImgUrl, window.location.href);
     sourceDesktop.type = 'image/webp';
     sourceDesktop.srcset = `${pathname}?width=1920&format=webply&optimize=medium`;
-    sourceDesktop.media = '(min-width: 1280px)';
+    sourceDesktop.media = props.media || '(min-width: 1280px)';
     picture.appendChild(sourceDesktop);
   }
 
@@ -251,9 +250,9 @@ export function decorateMain(main, loadAutoBlock = true) {
     buildAutoBlocks(main);
   }
   decorateSections(main);
+  buildSectionBanners(main);
   buildTheme(main);
   decorateBlocks(main);
-  buildSectionBanners(main);
   buildHeadings(main);
 }
 

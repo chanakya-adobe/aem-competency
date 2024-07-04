@@ -1,22 +1,13 @@
-main .hero-container > div {
-  max-width: unset;
-}
-  
-main .hero-container {
+main .section > div.hero-wrapper {
   padding: 0;
 }
 
 .hero {
   position: relative;
-  padding: 32px;
-  min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
+  min-height: 480px;
+  padding: 0 var(--gutter-space-mobile) var(--gutter-space-mobile);
+  display: flex;
+  align-items: end;
 }
 
 .hero picture {
@@ -27,8 +18,99 @@ main .hero-container {
   box-sizing: border-box;
 }
 
-.hero img {
+.hero picture img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.hero .hero-content {
+  background-color: var(--body-text-color);
+  color: var(--text-color);
+  padding: 1.25rem;
+}
+
+.hero .hero-content h1 {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+}
+
+@media (width >= 768px) {
+  .hero {
+    min-height: 617px;
+    padding: 0 var(--gutter-space-desktop);
+    align-items: center;
+  }
+
+  .hero .hero-content {
+    max-width: 432px;
+  }
+}
+
+/* Big-bet meta section below heading */
+.hero .big-bet-meta {
+  display: flex;
+  font-size: var(--body-font-size-xxs);
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+}
+
+.hero .big-bet-meta > div {
+  padding-right: 1.5rem;
+}
+
+.hero .big-bet-meta .icon-container {
+  display: flex;
+}
+
+.hero .big-bet-meta .icon-container .icon-globe {
+  line-height: 26px;
+}
+
+.hero .big-bet-meta .owner {
+  display: flex;
+  justify-content: center;
+}
+
+.hero .big-bet-meta .owner img {
+  height: 24px;
+  width: 24px;
+  margin: 0 5px;
+}
+
+/* Tags */
+.hero .hero-content ul.tags {
+  font-size: var(--body-font-size-xxs);
+}
+
+/* Links */
+.hero .hero-content .links-container {
+  display: none;
+}
+
+@media (width >= 768px) {
+  .hero .hero-content .links-container {
+    display: block;
+  }
+}
+
+.hero .hero-content .links-container ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.hero .hero-content .links-container ul li {
+  flex: 1;
+  display: flex;
+}
+
+.hero .hero-content .links-container .icon img {
+  margin-top: 4px;
+}
+
+.hero .hero-content .links-container ul li a {
+  color: var(--text-color);
+  font-weight: normal;
 }

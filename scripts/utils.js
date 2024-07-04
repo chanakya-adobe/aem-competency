@@ -1,4 +1,4 @@
-import { toCamelCase } from './aem.js';
+import { toCamelCase, toClassName } from './aem.js';
 import { CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING } from './scripts.js';
 
 /**
@@ -129,4 +129,34 @@ export function isValidCategory(category) {
   const categories = [CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING];
 
   return category && categories.includes(category) > 0;
+}
+
+/**
+ * Extracts the config from a block.
+ * @param {Element} block The block element
+ * @returns {object} The block config
+ */
+// eslint-disable-next-line import/prefer-default-export
+export function readBlockConfigHTML(block) {
+  const config = {};
+  block.querySelectorAll(':scope > div').forEach((row) => {
+    if (row.children) {
+      const cols = [...row.children];
+      if (cols[1]) {
+        const col = cols[1];
+        const name = toClassName(cols[0].textContent);
+        let value = '';
+        if (col.querySelector('img') && !col.querySelector('.icon')) {
+          const imgs = [...col.querySelectorAll('img')];
+          if (imgs.length === 1) {
+            value = imgs[0].src;
+          } else {
+            value = imgs.map((img) => img.src);
+          }
+        } else value = row.children[1].innerHTML;
+        config[name] = value;
+      }
+    }
+  });
+  return config;
 }
