@@ -113,8 +113,8 @@ function getConfig(block) {
   config.type = blockConfig.type ?? '';
   config.viewMoreCTA = !!blockConfig.showviewmore;
   config.tagCount = blockConfig.tagcount ?? 6;
-  config.currentPageTags = !config.category;
   config.userTags = config.type === CATEGORY_USER;
+  config.currentPageTags = !config.category && !config.userTags;
   if (config.userTags) {
     config.userName = blockConfig.name;
   }
