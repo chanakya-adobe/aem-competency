@@ -73,6 +73,18 @@ progress::-webkit-progress-bar {
 
 .cards .cards-card-body {
   margin: 16px;
+  min-height: 15rem;
+}
+
+@media (width > 1280px) {
+  .cards .cards-card-body {
+     min-height: 13.25rem;
+  }
+}
+
+.cards .cards-card-body .button-container {
+  position: absolute;
+  bottom: 0;
 }
 
 .cards .cards-card-body strong {
