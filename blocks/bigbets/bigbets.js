@@ -27,9 +27,9 @@ function createCardImage(src, alt, config) {
     eagerImg = true;
   }
 
-  cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg, [{ width: '500' }]));
-  cardImg.querySelector('img').width = 500;
-  cardImg.querySelector('img').height = 300;
+  cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg, [{ width: '600' }]));
+  cardImg.querySelector('img').width = 600;
+  cardImg.querySelector('img').height = 350;
 
   return cardImg;
 }
