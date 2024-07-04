@@ -78,6 +78,7 @@
   margin: 0 3px;
   width:24px;
   height:24px;
+  border-radius: 50%;
 }
 
 .community-cards .card .card-meta .visibility .icon-globe {

@@ -30,4 +30,5 @@
 .big-bet .big-bet-meta .owner img {
   height: 24px;
   margin: 0 5px;
+  border-radius: 50%;
 }

@@ -39,6 +39,7 @@
   margin-right: 1rem;
   width: 24px;
   height: 24px;
+  border-radius: 50%;
 }
 
 /* Leadboard varient */
@@ -59,4 +60,5 @@
 .teams .leadboard-container > div.lb-user-img img {
   width: 4.5rem;
   height: 4.5rem;
+  border-radius: 50%;
 }
