@@ -6,27 +6,25 @@ body.modal-open {
   background-color: var(--background-color);
   overscroll-behavior: none;
   border: none;
-  margin: 32px 16px;
+  margin: 80px auto;
+  padding: 2.5rem;
   color: var(--color-text-main);
 }
 
 .modal dialog .modal-content {
-  overflow-y: auto;
   overscroll-behavior: none;
-  max-height: calc(100dvh - 60px);
+  max-height: 80vh;
 }
 
 .modal.block * {
-  max-width: 84vw;
+  max-width: calc(var(--desktop-max-width) - 10rem);
 }
 
 .modal .close-button {
   padding: 0;
   position: absolute;
-  top: 8px;
-  right: 2px;
-  width: 28px;
-  height: 28px;
+  top: 12px;
+  right: 20px;
   background-color: unset;
   text-overflow: clip;
   margin: 0;
@@ -42,26 +40,15 @@ body.modal-open {
   height: 28px;
 }
 
-.modal dialog .section {
+.modal dialog .section,
+main dialog .section > div {
   padding: 0;
 } 
 
-@media (width >= 1280px) {
+@media (width < 1920px) {
   .modal dialog {
-    margin: 48px 40px;
-  }
-
-  .modal dialog .modal-content {
-    max-height: calc(100vh - 90px);
-  }
-
-  .modal .close-button {
-    top: 24px;
-    right: 32px;
-  }
-
-  .modal.block * {
-    max-width: unset;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
   }
   
 }
