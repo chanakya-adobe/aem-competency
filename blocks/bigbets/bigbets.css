@@ -112,6 +112,7 @@
   margin: 0 6px;
   width: 24px;
   height: 24px;
+  border-radius: 50%;
 }
 
 .bb-card .bb-content .tags {
