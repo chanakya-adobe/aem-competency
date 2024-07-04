@@ -412,6 +412,10 @@ main .section.full-width-banner.top-edge {
   padding-top:  var(--gutter-space-triangle-mobile);
 }
 
+.section.full-width-banner.hero-banner {
+  min-height: 525px;
+}
+
 .section.full-width-banner.hero-banner.bottom-edge {
   padding-bottom:  var(--gutter-space-triangle-mobile);
 }
@@ -439,6 +443,10 @@ header.has-bg-color {
 
   main .section > div {
     padding: 0 var(--gutter-space-desktop);
+  }
+
+  .section.full-width-banner.hero-banner {
+    min-height: 420px;
   }
 
   main .section.full-width-banner.hero-banner img.banner-img {
