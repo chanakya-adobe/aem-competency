@@ -365,6 +365,10 @@ main .section {
   padding: var(--gutter-space-section-mobile) 0;
 }
 
+main .section.hero-container {
+  padding-top: 0;
+}
+
 main .section > div {
   padding: 0 var(--gutter-space-mobile);
 }
