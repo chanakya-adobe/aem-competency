@@ -24,7 +24,7 @@ function createCardImage(src, alt, config) {
   }
   let eagerImg = false;
   if (config.type === VIEW_FULL) {
-    eagerImg = false;
+    eagerImg = true;
   }
 
   cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg, [{ width: '500' }]));
