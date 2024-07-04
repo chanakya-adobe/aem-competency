@@ -238,9 +238,9 @@ export function decorateMain(main, loadAutoBlock = true) {
     buildAutoBlocks(main);
   }
   decorateSections(main);
+  buildSectionBanners(main);
   buildTheme(main);
   decorateBlocks(main);
-  buildSectionBanners(main);
   buildHeadings(main);
 }
 
