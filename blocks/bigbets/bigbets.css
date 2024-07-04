@@ -45,6 +45,7 @@
 
 .bb-card .bb-image img {
   transition: transform .2s;
+  width: 100%;
 }
 
 .bb-card:hover .bb-image img {
@@ -57,7 +58,7 @@
 }
 
 .bb-card .bb-content h3 {
-  margin: 0;
+  margin: 0 0 .5rem;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.5rem;
@@ -115,7 +116,7 @@
 }
 
 .bb-card .bb-content .tags {
-  margin: 5px 0;
+  margin: 5px 0 0;
 }
 
 .bb-card .bb-content .tags li {
