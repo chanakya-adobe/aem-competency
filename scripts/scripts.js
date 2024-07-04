@@ -17,7 +17,6 @@ import {
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 const TEMPLATE_LIST = {
-  bigbet: 'big-bet',
 };
 
 export const PLACEHOLDER_REGEX = /({{.*}})/;
@@ -54,7 +53,7 @@ export function createPicture(props) {
     const { pathname } = new URL(desktopImgUrl, window.location.href);
     sourceDesktop.type = 'image/webp';
     sourceDesktop.srcset = `${pathname}?width=1920&format=webply&optimize=medium`;
-    sourceDesktop.media = '(min-width: 1280px)';
+    sourceDesktop.media = props.media || '(min-width: 1280px)';
     picture.appendChild(sourceDesktop);
   }
 
@@ -113,6 +112,18 @@ async function loadFonts() {
   } catch (e) {
     // do nothing
   }
+}
+
+function autolinkModals(element) {
+  element.addEventListener('click', async (e) => {
+    const origin = e.target.closest('a');
+
+    if (origin && origin.href && origin.href.includes('/modals/')) {
+      e.preventDefault();
+      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      openModal(origin.href);
+    }
+  });
 }
 
 function buildHeadings(main) {
@@ -239,9 +250,9 @@ export function decorateMain(main, loadAutoBlock = true) {
     buildAutoBlocks(main);
   }
   decorateSections(main);
+  buildSectionBanners(main);
   buildTheme(main);
   decorateBlocks(main);
-  buildSectionBanners(main);
   buildHeadings(main);
 }
 
@@ -318,11 +329,25 @@ async function loadEager(doc) {
 }
 
 /**
+ * Adds background color to header based on the presence of hero banner
+ * @param {Element} header The header element
+ * @param {Element} main The main element
+ */
+function decorateHeaderBackground(header, main) {
+  const hasHeroBanner = main.querySelector('.hero-banner') != null;
+  if (!hasHeroBanner) {
+    header.classList.add('has-bg-color');
+  }
+}
+
+/**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  const header = doc.querySelector('header');
+  decorateHeaderBackground(header, main);
   await loadBlocks(main);
   await updateSectionsStatus(main);
   await decorateTemplates(main);
@@ -331,7 +356,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
+  loadHeader(header);
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
@@ -340,6 +365,8 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  autolinkModals(doc);
 }
 
 /**

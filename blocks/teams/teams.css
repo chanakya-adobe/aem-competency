@@ -1,10 +1,9 @@
 .teams {
-  background-color: var(--teams-background-color);
-  box-shadow: 1px 2px 4px var(--teams-shadow-color);
+  background-color: var(--medium-blue);
   border-radius: 8px;
   padding: 24px 16px;
-  color: var(--teams-text-color);
   margin-bottom: 1rem;
+  color: var(--text-color-gray);
 }
 
 .teams h2 {

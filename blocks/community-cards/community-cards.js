@@ -49,7 +49,7 @@ const generateBigBetsCard = (card, placeholder) => {
       <p class="card-description">${card.description}</p>
       <div class="card-meta">
       <div class="card-meta-first-section">
-        <div class="visibility card-meta-items icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span>${card.visibility}
+        <div class="visibility card-meta-items icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy" width="14" height="14"></span>${card.visibility}
           <span class="meta-separator">|</span>
         </div>
         ${authorImage}
@@ -57,7 +57,7 @@ const generateBigBetsCard = (card, placeholder) => {
         <div class="status">Status: <strong>${card.status}</strong></div>
       </div>`;
   bigBetsContainer.innerHTML = bigBetContent;
-  bigBetsContainer.append(getTagList(card.tags));
+  bigBetsContainer.append(getTagList(card.tags, '', true));
   const ctaButtonEl = getCtaButton(card, 'bigbet-cta-label', placeholder);
   bigBetsContainer.append(ctaButtonEl);
   return bigBetsContainer;

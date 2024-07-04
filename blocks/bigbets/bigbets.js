@@ -7,24 +7,29 @@ import { getTagList, getAuthorImage } from '../../scripts/utils.js';
 const VIEW_TEASER = 'teaser-view';
 const VIEW_FULL = 'list-view';
 const getListHTML = (row) => `<div class="bb-content"><h3>${row.title}</h3><p class="bb-description">${row.description}</p></div>`;
-const getButtonHTML = (row, joinLabel) => `<p class='button-container'><a href="${row.path}" class="button primary" title="${row.title}">${joinLabel}</a><p>`;
-const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy"></span> ${row.visibility}</div>`;
-const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
-const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
-const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
+const getButtonHTML = (row, joinLabel) => `<button class="button-container button primary">${joinLabel}</button>`;
+const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="icon icon-globe-white"><img data-icon-name="globe-white" src="/icons/globe-white.svg" alt="" loading="lazy" width="14" height="14"></span><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy" width="14" height="14"></span> ${row.visibility}</div>`;
+const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;${row.status}</div>`;
+const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> ${row.author}</div>`;
+const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp; ${row.author}</div>`;
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
 const viewLoadMoreLinkHTML = (config) => `<button class="button secondary">${config.viewAllLabel}</button>`;
 
-function createCardImage(src, alt) {
+function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');
   cardImg.className = 'bb-image';
   let imgSrc = src;
   if (window.location.origin === 'null') {
     imgSrc = window.parent.location.origin + src;
   }
-  cardImg.append(createOptimizedPicture(imgSrc, alt));
-  cardImg.querySelector('img').width = 800;
-  cardImg.querySelector('img').height = 500;
+  let eagerImg = false;
+  if (config.type === VIEW_FULL) {
+    eagerImg = true;
+  }
+
+  cardImg.append(createOptimizedPicture(imgSrc, alt, eagerImg, [{ width: '600' }]));
+  cardImg.querySelector('img').width = 600;
+  cardImg.querySelector('img').height = 350;
 
   return cardImg;
 }
@@ -35,8 +40,13 @@ function buildBlock(slicedResults, containerDiv, placeholder, config) {
     // cardDiv.classList.add('bb-card ${config.type}');
     cardDiv.className = `bb-card ${config.type}`;
 
-    cardDiv.append(createCardImage(row.image, row.title));
-    cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
+    const cardLink = document.createElement('a');
+    cardLink.className = 'bb-card-link';
+    cardLink.href = row.path;
+    cardLink.title = row.title;
+
+    cardLink.append(createCardImage(row.image, row.title, config));
+    cardLink.insertAdjacentHTML('beforeend', getListHTML(row));
 
     const metaContainer = document.createElement('div');
     const authorImg = getAuthorImage(row.author, placeholder);
@@ -51,13 +61,13 @@ function buildBlock(slicedResults, containerDiv, placeholder, config) {
     }
 
     metaContainer.insertAdjacentHTML('beforeend', metaStatusHTML(row));
-    cardDiv.querySelector('.bb-content').insertAdjacentElement('beforeend', metaContainer);
+    cardLink.querySelector('.bb-content').insertAdjacentElement('beforeend', metaContainer);
 
     if (row.tags) {
-      cardDiv.querySelector('.bb-content').append(getTagList(row.tags, 'bb'));
+      cardLink.querySelector('.bb-content').append(getTagList(row.tags, '', true));
     }
-
-    cardDiv.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row, config.cardCTALabel));
+    cardLink.querySelector('.bb-content').insertAdjacentHTML('beforeend', getButtonHTML(row, config.cardCTALabel));
+    cardDiv.append(cardLink);
     containerDiv.append(cardDiv);
     return true;
   });
@@ -145,7 +155,7 @@ function getConfig(block, placeholder) {
   config.count = 3;
   if (config.type === VIEW_FULL) {
     config.viewAllLink = '#';
-    config.count = blockConfig.tilesCount || 4;
+    config.count = blockConfig.count || 4;
   }
   return config;
 }
