@@ -41,13 +41,13 @@ function printTagList(block, tagsList, config) {
     // Create the first label element
     const labelClosed = document.createElement('label');
     labelClosed.setAttribute('for', 'view-more');
-    labelClosed.className = 'view-more-closed btn tertiary';
+    labelClosed.className = 'view-more-closed btn secondary';
     labelClosed.innerText = 'View more';
 
     // Create the second label element
     const labelOpened = document.createElement('label');
     labelOpened.setAttribute('for', 'view-more');
-    labelOpened.className = 'view-more-opened btn tertiary';
+    labelOpened.className = 'view-more-opened btn secondary';
     labelOpened.innerText = 'View less';
 
     block.append(inputElement, tagListContainer, labelClosed, labelOpened);
