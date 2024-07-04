@@ -69,7 +69,7 @@
   --medium-blue: #0D2D52;
 
   /* fonts */
-  --body-font-family: "Adobe Clean", sans-serif;
+  --body-font-family: 'Adobe Clean', adobe-clean, 'Trebuchet MS', sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: var(--body-font-family);
 
