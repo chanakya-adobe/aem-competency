@@ -76,6 +76,7 @@ main .section > div.hero-wrapper {
   height: 24px;
   width: 24px;
   margin: 0 5px;
+  border-radius: 50%;
 }
 
 /* Tags */
