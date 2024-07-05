@@ -22,6 +22,8 @@
   color: var(--light-gray);
   margin-right: 32px;
   min-width: 245px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards > ul > li:last-child {
@@ -76,7 +78,7 @@ progress::-webkit-progress-bar {
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 16px 16px 0 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
