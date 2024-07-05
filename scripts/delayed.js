@@ -5,13 +5,15 @@ import { sampleRUM } from './aem.js';
 sampleRUM('cwv');
 
 function externalLinks() {
-  let links = document.getElementsByTagName('a');
+  const links = document.getElementsByTagName('a');
   let index = 0;
   while (index < links.length) {
     const redirect = links[index];
-    redirect.getAttribute('href') && redirect.hostname !== window.location.hostname && (redirect.target = '_blank');
-    index = index + 1;
+    if (redirect.getAttribute('href') && redirect.hostname !== window.location.hostname) {
+      redirect.target = '_blank';
+    }
+    index += 1;
   }
-};
+}
 
 externalLinks();
