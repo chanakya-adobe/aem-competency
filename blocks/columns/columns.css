@@ -118,3 +118,106 @@
     width: 65%;
   }
 }
+
+/* Columns with Core Team variation */
+
+.columns.core-team {
+  margin-bottom: 2.5rem;
+}
+
+.columns.core-team > div {
+  position: relative;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.columns.core-team > div > div:nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+  background-color: var(--org-card-desc-bg-color);
+  padding: 1.25rem 1rem;
+  width: auto;
+}
+
+.columns.core-team > div > div:nth-child(2) > h4 {
+  margin: 0;
+}
+
+.columns.core-team > div > div:nth-child(2) p {
+  font-size: var(--body-font-size-xxs);
+  margin: 0;
+  color: var(--org-card-desc-text-color);
+}
+
+.columns.core-team > div > div:nth-child(2) .button-container {
+  padding-top: 1rem;
+}
+
+.columns.core-team > div > div:nth-child(2) a {
+  font-size: var(--body-font-size-xxs);
+  cursor: pointer;
+  color: var(--org-card-desc-text-color);
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: underline;
+  text-align: inherit;
+  font-weight: normal;
+}
+
+.columns.core-team img {
+  object-fit: cover;
+}
+
+@media (width >= 426px) {
+  .columns.core-team {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width > 768px) and (width < 1280px)  {
+  .columns.core-team {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (width >= 1280px) {
+  .core-team-wrapper .columns-wrapper {
+    margin-bottom: 2.5rem;
+  }
+
+  .core-team-wrapper h5 {
+    font-size: var(--body-font-size-s)
+  }
+
+  .columns.core-team {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .columns.core-team > div {
+    margin-bottom: 0;
+  }
+
+  .columns.core-team > div > div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .columns.core-team > div:hover > div:nth-child(2) {
+    opacity: 1;
+    transition: 0.5s ease;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .columns.core-team > div > div:nth-child(2) > h4 {
+    font-size: 20px;
+  }
+}
