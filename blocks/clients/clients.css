@@ -48,6 +48,10 @@
   margin: 2.5rem 0 0;
 }
 
+.clients.no-link .teaser a {
+  display: none;
+}
+
 @media (width > 1279px) {
   .clients ul {
     flex-wrap: wrap;

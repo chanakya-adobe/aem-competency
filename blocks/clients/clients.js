@@ -6,7 +6,7 @@ const listHTML = (row, brandImg, config) => `<div class="teaser">
   <div class="teaser-img"><img alt="${row.Title}" loading="lazy" src="${brandImg}" width="200" height="59"></div>
   <p class="teaser-title">${row.Title}</p>
   <p>${row.Description}</p>
-  <strong><a href="${row.Link}" title="${row.Title}">${config.teaserlinklabel}</a></strong>
+  <a href="${row.Link}" title="${row.Title}"><strong>${config.teaserlinklabel}</strong></a>
 </div>`;
 
 const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
