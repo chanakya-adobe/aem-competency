@@ -15,12 +15,6 @@ export default function decorate(block) {
           picWrapper.classList.add('columns-img-col');
         }
       }
-      if (block.classList.contains('core-team') && !col.classList.contains('columns-img-col')) {
-        const desc = createElementWithClasses('div', 'core-team-desc');
-        const parentWrapper = col.parentElement;
-        parentWrapper.append(desc);
-        desc.append(col);
-      }
     });
   });
 }

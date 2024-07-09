@@ -100,8 +100,8 @@
   --button-tertiary-border-color: var(--button-tertiary-text-color); 
   --button-tertiary-border-hover-color: var(--button-tertiary-bg-hover-color); 
   --header-shadow-color: #00000029;
-  --org-card-desc-bg-color: #0008;
-  --org-card-desc-text-color: #D9D9D9;
+  --org-card-hover-color: #0008;
+  --org-card-hover-text-color: #D9D9D9;
   
   /* body sizes */
   --body-font-size-m: 22px;
