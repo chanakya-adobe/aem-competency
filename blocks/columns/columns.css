@@ -19,7 +19,7 @@
   order: 1;
 }
 
-.columns.core-team img {
+.columns.team-view img {
   object-fit: cover;
 }
 
@@ -49,7 +49,7 @@
   color: var(--body-text-color);
 }
 
-.columns.core-team > div {
+.columns.team-view > div {
   position: relative;
   margin-bottom: 1rem;
   display: block;
@@ -130,13 +130,13 @@
   }
 }
 
-/* Columns with Core Team variation */
+/* Columns with Team view variation */
 
-.columns.core-team {
+.columns.team-view {
   margin-bottom: 2.5rem;
 }
 
-.columns.core-team > div > div:nth-child(2) {
+.columns.team-view > div > div:nth-child(2) {
   position: absolute;
   bottom: 0;
   justify-content: center;
@@ -145,21 +145,21 @@
   width: 95%;
 }
 
-.columns.core-team > div > div:nth-child(2) > h4 {
+.columns.team-view > div > div:nth-child(2) > h4 {
   margin: 0;
 }
 
-.columns.core-team > div > div:nth-child(2) p {
+.columns.team-view > div > div:nth-child(2) p {
   font-size: var(--body-font-size-xxs);
   margin: 0;
   color: var(--org-card-hover-text-color);
 }
 
-.columns.core-team > div > div:nth-child(2) .button-container {
+.columns.team-view > div > div:nth-child(2) .button-container {
   padding-top: 1rem;
 }
 
-.columns.core-team > div > div:nth-child(2) a {
+.columns.team-view > div > div:nth-child(2) a {
   font-size: var(--body-font-size-xxs);
   cursor: pointer;
   color: var(--org-card-hover-text-color);
@@ -173,7 +173,7 @@
 }
 
 @media (width >= 768px) {
-  .columns.core-team {
+  .columns.team-view {
     margin: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -181,27 +181,27 @@
 }
 
 @media (width >= 1280px) {
-  .core-team-wrapper .columns-wrapper {
+  .team-view-wrapper .columns-wrapper {
     margin-bottom: 2.5rem;
   }
 
-  .core-team-wrapper h5 {
+  .team-view-wrapper h5 {
     font-size: var(--body-font-size-s)
   }
 
-  .columns.core-team {
+  .columns.team-view {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  .columns.core-team > div {
+  .columns.team-view > div {
     margin-bottom: 0;
   }
 
-  .columns.core-team > div > div:nth-child(2) {
+  .columns.team-view > div > div:nth-child(2) {
     opacity: 0;
   }
 
-  .columns.core-team > div:hover > div:nth-child(2) {
+  .columns.team-view > div:hover > div:nth-child(2) {
     opacity: 1;
     transition: 0.5s ease;
     inset: 0;
@@ -210,7 +210,7 @@
     justify-content: flex-end;
   }
 
-  .columns.core-team > div > div:nth-child(2) > h4 {
+  .columns.team-view > div > div:nth-child(2) > h4 {
     font-size: 20px;
   }
 }
