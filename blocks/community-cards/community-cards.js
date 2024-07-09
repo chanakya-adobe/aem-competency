@@ -19,8 +19,8 @@ async function getCommunityCards(communityList, itemsPath) {
   return arr.length >= 3 ? arr.splice(0, 3) : arr.splice(0, arr.length);
 }
 
-const metaAuthorImgHTML = (card, authorImg) => `<div class="owner card-meta-items">Owner: <img src="${authorImg}" title="${card.author}" width="24px" height="24px" /> <strong>${card.author}</strong><span class="meta-separator">|</span></div>`;
-const metaAuthorHTML = (card) => `<div class="owner card-meta-items">Owner:&nbsp;<strong> ${card.author}</strong><span class="meta-separator">|</span></div>`;
+const metaAuthorImgHTML = (card, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${card.author}" width="24px" height="24px" /> <strong>${card.author}</strong></div>`;
+const metaAuthorHTML = (card) => `<div class="owner">Owner:&nbsp;<strong> ${card.author}</strong></div>`;
 
 const getAuthorImageHtml = (card, authorImage) => {
   if (authorImage) {
@@ -48,13 +48,9 @@ const generateBigBetsCard = (card, placeholder) => {
       </div>
       <p class="card-description">${card.description}</p>
       <div class="card-meta">
-      <div class="card-meta-first-section">
-        <div class="visibility card-meta-items icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy" width="14" height="14"></span>${card.visibility}
-          <span class="meta-separator">|</span>
-        </div>
+        <div class="visibility icon-container"><span class="icon icon-globe"><img data-icon-name="globe" src="/icons/globe.svg" alt="" loading="lazy" width="14" height="14"></span>${card.visibility}</div>
         ${authorImage}
-      </div>  
-        <div class="status">Status: <strong>${card.status}</strong></div>
+        <div class="status">Status:&nbsp;<strong>${card.status}</strong></div>
       </div>`;
   bigBetsContainer.innerHTML = bigBetContent;
   bigBetsContainer.append(getTagList(card.tags, '', true));

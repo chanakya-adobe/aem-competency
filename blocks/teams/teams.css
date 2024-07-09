@@ -44,7 +44,7 @@
 /* Leadboard varient */
 .teams .leadboard-container {
   display: flex;
-  gap: 1rem 7rem;
+  gap: 3rem 7rem;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 1.75rem;
