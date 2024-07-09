@@ -129,20 +129,20 @@ progress::-webkit-progress-bar {
   border-top-right-radius: 16px;
 }
 
-.cards.training.flexible-layout ul {
+.cards.flexible-layout ul {
   flex-flow: wrap;
   gap: 2rem;
   justify-content: left;
 }
 
-.cards.training.flexible-layout ul li {
+.cards.flexible-layout ul li {
   width: 100%;
   margin-right: unset;
   flex: unset;
 }
 
 @media (width >= 768px) {
-  .cards.training.flexible-layout ul li {
+  .cards.flexible-layout ul li {
     width: 47%;
   }
 }
