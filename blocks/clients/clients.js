@@ -1,9 +1,9 @@
-import { fetchPlaceholders, readBlockConfig } from '../../scripts/aem.js';
+import { readBlockConfig, createOptimizedPicture } from '../../scripts/aem.js';
 
 const VIEW_TEASER = 'teaser';
 
 const listHTML = (row, brandImg, config) => `<div class="teaser">
-  <div class="teaser-img"><img alt="${row.Title}" loading="lazy" src="${brandImg}" width="200" height="59"></div>
+  <div class="teaser-img">${brandImg}</div>
   <p class="teaser-title">${row.Title}</p>
   <p>${row.Description}</p>
   <a href="${row.Link}" title="${row.Title}"><strong>${config.teaserlinklabel}</strong></a>
@@ -19,25 +19,26 @@ async function fetchData(config) {
   return list;
 }
 
-async function printList(list, config, placeholder) {
+async function printList(list, config) {
   const ul = document.createElement('ul');
 
   list.forEach((row) => {
-    const brandImg = placeholder[`brand${row.Brand}`];
     const li = document.createElement('li');
+    const brandImg = createOptimizedPicture(row.Image, row.Title, false, [{ width: '600' }]);
+    brandImg.querySelector('img').width = 200;
+    brandImg.querySelector('img').height = 50;
     li.className = `brand-${row.Brand}`;
-    li.innerHTML = listHTML(row, brandImg, config);
-
+    li.innerHTML = listHTML(row, brandImg.outerHTML, config);
     ul.append(li);
   });
   return ul;
 }
 
-function getConfig(block, placeholder) {
+function getConfig(block) {
   const config = {};
   const blockConfig = readBlockConfig(block);
 
-  config.clientsData = placeholder.clientsData ?? '/clients.json';
+  config.clientsData = '/clients.json';
   config.dataType = blockConfig.type ?? 'casestudies';
   config.view = blockConfig.view ?? VIEW_TEASER;
   config.teaserlinklabel = blockConfig.teaserlinklabel ?? 'Know more';
@@ -54,13 +55,12 @@ function getConfig(block, placeholder) {
 }
 
 export default async function decorate(block) {
-  const placeholder = await fetchPlaceholders();
-  const config = getConfig(block, placeholder);
+  const config = getConfig(block);
   const list = await fetchData(config);
 
   block.textContent = '';
   if (list.length > 0) {
-    const objects = await printList(list, config, placeholder);
+    const objects = await printList(list, config);
     block.append(objects);
 
     if (config.view === VIEW_TEASER) {
