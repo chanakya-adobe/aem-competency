@@ -125,7 +125,7 @@
   --gutter-space-section-desktop: 3.313rem; /* 53px */
   --gutter-space-section-mobile: 2.5rem; /* 40px */
   --gutter-space-triangle-desktop: 11rem; 
-  --gutter-space-triangle-mobile: 9.5rem;
+  --gutter-space-triangle-mobile: 7.5rem;
   --gutter-space-triangle-mobile-s: 3rem; 
 }
 
@@ -449,6 +449,10 @@ header.has-bg-color {
 
   .section.full-width-banner.hero-banner {
     min-height: 420px;
+  }
+
+  .section.full-width-banner.hero-banner.bottom-edge {
+    padding-bottom: var(--gutter-space-triangle-desktop);
   }
 
   main .section.full-width-banner.hero-banner img.banner-img {

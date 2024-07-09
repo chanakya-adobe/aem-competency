@@ -1,5 +1,5 @@
 .clients {
-  padding: 4rem 0 0;
+  padding: 0;
 }
 
 .clients ul {
@@ -46,6 +46,10 @@
 .clients .view-all {
   text-align: center;
   margin: 2.5rem 0 0;
+}
+
+.clients.no-link .teaser a {
+  display: none;
 }
 
 @media (width > 1279px) {

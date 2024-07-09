@@ -1,7 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-  const isTrainingBlock = block.classList.contains('training');
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -11,15 +10,17 @@ export default function decorate(block) {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else {
         div.className = 'cards-card-body';
-        // Progressbar in Trainingblock
+        /* Progressbar in Trainingblock
+        const isTrainingBlock = block.classList.contains('training');
         if (isTrainingBlock && div.querySelector('li')) {
           const liTraining = div.querySelector('li');
-          const percentage = liTraining.textContent.split('%')[0] ? liTraining.textContent.split('%')[0] : 0;
+          const percentage = liTraining.textContent.split('%')[0] ?
+            liTraining.textContent.split('%')[0] : 0;
           const progress = document.createElement('progress');
           progress.value = percentage;
           progress.max = 100;
           liTraining.append(progress);
-        }
+        } */
       }
     });
     ul.append(li);

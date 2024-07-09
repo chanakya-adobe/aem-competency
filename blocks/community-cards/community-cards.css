@@ -65,6 +65,8 @@
 .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items {
   display: flex;
   align-items: center;
+  line-height: 1;
+  padding-right: .5rem;
 }
 
 .community-cards .card .card-meta .card-meta-items .meta-separator {
@@ -148,6 +150,10 @@
     display: flex;
     align-items: center;
     margin: 0 0 0.5rem;
+  }
+
+  .community-cards .cc-container .card .card-meta .card-meta-first-section .card-meta-items {
+    padding-right: 0;
   }
 
   .community-cards .card .card-meta .card-meta-items.owner {
