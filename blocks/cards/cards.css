@@ -132,7 +132,7 @@ progress::-webkit-progress-bar {
 .cards.training.flexible-layout ul {
   flex-flow: wrap;
   gap: 2rem;
-  justify-content: space-around;
+  justify-content: left;
 }
 
 .cards.training.flexible-layout ul li {
