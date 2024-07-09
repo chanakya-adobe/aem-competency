@@ -130,7 +130,6 @@ progress::-webkit-progress-bar {
 }
 
 .cards.flexible-layout ul {
-  flex-flow: wrap;
   gap: 2rem;
   justify-content: left;
 }
@@ -142,6 +141,10 @@ progress::-webkit-progress-bar {
 }
 
 @media (width >= 768px) {
+  .cards.flexible-layout ul {
+    flex-flow: wrap;
+  }
+
   .cards.flexible-layout ul li {
     width: 47%;
   }
