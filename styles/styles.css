@@ -502,9 +502,10 @@ main .section.highlight {
     padding-left: 0;
   }
 
-  .section.column-one-one.left-column {
+  .section.column-one-one {
     float: left;
     width: 48%;
+    height: auto;
   } 
 }
 
