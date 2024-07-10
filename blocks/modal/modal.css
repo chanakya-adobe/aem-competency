@@ -50,5 +50,19 @@ main dialog .section > div {
     margin-left: 2.5rem;
     margin-right: 2.5rem;
   }
-  
+}
+
+/* Profile modal */
+@media (width >= 1280px) {
+  .modal .modal-content .section.column-one-one.left-column {
+    margin-right: 2rem;
+  } 
+}
+
+.modal .modal-content .section.profile-detail.left-column p {
+  margin: 0;
+}
+ 
+.modal .modal-content .section.profile-detail.left-column img {
+  width: 100%;
 }

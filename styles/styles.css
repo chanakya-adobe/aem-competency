@@ -505,6 +505,11 @@ main .section.highlight {
   .theme-two-col-container .theme-right-container .section > div {
     padding-left: 0;
   }
+
+  .section.column-one-one.left-column {
+    float: left;
+    width: 48%;
+  } 
 }
 
 /* tags */
