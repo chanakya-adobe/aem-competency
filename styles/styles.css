@@ -360,10 +360,6 @@ main img {
 }
 
 /* sections */
-.bigbet h1 {
-  margin-bottom: 45px;
-}
-
 main .section {
   padding: var(--gutter-space-section-mobile) 0;
 }
