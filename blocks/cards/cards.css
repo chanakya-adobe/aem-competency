@@ -46,7 +46,7 @@
     flex-flow: wrap;
   }
 
-  .cards.flexible-layout ul li {
+  .cards.flexible-layout > ul > li {
     width: 47%;
   }
 }
