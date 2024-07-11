@@ -417,7 +417,7 @@ main .section.full-width-banner.top-edge {
 }
 
 .section.full-width-banner.hero-banner.bottom-edge {
-  padding-bottom:  var(--gutter-space-triangle-mobile);
+  padding: 0 0;
 }
 
 footer {
