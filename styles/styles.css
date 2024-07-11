@@ -405,7 +405,7 @@ main .section.full-width-banner img.banner-img {
 }
 
 .section.full-width-banner.hero-banner img.banner-img {
-  height: revert-layer;
+  height: 100%;
 }
 
 main .section.full-width-banner.bottom-edge {
@@ -418,6 +418,8 @@ main .section.full-width-banner.top-edge {
 
 .section.full-width-banner.hero-banner.bottom-edge {
   padding-bottom: var(--gutter-space-triangle-mobile);
+  padding-top: var(--nav-height);
+  margin-top: -5rem;
 }
 
 footer {
