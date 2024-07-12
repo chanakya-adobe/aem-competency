@@ -22,6 +22,14 @@ body.modal-open {
   overscroll-behavior: contain;
 }
 
+@media (width <= 1279px) {
+  .modal.block * {
+    height: auto;
+    width: auto;
+    overscroll-behavior: contain;
+  }
+}
+
 .modal .close-button {
   padding: 0;
   position: absolute;
