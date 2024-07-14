@@ -16,8 +16,20 @@ body.modal-open {
   max-height: 80vh;
 }
 
+.modal dialog .modal-content h2 {
+  margin-top: 0;
+}
+
 .modal.block * {
-  max-width: calc(var(--desktop-max-width) - 10rem);
+  max-width: calc(var(--desktop-max-width) - 30rem);
+  height: auto;
+  overscroll-behavior: contain;
+}
+
+@media (width <= 1279px) {
+  .modal.block * {
+    width: auto;
+  }
 }
 
 .modal .close-button {
