@@ -362,6 +362,7 @@ main img {
 /* sections */
 main .section {
   padding: var(--gutter-space-section-mobile) 0;
+  position: relative;
 }
 
 main .section.hero-container {
