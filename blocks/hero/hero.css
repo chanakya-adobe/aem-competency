@@ -1,5 +1,6 @@
 main .section > div.hero-wrapper {
   padding: 0;
+  margin-bottom: 2rem;
 }
 
 .hero {

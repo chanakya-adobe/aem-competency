@@ -139,7 +139,7 @@ progress::-webkit-progress-bar {
   margin-top: 0;
 }
 
-.cards > ul > li img {
+.cards > ul > li .cards-card-image img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -148,7 +148,7 @@ progress::-webkit-progress-bar {
   transition: transform 0.3s ease, border-radius 0.3s ease;;
 }
 
-.cards > ul > li img:hover {
+.cards > ul > li .cards-card-image img:hover {
   transform: scale(1.1);
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
