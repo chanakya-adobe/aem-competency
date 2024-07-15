@@ -30,6 +30,10 @@
   margin-right: 0;
 }
 
+.cards > ul > li a {
+  color: var(--primary-color);
+}
+
 .cards.flexible-layout ul {
   gap: 2rem;
   justify-content: left;
