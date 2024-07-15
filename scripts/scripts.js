@@ -31,6 +31,7 @@ const THEME_COL_LEFT = '.section.left-column';
 const THEME_COL_RIGHT = '.section.right-column';
 
 const isMobile = window.matchMedia('(max-width: 767px)').matches;
+const isDesktop = window.matchMedia('(min-width: 1280px)').matches;
 
 /**
  * Add a wrapper to icons parent element.
@@ -120,6 +121,9 @@ function processTriangleData(data) {
 }
 
 function buildSectionTriangles(main) {
+  if (!isDesktop) {
+    return;
+  }
   const sections = main.querySelectorAll('.section[data-triangles]');
   sections.forEach((section) => {
     if (section.dataset && section.dataset.triangles) {
@@ -132,7 +136,6 @@ function buildSectionTriangles(main) {
       });
     }
   });
-  return null;
 }
 
 /**
@@ -291,6 +294,7 @@ export function decorateMain(main, loadAutoBlock = true) {
   buildTheme(main);
   decorateBlocks(main);
   buildHeadings(main);
+  buildSectionTriangles(main);
 }
 
 /**
@@ -404,7 +408,6 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   autolinkModals(doc);
-  buildSectionTriangles(main);
 }
 
 /**
