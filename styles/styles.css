@@ -362,6 +362,7 @@ main img {
 /* sections */
 main .section {
   padding: var(--gutter-space-section-mobile) 0;
+  position: relative;
 }
 
 main .section.hero-container {
@@ -378,7 +379,6 @@ main .section > div {
 
 .section.full-width-banner {
   position: relative;
-  overflow: hidden;
 }
 
 .section.full-width-banner.hero-banner {

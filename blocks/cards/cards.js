@@ -26,13 +26,16 @@ export default function decorate(block) {
     ul.append(li);
   });
   ul.querySelectorAll('img').forEach((img) => {
-    const newPic = createOptimizedPicture(img.src, img.alt, false, [{ media: '(min-width: 768px)', width: '750' }, { width: '600' }]);
-    const newImg = newPic.getElementsByTagName('img')[0];
-    newImg.width = 500;
-    newImg.height = 300;
+    if (!img.parentNode.classList.contains('icon')) {
+      const newPic = createOptimizedPicture(img.src, img.alt, false, [{ media: '(min-width: 768px)', width: '750' }, { width: '600' }]);
+      const newImg = newPic.getElementsByTagName('img')[0];
+      newImg.width = 500;
+      newImg.height = 300;
 
-    img.closest('picture').replaceWith(newPic);
+      img.closest('picture').replaceWith(newPic);
+    }
   });
+
   block.textContent = '';
   block.append(ul);
 }

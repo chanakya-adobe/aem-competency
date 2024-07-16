@@ -1,1 +1,97 @@
 /* add global styles that can be loaded post LCP here */ 
+
+/* Section triangles */
+@media (width >= 1280px) {
+  .section .triangle {
+    position: absolute;
+    background-repeat: no-repeat;
+    z-index: -1;
+    padding: 0;
+    margin: 0;
+    transition: transform .2s;
+  }
+
+  .section .triangle.t-type1 {
+    background-image: url('/icons/triangle1.svg');
+  }
+
+  .section .triangle.t-type2 {
+    background-image: url('/icons/triangle2.svg');
+  }
+
+  .section .triangle.t-type3 {
+    background-image: url('/icons/triangle3.svg');
+  }
+
+  .section .triangle.t-type4 {
+    background-image: url('/icons/triangle4.svg');
+  }
+
+  .section .triangle.t-type5 {
+    background-image: url('/icons/triangle5.svg');
+  }
+
+  .section .triangle.t-type6 {
+    background-image: url('/icons/triangle6.svg');
+  }
+
+  .section .triangle.t-type7 {
+    background-image: url('/icons/triangle7.svg');
+  }
+
+  .section .triangle.t-type8 {
+    background-image: url('/icons/triangle8.svg');
+  }
+
+  .section .triangle.t-type9 {
+    background-image: url('/icons/triangle9.svg');
+  }
+
+  .section .triangle.t-type10 {
+    background-image: url('/icons/triangle10.svg');
+  }
+
+  .section:hover .triangle.t-type1,
+  .section:hover .triangle.t-type3,
+  .section:hover .triangle.t-type5,
+  .section:hover .triangle.t-type7,
+  .section:hover .triangle.t-type9,
+  .section:hover .triangle.t-type10 {
+    transform: rotate(5deg);
+  }
+
+  .section:hover .triangle.t-type2,
+  .section:hover .triangle.t-type4,
+  .section:hover .triangle.t-type6,
+  .section:hover .triangle.t-type8 {
+    transform: scale(1.1);
+  }
+
+  .section .triangle.t-sizexs,
+  .modal.block .section .triangle.t-sizexs {
+    width: 60px;
+    height: 60px;
+    background-size: 60px;
+  }
+
+  .section .triangle.t-sizes,
+  .modal.block .section .triangle.t-sizes {
+    width: 90px;
+    height: 90px;
+    background-size: 90px;
+  }
+
+  .section .triangle.t-sizem,
+  .modal.block .section .triangle.t-sizem {
+    width: 160px;
+    height: 160px;
+    background-size: 160px;
+  }
+
+  .section .triangle.t-sizel,
+  .modal.block .section .triangle.t-sizel {
+    width: 220px;
+    height: 220px;
+    background-size: 220px;
+  }
+}

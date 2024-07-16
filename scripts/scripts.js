@@ -31,6 +31,7 @@ const THEME_COL_LEFT = '.section.left-column';
 const THEME_COL_RIGHT = '.section.right-column';
 
 const isMobile = window.matchMedia('(max-width: 767px)').matches;
+const isDesktop = window.matchMedia('(min-width: 1280px)').matches;
 
 /**
  * Add a wrapper to icons parent element.
@@ -100,6 +101,41 @@ function buildSectionBanners(main) {
       elem.append(picture);
     });
   }
+}
+
+function processTriangleData(data) {
+  const triangles = data.split(',').map((item) => item.trim());
+  const triangleList = [];
+  triangles.forEach((t) => {
+    const tData = t.split(';').map((item) => item.trim());
+    const traingleData = {
+      type: tData[0] ?? 'type1',
+      posY: tData[1],
+      posX: tData[2],
+      size: tData[3] ?? 'm',
+    };
+    triangleList.push(traingleData);
+  });
+
+  return triangleList;
+}
+
+function buildSectionTriangles(main) {
+  if (!isDesktop) {
+    return;
+  }
+  const sections = main.querySelectorAll('.section[data-triangles]');
+  sections.forEach((section) => {
+    if (section.dataset && section.dataset.triangles) {
+      const triangles = processTriangleData(section.dataset.triangles);
+      triangles.forEach((triangle) => {
+        const tContainer = document.createElement('div');
+        tContainer.className = `triangle t-size${triangle.size} t-${triangle.type}`;
+        tContainer.style.cssText = `left:${triangle.posX}px;top:${triangle.posY}px`;
+        section.append(tContainer);
+      });
+    }
+  });
 }
 
 /**
@@ -258,6 +294,7 @@ export function decorateMain(main, loadAutoBlock = true) {
   buildTheme(main);
   decorateBlocks(main);
   buildHeadings(main);
+  buildSectionTriangles(main);
 }
 
 /**
