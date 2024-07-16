@@ -379,6 +379,7 @@ main .section > div {
 
 .section.full-width-banner {
   position: relative;
+  overflow: hidden;
 }
 
 .section.full-width-banner.hero-banner {
