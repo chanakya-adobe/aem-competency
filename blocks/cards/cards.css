@@ -15,7 +15,7 @@
   opacity: 1;
   color: var(--light-gray);
   margin-right: 32px;
-  min-width: 245px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
 }
