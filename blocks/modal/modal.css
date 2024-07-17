@@ -19,8 +19,7 @@ body.modal-open {
 .modal dialog .modal-content {
   margin: .5rem;
   padding-right: .5rem;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   max-height: calc(100vh - 5rem);
 }
 
