@@ -19,7 +19,7 @@
 
 .clients ul li {
   flex: 31%;
-  min-width: 242px;
+  min-width: 300px;
 }
 
 .clients .teaser p {

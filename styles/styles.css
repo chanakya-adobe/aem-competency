@@ -379,6 +379,7 @@ main .section > div {
 
 .section.full-width-banner {
   position: relative;
+  overflow: hidden;
 }
 
 .section.full-width-banner.hero-banner {
@@ -424,6 +425,7 @@ main .section.full-width-banner.top-edge {
 
 footer {
   background-color: var(--medium-blue);
+  clear: both;
 }
 
 header.has-bg-color {
