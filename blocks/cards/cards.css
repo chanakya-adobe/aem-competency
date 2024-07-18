@@ -15,6 +15,7 @@
   opacity: 1;
   color: var(--light-gray);
   margin-right: 32px;
+  width: 25%;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -88,6 +89,12 @@ progress::-webkit-progress-bar {
   }
 }
 
+@media (width >= 1280px) {
+  .cards > ul > li {
+    min-width: unset;
+  }
+}
+
 .cards .cards-card-body {
   margin: 16px 16px 0;
   display: flex;
@@ -140,6 +147,7 @@ progress::-webkit-progress-bar {
 
 .cards.contributor-list picture img {
   width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: .1px solid var(--background-color);
   padding: .5rem;
