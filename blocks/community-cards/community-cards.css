@@ -20,6 +20,9 @@
   min-width: 260px;
   padding: 1.5rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .community-cards .cc-container .card .card-header {
