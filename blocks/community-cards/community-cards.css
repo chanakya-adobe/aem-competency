@@ -20,6 +20,9 @@
   min-width: 260px;
   padding: 1.5rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .community-cards .cc-container .card .card-header {
@@ -111,12 +114,6 @@
 }
 
 @media (width >= 1280px) {
-  .community-cards .cc-container .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
   .community-cards .cc-container .card:hover {
     background-color: #F0F0F0;
   }
