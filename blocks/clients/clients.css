@@ -47,7 +47,8 @@
   margin: 2.5rem 0 0;
 }
 
-.clients.no-link .teaser a {
+.clients.no-link .teaser a,
+.clients.no-link .view-all {
   display: none;
 }
 
