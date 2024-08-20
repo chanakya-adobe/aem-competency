@@ -1,5 +1,5 @@
 {
-    "project": "AEM Competency Library",
+    "project": "AEM Competency ",
     "plugins": [
       {
         "id": "library",
@@ -35,6 +35,12 @@
         "title": "Search",
         "environments": [ "dev", "preview", "live", "prod" ],
         "url": "/tools/fgrep-attr/fgrep.html"
+      },
+      {
+        "id": "tagger",
+        "title": "Tagger",
+        "environments": [ "edit" ],
+        "url": "/tools/tagger/index.html"
       }
     ]
   }
