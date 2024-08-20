@@ -1,5 +1,5 @@
 {
-    "project": "AEM Competency Library",
+    "project": "AEM Competency ",
     "plugins": [
       {
         "id": "library",
@@ -15,6 +15,32 @@
         "passConfig": true,
         "environments": ["preview","live", "edit"],
         "includePaths": ["**.docx**"]
+      },
+      {
+        "id": "asset-library",
+        "title": "Assets",
+        "environments": [
+          "edit"
+        ],
+        "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
+        "isPalette": true,
+        "includePaths": [
+          "**.docx**"
+        ],
+        "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)",
+        "passConfig": true
+      },
+      {
+        "id": "fgrep",
+        "title": "Search",
+        "environments": [ "dev", "preview", "live", "prod" ],
+        "url": "/tools/fgrep-attr/fgrep.html"
+      },
+      {
+        "id": "tagger",
+        "title": "Tagger",
+        "environments": [ "edit" ],
+        "url": "/tools/tagger/index.html"
       }
     ]
   }
